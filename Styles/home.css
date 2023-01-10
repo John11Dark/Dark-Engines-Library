@@ -1,0 +1,101 @@
+header[searchBar="true"] {
+  justify-content: center;
+  gap: 10%;
+}
+
+/* search bar */
+.searchBarForm {
+  width: 275px;
+  height: 45px;
+  border-radius: var(--searchBarBorderRadius);
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.primarySearchBarForm {
+  display: none;
+}
+
+header[isInteracting="true"] .mainNav {
+  width: 100%;
+}
+
+header[isInteracting="true"] .primarySearchBarForm {
+  display: block;
+}
+
+.searchBarInput {
+  width: 100%;
+  height: 100%;
+  padding-left: 1.5rem;
+  border-radius: var(--searchBarBorderRadius);
+}
+
+.searchSubmitButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+  height: 100%;
+  width: 20%;
+  border-radius: 2px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  transform: scale(1);
+}
+
+.searchBarIcon {
+  width: 30px;
+  height: 30px;
+  transform: translate(0, 0);
+  fill: var(--primaryColor);
+  transition: all 0.3s ease;
+}
+
+.searchSubmitButton:hover .searchBarIcon {
+  fill: var(--tertiaryColor);
+}
+
+.heroSection {
+  display: grid;
+  position: relative;
+}
+
+.heroSectionImage {
+  width: 100vw;
+  inset: 0;
+}
+
+.heroSectionTitle {
+  position: absolute;
+  text-align: left;
+  z-index: 2;
+  letter-spacing: 2px;
+  font-size: var(--heroSectionTitle);
+  top: 30%;
+  transform: translate(10%, -30%);
+}
+
+.secondarySearchBar {
+  width: 45%;
+  height: 75px;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(-1%, -40%);
+  font-size: 1.2em;
+}
+
+.secondarySearchBar .searchSubmitButton {
+  width: 15%;
+  background-color: var(--primaryColorLight);
+}
+
+footer {
+  display: none !important;
+}

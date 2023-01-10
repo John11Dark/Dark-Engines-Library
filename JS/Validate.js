@@ -1,0 +1,6 @@
+class Validate {
+    constructor();
+    registerValidation(){
+
+    }
+}
