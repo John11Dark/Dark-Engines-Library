@@ -1,79 +1,90 @@
-/* content page properties 
-
-all content are warped inside the footer
-i am saying important here 
-so it takes a higher operator than the one in style.css
-you can refer to style.css for body setup 
-
-*/
-
-header {
-  justify-content: space-around !important;
-}
-
 footer {
   grid-template-columns: 35% 50% !important;
   grid-template-rows: 55% 45%;
   overflow: hidden;
-  min-height: 120vh;
-  margin-top: 1em !important;
+  margin-top: 15vh !important;
+}
+.footerHeroSection {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
 
+.heroSectionImage {
+  object-fit: contain;
+  height: 90%;
+  width: 90%;
+  transform: translateY(-15%);
+}
+
+.backgroundColor {
+  height: 55% !important;
+}
+.floorShape {
+  bottom: 5.5em;
+}
 /* footer's hero section */
-.heroSectionImage.Footer {
-  grid-column: 1 / span 2 !important;
-  grid-row: 1 !important;
-}
-.heroSectionTitle.Footer {
-  top: 2.5em;
-  left: 0.25em;
-}
+
 /* the inner footer that controls the Form and logo  */
 .innerFooter {
   grid-column: 1 / span 2;
   grid-row: 2;
-  background-color: var(--customBackgroundColorDarkMode);
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
-  padding: 1em 2em 2em;
+  padding: 2em;
   position: relative;
+  margin-top: 1em;
 }
+
 .divider {
   position: relative;
   width: 40%;
-  height: 80%;
+  height: 90%;
   display: grid;
-  align-items: center;
+  align-items: flex-start;
+  align-content: flex-start;
   justify-content: center;
+  gap: 1em;
 }
 
-.footerLogo {
-  grid-column: auto;
-  grid-row: auto;
-  width: 100%;
-  height: 90%;
+.contactFooterLogo {
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .socialLinksAside {
+  margin-top: 1em;
   display: flex !important;
+  justify-content: center;
   gap: 2.5rem;
   height: unset !important;
-  width: 100% !important;
+  width: 90% !important;
   transform: translateX(-20%) !important;
+  margin: 1em auto;
 }
 .socialIconsSVGs {
+  pointer-events: all;
   max-width: 35px !important;
   max-height: 35px !important;
+  transition: all 0.5s ease;
   transform: scale(1) rotate(0deg) !important;
   fill: var(--primaryColorLight);
 }
 
 .socialIconsSVGs:hover {
   transform: scale(1.3) !important;
+  fill: var(--tertiaryColor);
+}
+
+.textArealabel {
+  position: relative;
 }
 .contactForm {
   position: relative;
@@ -87,7 +98,7 @@ footer {
   align-content: center;
   transform: translate(10%, 2.5%);
   padding: 0.5rem;
-  height: 85%;
+  height: 80%;
 }
 
 .FieldBox {
@@ -182,7 +193,7 @@ footer {
   padding: 0.5rem;
   cursor: pointer;
   right: 2rem;
-  bottom: 1.5rem;
+  bottom: 0;
 }
 
 .sendMessageIcon {
@@ -191,9 +202,12 @@ footer {
   transition: var(--transition-5ms-Ease);
   fill: var(--backgroundColor);
 }
-.submitBtn:hover > .plane {
-  fill: var(--primaryColor);
+
+.submitBtn:hover {
+  background-color: var(--tertiaryColor);
+  border: none;
 }
+
 /* desktop or 19 inch laptop */
 
 @media only screen and (max-width: 1600px) {
@@ -273,4 +287,9 @@ footer {
     opacity: 0;
     transform: translate(100%, 100%) !important;
   }
+}
+
+.copyRight {
+  font-size: 15px;
+  margin-top: 4em;
 }

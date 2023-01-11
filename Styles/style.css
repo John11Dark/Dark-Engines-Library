@@ -1,25 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pacifico&family=Palanquin+Dark:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-/* Remove all animations, transitions and smooth scroll for people that does not like animations */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
+/* custom props  global variables */
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+:root {
+  /* Colors */
+  --tertiaryColor: #ff424d;
+  --primaryColor: #62bde7;
+  --customBackgroundColorDarkMode: #488d9f;
+  --CustomTertiaryColor: #b5d4b9;
+  --primaryColorLightGray: #cad3da;
+
+  /* Fonts */
+  --primaryFont: "Montserrat Alternates", sans-serif;
+  --secondaryFont: "Poppins", sans-serif;
+  --tertiaryFont: "Pacifico", cursive;
+  --tertiaryFontExtra: "Palanquin Dark", sans-serif;
+
+  /* box shadows */
+  --boxShadowLightBehind: 0 0 2em -1em var(--DarkModeOpacity);
+  --boxShadowDarkOut: 0 0 5em 1em var(--DarkModeOpacity);
+  --textThreeD: 3px 3px 1px var(--primaryColor);
+  --linkTextShadow: 0.5px 0.5px 5px #488e9f9d;
+
+  /*  */
+
+  --transition-5ms-Ease: all 0.5s ease;
+  --transition-backgroundColor-Ease: background-color 0.5s ease;
+  --aboveLayer: 9999;
+
+  /* Sizes */
+  --cardHeight: 27.5em;
+  --userAvatarContainerSize: calc(2vw + 2vh + 10px);
+  --navButtonContainerSize: calc(2vw + 2vh + 2rem);
+  --logoWidth: 150px;
+  --switchModeBlockSize: 55px;
+  --asideSvgIcons: 25px;
+  --dialogWidth: 30vw;
+  --dialogHeight: 80vh;
+  --cardBorderRadius: 0.5rem;
+  --largeCardBorderRadius: 0.75rem;
+  --btnBorderRadius: 0.25rem;
+  --searchBarBorderRadius: calc(1rem + 0.25vw + 0.25vh);
+  --imageMaxWidth: calc(30vw + 20vh + 10% + 2.5rem);
+  --imageMaxHeight: calc(30vh + 20vw + 10% + 2.5rem);
+  --imageBorderRadius: calc(0.5rem + var(--cardBorderRadius));
+  --cardBorderRadiusThin: 0.25rem;
+  --inputBorderRadius: 0.75rem;
+  --logoScale: 85%;
+  --navScale: 40%;
+  --padding-500: 1.5em;
+
+  /* Font sizes */
+
+  --headFontSize: calc(1em + 0.5vh + 0.5vw + 1vmax);
+  --paragraphFS: 1rem;
+
+  --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
+  --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
+  --heroSectionTitle: calc(1.5rem + 1vw + 1vh + 25%);
+  --headTitleFontSize: calc(90% + 0.75vh + 0.75vw + 0.75rem);
+  --headTitleFontSizeLarger: calc(90% + 1vh + 1vw + 1rem);
+  --subTitleFontSize: calc(50% + 0.25vh + 0.25vw + 0.25rem);
+  --titleFontSize: calc(1vmax + 0.5vw + 5px + 0.5vh);
+  --calcFontSize: calc(80% + 0.5vh + 0.5vw);
+  --dateFontSize: calc(1.2rem + 12%);
+  --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
+  --descriptionLabelFS: calc(2px + 0.5vmax);
 }
 
-/* custom props */
-
-/* Colors */
-/* global variables */
 @media (prefers-color-scheme: dark) {
   /* redefine dark mode colors here */
   :root {
@@ -48,67 +96,8 @@
     --backgroundColorOpacity: #1d2325b0;
     --primaryCardColor: #e2efffa2;
     --labelColor: #978f8f;
+    --inputBackgroundColor: #2a3133;
   }
-}
-
-:root {
-  /* Colors */
-  --tertiaryColor: #ff424d;
-  --primaryColor: #62bde7;
-  --customBackgroundColorDarkMode: #488d9f;
-  --CustomTertiaryColor: #b5d4b9;
-  --primaryColorLightGray: #cad3da;
-
-  /* Fonts */
-  --primaryFont: "Montserrat Alternates", sans-serif;
-  --secondaryFont: "Poppins", sans-serif;
-  --tertiaryFont: "Pacifico", cursive;
-  --tertiaryFontExtra: "Palanquin Dark", sans-serif;
-  /* box shadows */
-  --boxShadowLightBehind: 0 0 2em -1em var(--DarkModeOpacity);
-  --boxShadowDarkOut: 0 0 5em 1em var(--DarkModeOpacity);
-  --textThreeD: 3px 3px 1px var(--primaryColor);
-  --linkTextShadow: 0.5px 0.5px 5px #488e9f9d;
-
-  /*  */
-
-  --transition-5ms-Ease: all 0.5s ease;
-  --transition-backgroundColor-Ease: background-color 0.5s ease;
-  --aboveLayer: 9999;
-  /* Sizes */
-  --userAvatarContainerSize: calc(2vw + 2vh + 10px);
-  --navButtonContainerSize: calc(2vw + 2vh + 2rem);
-  --logoWidth: 150px;
-  --switchModeBlockSize: 55px;
-  --asideSvgIcons: 25px;
-  --dialogWidth: 30vw;
-  --dialogHeight: 80vh;
-  --paragraphFS: 1.5rem;
-  --btnFontSize: 1.2rem;
-  --cardBorderRadius: 0.5rem;
-  --largeCardBorderRadius: 0.75rem;
-  --btnBorderRadius: 0.25rem;
-  --searchBarBorderRadius: calc(1rem + 0.25vw + 0.25vh);
-  --imageMaxWidth: calc(30vw + 20vh + 10% + 2.5rem);
-  --imageMaxHeight: calc(30vh + 20vw + 10% + 2.5rem);
-  --imageBorderRadius: calc(0.5rem + var(--cardBorderRadius));
-  --cardBorderRadiusThin: 0.25rem;
-  --inputBorderRadius: 0.75rem;
-  --logoScale: 85%;
-  --navScale: 40%;
-  --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
-  --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
-  --paragraphFontSize: calc(0.25rem + 0.25vw + 0.5vh + 25%);
-  --HeadFontSize: calc(1em + 0.5vh + 0.5vw);
-  --heroSectionTitle: calc(1.5rem + 1vw + 1vh + 25%);
-  --headTitleFontSize: calc(90% + 0.75vh + 0.75vw + 0.75rem);
-  --headTitleFontSizeLarger: calc(90% + 1vh + 1vw + 1rem);
-  --subTitleFontSize: calc(50% + 0.25vh + 0.25vw + 0.25rem);
-  --titleFontSize: calc(1vmax + 0.5vw + 5px + 0.5vh);
-  --calcFontSize: calc(80% + 0.5vh + 0.5vw);
-  --dateFontSize: calc(1.2rem + 12%);
-  --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
-  --descriptionLabelFS: calc(2px + 0.5vmax);
 }
 
 @media (max-width: 90em) {
@@ -142,6 +131,7 @@
     --iconSize-400: 3rem;
   }
 }
+
 /* 
 *
 *
@@ -149,6 +139,22 @@ Remove and assign new Global styling
 *
 *
 */
+
+/* Remove all animations, transitions and smooth scroll for people that does not like animations */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 .primaryColor {
   color: var(--primaryColor);
@@ -720,6 +726,118 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   opacity: 1;
 }
 
+.searchBarInput {
+  width: 100%;
+  height: 100%;
+  padding-left: 1.5rem;
+  border-radius: var(--searchBarBorderRadius);
+}
+
+.searchSubmitButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+  height: 100%;
+  width: 20%;
+  border-radius: 2px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  transform: scale(1);
+}
+
+.searchBarIcon {
+  width: 30px;
+  height: 30px;
+  transform: translate(0, 0);
+  fill: var(--primaryColor);
+  transition: all 0.3s ease;
+}
+
+.searchSubmitButton:hover .searchBarIcon {
+  fill: var(--primaryColorLight);
+}
+
+/* Custom Alert */
+.notificationCenter {
+  min-height: 10vh;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 150px);
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
+  width: 30vw;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  transition: all 0.5s ease-in-out;
+  transform: translate(100%);
+}
+
+.customAlert {
+  pointer-events: all;
+  position: relative;
+  margin: 0.2rem 0;
+  padding: 1.5em 2em;
+  display: grid;
+  gap: 0.5em 0;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primaryCardColor);
+  color: var(--primaryColorLight);
+  border-radius: var(--cardBorderRadius);
+  animation: slideUp 0.5s ease-in both;
+  z-index: var(--aboveLayer);
+}
+
+.closeBtn {
+  pointer-events: all;
+  position: absolute;
+  top: 0.75em;
+  right: 0.75em;
+  max-width: 20px;
+  max-height: 20px;
+  fill: var(--secondaryColor);
+  cursor: pointer;
+  transition: var(--transition-5ms-Ease);
+}
+.closeBtn:hover {
+  fill: var(--tertiaryColor);
+  transform: scale(1.1);
+}
+
+.customAlertLink {
+  --_currentColor: var(--primaryColor);
+  position: relative;
+  font-size: var(--paragraphFS);
+  color: var(--_currentColor);
+  font-weight: 600;
+  transform-origin: left center;
+  transition: var(--transition-5ms-Ease);
+}
+
+.customAlertLink[notVisible="false"]::after {
+  content: "→";
+  transform: scale(1.8);
+  margin-left: 0.2em;
+  color: var(--_currentColor);
+}
+
+.customAlertLink:hover {
+  --_currentColor: var(--primaryColorLight);
+  transform: scale(1.1);
+  color: var(--_currentColor);
+}
+
+.customAlertLink[notVisible="true"]::after {
+  display: none;
+}
+
 /* main content */
 main {
   display: grid;
@@ -783,8 +901,7 @@ main {
 
 .floorShape {
   width: 100vw;
-  fill: var(--primaryColor) !important;
-  transform: scale(1.5) translate(0%, 0%);
+  fill: var(--primaryColor);
   z-index: -1;
   position: absolute;
   bottom: 0;
@@ -849,20 +966,16 @@ main {
 }
 
 .copyRight {
-  -ms-grid-column: 1 / span 5;
-  grid-column: 1 / span 5;
-  -ms-grid-row: 3;
+  grid-column: 1 / span 6;
   grid-row: 3;
   width: 100%;
-  height: 50%;
   text-align: center;
-  margin-top: 2.5em;
-  font-size: var(--paragraphFontSize);
+  font-size: var(--paragraphFS);
   color: var(--primaryColorLight);
 }
 
 .author {
-  font-size: calc(var(--paragraphFontSize) + 0.25rem);
+  font-size: calc(var(--paragraphFS) + 0.25rem);
   font-weight: bolder;
   color: var(--primaryColor);
   position: relative;

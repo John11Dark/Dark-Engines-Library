@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/John11Dark/DarkEnginesLibrary/issues"
   },
-  "homepage": "https://github.com/John11Dark/DarkEnginesLibrary#readme"
+  "homepage": "https://github.com/John11Dark/DarkEnginesLibrary#readme",
+  "dependencies": {
+    "axios": "^1.2.2"
+  }
 }

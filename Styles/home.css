@@ -25,48 +25,13 @@ header[isInteracting="true"] .primarySearchBarForm {
   display: block;
 }
 
-.searchBarInput {
-  width: 100%;
-  height: 100%;
-  padding-left: 1.5rem;
-  border-radius: var(--searchBarBorderRadius);
-}
-
-.searchSubmitButton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: grid;
-  place-content: center;
-  place-items: center;
-  place-self: center;
-  height: 100%;
-  width: 20%;
-  border-radius: 2px;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  transform: scale(1);
-}
-
-.searchBarIcon {
-  width: 30px;
-  height: 30px;
-  transform: translate(0, 0);
-  fill: var(--primaryColor);
-  transition: all 0.3s ease;
-}
-
-.searchSubmitButton:hover .searchBarIcon {
-  fill: var(--tertiaryColor);
-}
-
 .heroSection {
   display: grid;
   position: relative;
+  height: 100vh;
 }
 
-.heroSectionImage {
+.heroSection.heroSectionImage {
   width: 100vw;
   inset: 0;
 }
@@ -92,10 +57,9 @@ header[isInteracting="true"] .primarySearchBarForm {
 }
 
 .secondarySearchBar .searchSubmitButton {
-  width: 15%;
-  background-color: var(--primaryColorLight);
+  width: 10%;
+  background-color: var(--primaryColor);
 }
-
-footer {
-  display: none !important;
+.secondarySearchBar .searchSubmitButton svg {
+  fill: var(--inputBackgroundColor);
 }

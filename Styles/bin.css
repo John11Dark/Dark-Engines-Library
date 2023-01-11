@@ -80,7 +80,6 @@
   --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
   --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
   --paragraphFontSize: calc(0.25rem + 0.25vw + 0.5vh + 25%);
-  --HeadFontSize: calc(1em + 0.5vh + 0.5vw);
   --heroSectionTitle: calc(1.5em + 1vw + 1vh + 25% + 5vmax + 10px);
   --headTitleFontSize: calc(90% + 0.75vh + 0.75vw + 0.75rem);
   --headTitleFontSizeLarger: calc(90% + 1vh + 1vw + 1rem);
@@ -88,77 +87,6 @@
   --titleFontSize: calc(25% + 0.5vh + 0.5vw + 0.5rem);
   --calcFontSize: calc(80% + 0.5vh + 0.5vw);
   --dateFontSize: calc(1.2rem + 12%);
-}
-
-/* custom alert */
-.notificationCenter {
-  min-height: 10vh;
-  display: grid;
-  grid-template-rows: repeat(auto-fill, 150px);
-  align-items: center;
-  justify-content: center;
-  align-content: space-around;
-  width: 30vw;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-  transition: all 0.5s ease-in-out;
-  transform: translate(100%);
-}
-.customAlert {
-  position: relative;
-  margin: 0.2rem 0;
-  padding: 1.5em 2em;
-  display: grid;
-  gap: 0.5em 0;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--primaryCardColor);
-  color: var(--primaryColorLight);
-  border-radius: var(--cardBorderRadius);
-  animation: slideUp 0.5s ease-in both;
-  z-index: 999999;
-}
-
-.closeBtn {
-  position: absolute;
-  top: 0.75em;
-  right: 0.75em;
-  max-width: 15px;
-  max-height: 15px;
-  fill: var(--secondaryColor);
-  cursor: pointer;
-  transition: var(--transition-5ms-Ease);
-}
-.closeBtn:hover {
-  fill: var(--tertiaryColor);
-  transform: scale(1.1);
-}
-
-.customAlertLink {
-  position: relative;
-  font-size: var(--paragraphFontSize);
-  color: var(--tertiaryColor);
-  font-weight: 900;
-  font-family: var(--secondaryFont);
-  transform-origin: left center;
-  transition: var(--transition-5ms-Ease);
-}
-
-.customAlertLink[notVisible="false"]::after {
-  content: "→";
-  transform: scale(1.5);
-  margin-left: 0.2em;
-}
-
-.customAlertLink:hover {
-  transform: scale(1.1);
-  color: var(--primaryColor);
-}
-
-.customAlertLink[notVisible="true"]::after {
-  display: none;
 }
 
 .navButton {
@@ -305,4 +233,9 @@ a.button > .btnSvgIcon {
 .descriptionParagraph {
   font-size: var(--calcFontSize);
   color: var(--labelColor);
+}
+
+@scroll-timeline element-move {
+  source: auto;
+  orientation: vertical;
 }

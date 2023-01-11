@@ -24,7 +24,6 @@ const menu = document.querySelector(".mainNav");
 const loginButton = document.querySelector("#loginButton");
 const loginForm = document.querySelector("#loginForm");
 const ColorSchemeMetaTag = document.querySelector("meta[name=color-scheme]");
-const linkIcon = document.querySelector("#themeIcon");
 const redirectButtons = document.querySelectorAll("button[href]");
 const inputFields = document.querySelectorAll("input");
 const heroSection = document.querySelector("#heroSection");
@@ -33,8 +32,7 @@ const userModePreference = window.matchMedia("(prefers-color-scheme: Dark)");
 
 const platform = navigator.platform;
 const today = new Date();
-const config = { rootMargin: "0px 0px 100px 0px" };
-const ObserverConfig = { rootMargin: "0px 0px 0px 0px" };
+const observerConfig = { rootMargin: "0px 0px 0px 0px" };
 const root = document.documentElement;
 const navigationHight = header.offsetHeight;
 const THEME = localStorage.getItem("theme")
@@ -42,7 +40,6 @@ const THEME = localStorage.getItem("theme")
   : userModePreference.matches
   ? "dark"
   : "light";
-let beforeScrollTop = 0;
 
 // ? * --> Instance
 
@@ -53,60 +50,9 @@ const headerObserver = new IntersectionObserver((entries, headerObserver) => {
 
     header.setAttribute("isInteracting", true);
   });
-}, ObserverConfig);
+}, observerConfig);
 
 // ? * --> Functions
-
-function copyToClipboard(object, Attribute) {
-  const textContent = object.getAttribute(Attribute);
-  navigator.clipboard.writeText(textContent);
-  customAlert(textContent, "ClipBoard");
-}
-
-function removeAlertCard(object, duration = 1500) {
-  object.style = `animation: slideOut 1s ease-out both`;
-  setTimeout(() => {
-    object.remove();
-  }, duration);
-  notifications.shift();
-}
-
-function customAlert(
-  itemName,
-  objectName,
-  requireLink = false,
-  itemRemoved = false
-) {
-  const alertCardParent = document.querySelector(".notificationCenter");
-  const alertCard = document.querySelector(".alertCard").content.cloneNode(true)
-    .children[0];
-  const textLabel = alertCard.querySelector(".text");
-  const link = alertCard.querySelector(".customAlertLink");
-  const alertCloseBtn = alertCard.querySelector(".closeBtn");
-
-  if (requireLink) {
-    link.textContent = `View ${objectName} list`;
-    link.href = `/pages/user#${objectName}`;
-    link.title = `go to list ${objectName} page`;
-  } else {
-    link.setAttribute("notVisible", "true");
-  }
-  if (!itemRemoved) {
-    textLabel.textContent = `${itemName} has been added successfully! \n to ${objectName} list`;
-  } else {
-    textLabel.textContent = `${itemName} has been removed successfully! \n from ${objectName} list`;
-  }
-
-  alertCardParent.appendChild(alertCard);
-  setTimeout(() => {
-    removeAlertCard(alertCard);
-  }, 3000);
-
-  alertCloseBtn.addEventListener("pointerdown", (e) => {
-    notificationCard = e.target.parentElement;
-    removeAlertCard(notificationCard);
-  });
-}
 
 function formVisibility(form) {
   form.reset();
@@ -228,14 +174,14 @@ headerObserver.observe(heroSection);
 themeSwitch.addEventListener("pointerdown", () => setTheme());
 
 logo.addEventListener("pointerdown", () => {
-  window.location.href = routes.INDEX;
+  const route = `${window.origin}${routes.INDEX.slice(1)}`;
+  window.location.href = route;
 });
 
 redirectButtons.forEach((button) => {
   button.addEventListener("pointerdown", () => {
-    const route = button.getAttribute("href");
-    console.log("object");
-    //window.location.href = route;
+    const route = `${window.origin}${button.getAttribute("href").slice(1)}`;
+    window.location.href = route;
   });
 });
 

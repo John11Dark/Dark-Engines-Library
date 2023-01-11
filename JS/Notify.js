@@ -1,27 +1,38 @@
-const template = document.createElement("template");
-template.innerHTML = `
-<style>
+"use strict";
+// const template = document.createElement("template");
+// template.innerHTML = `
+// <style>
 
-</style>
+// </style>
 
+// <section id="notify-card" class="notify-card" aria-label="notification card">
 
-<section id="notify-card" class="notify-card" aria-label="notification card">
+// </section>
 
-</section>
+// `;
 
-`;
+// class Notify extends HTMLElement {
+//   constructor() {
+//     super();
+//     this.attachShadow({ mode: "open" });
+//     this.shadowRoot.appendChild(template.content.cloneNode(true));
+//   }
+// }
 
-class Notify extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-  }
+// window.customElements.define("Notify", Notify);
+
+const notifications = [];
+
+function copyToClipboard(object, Attribute) {
+  const textContent = object.getAttribute(Attribute);
+  navigator.clipboard.writeText(textContent);
+  customAlert(textContent, "ClipBoard");
 }
 
-window.customElements.define("notify", Notify);
-
 function removeAlertCard(object, duration = 1500) {
+  // object.addEventListener("pointerover", (e) => {
+  //   console.log(e);
+  // });
   object.style = `animation: slideOut 1s ease-out both`;
   setTimeout(() => {
     object.remove();
@@ -60,8 +71,10 @@ function customAlert(
     removeAlertCard(alertCard);
   }, 3000);
 
-  alertCloseBtn.addEventListener("click", (e) => {
-    notificationCard = e.target.parentElement;
+  alertCloseBtn.addEventListener("pointerdown", (e) => {
+    const notificationCard = e.target.parentElement;
     removeAlertCard(notificationCard);
   });
 }
+
+export default { copyToClipboard, customAlert, removeAlertCard };

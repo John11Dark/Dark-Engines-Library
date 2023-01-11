@@ -15,19 +15,19 @@
       <meta name="color-scheme" content="dark light" />
       <!-- Icon -->
       <link media="(prefers-color-scheme: dark)" id="themeIcon" rel="shortcut icon"
-         href="/Assets/DarkEnginesLibraryLogoLight.png" type="image/x-icon" />
-      <link media="(prefers-color-scheme: Light)" rel="shortcut icon" href="/Assets/DarkEnginesLibraryLogoDark.png"
+         href="../Assets/DarkEnginesLibraryLogoLight.png" type="image/x-icon" />
+      <link media="(prefers-color-scheme: Light)" rel="shortcut icon" href="../Assets/DarkEnginesLibraryLogoDark.png"
          type="image/x-icon" />
       <!-- Title -->
       <title>Dark Engines Library | Home</title>
       <!-- Styles -->
-      <link rel="stylesheet" href="/Styles/style.css" />
-      <link rel="stylesheet" href="/Styles/keyframes.css" />
-      <link rel="stylesheet" href="/Styles/home.css" />
-      <link rel="stylesheet" href="/Styles/books.css" />
+      <link rel="stylesheet" href="../Styles/style.css" />
+      <link rel="stylesheet" href="../Styles/keyframes.css" />
+      <link rel="stylesheet" href="../Styles/home.css" />
+      <link rel="stylesheet" href="../Styles/books.css" />
       <!-- Scripts -->
-      <script src="/JS/main.js" type="module"></script>
-      <script src="/JS/books.js" type="module"></script>
+      <script src="../JS/main.js" type="module"></script>
+      <script src="../JS/books.js" type="module"></script>
 
 
       <!-- wrap all lists and SVGs content in global data section -->
@@ -249,11 +249,25 @@
          skip navigation bar
       </button>
 
+      <!--   Notification system  -->
+      <section class="notificationCenter">
+         <!-- custom alert content  -->
+         <template class="alertCard">
+            <section class="customAlert">
+               <svg class="closeBtn">
+                  <use xlink:href="#CLOSE-BUTTON-ICON"></use>
+               </svg>
+               <p class="text">item added to cart</p>
+               <a notVisible="false" class="customAlertLink" target="_blank" title="" href=""></a>
+            </section>
+         </template>
+      </section>
+
       <!-- Page header -->
       <header isIntersecting="false" searchBar="false">
 
          <img role="button" tabindex="2" title="Go to Home Welcome" aria-label="Clickable logo image" mode="Dark"
-            id="mainLogo" class="mainLogo Logo" aria-hidden="true" src="/Assets/DarkEnginesLibraryLogoLight.png"
+            id="mainLogo" class="mainLogo Logo" aria-hidden="true" src="../Assets/DarkEnginesLibraryLogoLight.png"
             alt="Dark Engines Library logo" />
 
          <nav isSearchVisible="false" class="mainNav" aria-expanded="false" isExpanded="false" id="mainMenu">
@@ -275,33 +289,34 @@
 
                <li class="linkParent">
                   <a tabindex="3" active="true" class="link" title="Dark Engines Library Home page"
-                     href="/Pages/home.html">Home</a>
+                     href="../Pages/home.html">Home</a>
                </li>
 
                <li class="linkParent">
                   <a tabindex="4" active="false" class="link" title="Dark Engines Library Books page"
-                     href="/Pages/Books.html">Books</a>
+                     href="../Pages/Books.html">Books</a>
                </li>
 
                <li class="linkParent">
                   <a tabindex="5" active="false" class="link" title="Dark Engines Library Gallery page"
-                     href="/Pages/Gallery.html">Gallery</a>
+                     href="../Pages/Gallery.html">Gallery</a>
                </li>
 
                <li class="linkParent">
                   <a tabindex="6" active="false" class="link" title="Dark Engines Library Contact page"
-                     href="/Pages/Contact.html">Contact</a>
+                     href="../Pages/Contact.html">Contact</a>
                </li>
 
                <li class="linkParent">
                   <a tabindex="7" active="false" class="link" title="Dark Engines Library About page"
-                     href="/Pages/About.html">About</a>
+                     href="../Pages/About.html">About</a>
                </li>
             </ul>
          </nav>
 
          <dropDownMenu aria-expanded="false" class="dropDown">
-            <img title="John Muller" id="userAvatar" class="userAvatar" src="/Assets/userAvatar.webp" alt="user image ">
+            <img title="John Muller" id="userAvatar" class="userAvatar" src="../Assets/userAvatar.webp"
+               alt="user image ">
             <ul class="dropDownList">
                <li class="dropDownLinkParent" id="userName" userName="User Name"></li>
                <li class="dropDownLinkParent">
@@ -313,7 +328,7 @@
                   </a>
                </li>
                <li class="dropDownLinkParent">
-                  <a title="Cart page" href="/Pages/account.html#cart" class="dropDownLink">
+                  <a title="Cart page" href="../Pages/account.html#cart" class="dropDownLink">
                      <svg class="dropDownSvgIcon">
                         <use xlink:href="#CART-ICON"></use>
                      </svg>
@@ -321,7 +336,7 @@
                   </a>
                </li>
                <li class="dropDownLinkParent ">
-                  <a title="Settings page" href="/Pages/account.html#settingsSection" class="dropDownLink">
+                  <a title="Settings page" href="../Pages/account.html#settingsSection" class="dropDownLink">
                      <svg class="dropDownSvgIcon">
                         <use xlink:href="#GEARS-ICON"></use>
                      </svg>
@@ -329,7 +344,7 @@
                   </a>
                </li>
                <li class="dropDownLinkParent">
-                  <a title="Cart page" href="/Pages/About.html#HelpSection" class="dropDownLink">
+                  <a title="Cart page" href="../Pages/About.html#HelpSection" class="dropDownLink">
                      <svg class="dropDownSvgIcon">
                         <use xlink:href="#HELP-ICON"></use>
                      </svg>
@@ -384,29 +399,31 @@
                   </button>
                </form>
             </article>
-            <img class="heroSectionImage | HomeHeroSectionImage" src="/Assets/Home Page Hero image.png"
-               alt="hero section image">
          </section>
 
-         <section class="mainContent">
+         <section class="mainContentSection" id="mainContentSection">
+
+
             <section class="searchResult">
                <svg class="searchResultIcon">
                   <use xlink:href="#SEARCH-BAR-ICON"></use>
                </svg>
                <h2 class="searchResultTitle">
-                  your search result for <br>
-                  <keyWords class="secondaryColor Query">New books</keyWords>
+                  your search result for
+                  <keyWords id="query" class="primaryColor Query">New books</keyWords>
                </h2>
-               <img class="searchResultImage" src="/Assets/dark-engines-library-search-result-effect.png" alt="">
             </section>
-            <section class="books">
-               <template class="bookCardsTemplate">
+
+            <section id="booksContainer" class="booksContainer">
+               <template id="template" class="bookCardsTemplate">
                   <section class="bookCard">
+
                      <img class="frontCover" src="" alt="book cover">
+
                      <section class="aboutBook">
-                        <h3 class="bookTitle"> </h3>
+                        <h3 class="bookTitle"></h3>
                         <p class="bookSubtitle"></p>
-                        <p class="bookDescription"></p>
+
                         <nav class="aboutBookNav">
                            <ul class="aboutBookList">
                               <li class="aboutBookItem Price" price="€000.00">€000.00</li>
@@ -417,7 +434,7 @@
                                     </svg>
                                  </a>
                               </li>
-                              <li class="aboutBookItem ISBN" ISBN="">
+                              <li id="ISBN" class="aboutBookItem ISBN" ISBN="">
                                  <svg class="bookIcon">
                                     <use xlink:href="#ISBN-BOOK-ICON"></use>
                                  </svg>
@@ -436,11 +453,12 @@
                            </ul>
                         </nav>
                      </section>
+
                   </section>
                </template>
             </section>
-         </section>
 
+         </section>
 
       </main>
 
@@ -460,13 +478,14 @@
                   For
                   <keyWords class="primaryColor">Developers</keyWords>
                </h2>
-               <img class="heroSectionImage | footerHeroImage" src="/Assets/footerHeroImage.png"
+               <img class="heroSectionImage | footerHeroImage" src="../Assets/footerHeroImage.png"
                   alt="hero section image a girl studying in a library ">
             </article>
 
             <svg class="floorShape">
                <use xlink:href="#floorShape-ID"></use>
             </svg>
+
          </section>
 
          <section class="Footer | backgroundColor"></section>
@@ -513,19 +532,19 @@
          </aside>
 
          <!-- Logo footer -->
-         <img id="footerLogo" class="footerLogo | Logo" src="/Assets/DarkEnginesLibraryLogoLight.png"
+         <img id="footerLogo" class="footerLogo | Logo" src="../Assets/DarkEnginesLibraryLogoLight.png"
             alt="Dark Engines Library logo" />
 
          <!-- call action buttons links to contact page and to about page -->
          <section class="callActionButtons | footerActionButtons">
-            <button id="contactButton" class="button PrimaryBtn" title="Contact Page" href="/Pages/contact.html"
+            <button id="contactButton" class="button PrimaryBtn" title="Contact Page" href="./Pages/contact.html"
                type="button">
                Contact
                <svg class="btnSvgIcon plane">
                   <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
                </svg>
             </button>
-            <button id="aboutButton" class="button SecondaryBtn" title="Contact Page" href="/Pages/about.html"
+            <button id="aboutButton" class="button SecondaryBtn" title="Contact Page" href="./Pages/about.html"
                type="button">
                About
                <svg class="btnSvgIcon">
