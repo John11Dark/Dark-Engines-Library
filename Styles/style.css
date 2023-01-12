@@ -611,6 +611,13 @@ header:hover[isInteracting="true"] {
   text-shadow: var(--linkTextShadow);
 }
 
+.link[isAuthenticated="true"] {
+  display: block;
+}
+.link[isAuthenticated="false"] {
+  display: none;
+}
+
 /* Theme switch button */
 
 .switchMode {
@@ -793,6 +800,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   border-radius: var(--cardBorderRadius);
   animation: slideUp 0.5s ease-in both;
   z-index: var(--aboveLayer);
+  /* min-width: min(400px, 40vw); */
 }
 
 .closeBtn {
@@ -845,7 +853,6 @@ main {
   justify-content: center;
   margin: 15vh auto 0;
 }
-
 /* footer */
 .mainFooter {
   width: 100vw;

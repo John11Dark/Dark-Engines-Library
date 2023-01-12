@@ -77,11 +77,11 @@ async function setupContainer(container, template, searchQuery, searchList) {
       const isAddedToCart = element.getAttribute("isAddedToCart");
       if (isAddedToCart === "false") {
         element.setAttribute("isAddedToCart", true);
-        Notify.customAlert(title, "cart", true);
+        Notify.customAlertItems(title, "cart", true);
         cartIcon.setAttribute("xlink:href", "#CART-BOOK-ICON-ADDED");
       } else if (isAddedToCart === "true") {
         element.setAttribute("isAddedToCart", false);
-        Notify.customAlert(title, "cart", true, true);
+        Notify.customAlertItems(title, "cart", true, true);
         cartIcon.setAttribute("xlink:href", "#CART-BOOK-ICON");
       }
     });
@@ -93,10 +93,10 @@ async function setupContainer(container, template, searchQuery, searchList) {
       const isFavorite = element.getAttribute("isFavorite");
       if (isFavorite === "false") {
         element.setAttribute("isFavorite", true);
-        Notify.customAlert(title, "favorite", true);
+        Notify.customAlertItems(title, "favorite", true);
       } else if (isFavorite === "true") {
         element.setAttribute("isFavorite", false);
-        Notify.customAlert(title, "favorite", true, true);
+        Notify.customAlertItems(title, "favorite", true, true);
       }
     });
 

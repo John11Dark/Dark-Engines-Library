@@ -379,21 +379,23 @@
         <main id="mainContent">
 
             <section id="heroSection" class="heroSection | HomeHeroSection">
+                <article class="heroSectionArticle">
+                    <h1 class="heroSectionTitle | HomeHeroSectionTtile">
+                        Hey!,
+                        <keyWords class="primaryColor" userName="User Name"></keyWords>
+                        <br>
+                        <keyWords class="primaryColor">Discover</keyWords> the largest <keyWords class="primaryColor">IT
+                        </keyWords>
+                        Library for <keyWords class="primaryColor">Free</keyWords>
+                    </h1>
+                    <h1 class="galleryHeroSectionTitle Head">
 
-                <h1 class="heroSectionTitle | HomeHeroSectionTtile">
-                    Hey!,
-                    <keyWords class="primaryColor" userName="User Name"></keyWords>
-                    <br>
-                    <keyWords class="primaryColor">Discover</keyWords> the largest <keyWords class="primaryColor">IT
-                    </keyWords>
-                    Library for <keyWords class="primaryColor">Free</keyWords>
-                </h1>
-                <h1 class="galleryHeroSectionTitle Head">
+                    </h1>
+                    <p class="descriptionParagraph">Let us take care of your IT knowledge</p>
+                </article>
 
-                </h1>
-                <p class="descriptionParagraph">Let us take care of your IT knowledge</p>
+                <img class="heroSectionImage" src="../Assets/HomeHeroSectionImage.png" alt="books and people image">
             </section>
-
 
             <section class="mainContentSection">
 
@@ -407,7 +409,7 @@
                     </h2>
                 </section>
 
-                <section searchQuery="new books" id="booksContainer" class="booksContainer">
+                <section searchQuery="new books" class="booksContainer">
                     <template id="template" class="bookCardsTemplate">
                         <section class="bookCard">
 
@@ -454,7 +456,7 @@
 
             </section>
 
-
+            <!-- 
             <section class="mainContentSection">
 
 
@@ -467,7 +469,7 @@
                     </h2>
                 </section>
 
-                <section searchQuery="python" id="booksContainer" class="booksContainer">
+                <section searchQuery="python"  class="booksContainer">
                     <template id="template" class="bookCardsTemplate">
                         <section class="bookCard">
 
@@ -526,7 +528,7 @@
                     </h2>
                 </section>
 
-                <section searchQuery="web" id="booksContainer" class="booksContainer">
+                <section searchQuery="web"  class="booksContainer">
                     <template id="template" class="bookCardsTemplate">
                         <section class="bookCard">
 
@@ -585,7 +587,7 @@
                     </h2>
                 </section>
 
-                <section searchQuery="JavaScript" id="booksContainer" class="booksContainer">
+                <section searchQuery="JavaScript"  class="booksContainer">
                     <template id="template" class="bookCardsTemplate">
                         <section class="bookCard">
 
@@ -632,62 +634,62 @@
 
             </section>
 
-            <section class="mainContentSection">
+            <section class="mainContentSection"> -->
 
 
-                <section class="searchResult">
-                    <svg class="searchResultIcon">
-                        <use xlink:href="#SEARCH-BAR-ICON"></use>
-                    </svg>
-                    <h2 class="searchResultTitle">
-                        <keyWords id="query" class="primaryColor Query">SQL Books</keyWords>
-                    </h2>
-                </section>
+            <section class="searchResult">
+                <svg class="searchResultIcon">
+                    <use xlink:href="#SEARCH-BAR-ICON"></use>
+                </svg>
+                <h2 class="searchResultTitle">
+                    <keyWords id="query" class="primaryColor Query">SQL Books</keyWords>
+                </h2>
+            </section>
 
-                <section searchQuery="SQL" id="booksContainer" class="booksContainer">
-                    <template id="template" class="bookCardsTemplate">
-                        <section class="bookCard">
+            <section searchQuery="SQL" class="booksContainer">
+                <template id="template" class="bookCardsTemplate">
+                    <section class="bookCard">
 
-                            <img class="frontCover" src="" alt="book cover">
+                        <img class="frontCover" src="" alt="book cover">
 
-                            <section class="aboutBook">
-                                <h3 class="bookTitle"></h3>
-                                <p class="bookSubtitle"></p>
+                        <section class="aboutBook">
+                            <h3 class="bookTitle"></h3>
+                            <p class="bookSubtitle"></p>
 
-                                <nav class="aboutBookNav">
-                                    <ul class="aboutBookList">
-                                        <li class="aboutBookItem Price" price="€000.00">€000.00</li>
-                                        <li class="aboutBookItem Link">
-                                            <a title="view book on" target="_blank" href="#" class="linkDirectory Link">
-                                                <svg class="bookIcon">
-                                                    <use xlink:href="#LINK-BOOK-ICON"></use>
-                                                </svg>
-                                            </a>
-                                        </li>
-                                        <li id="ISBN" class="aboutBookItem ISBN" ISBN="">
+                            <nav class="aboutBookNav">
+                                <ul class="aboutBookList">
+                                    <li class="aboutBookItem Price" price="€000.00">€000.00</li>
+                                    <li class="aboutBookItem Link">
+                                        <a title="view book on" target="_blank" href="#" class="linkDirectory Link">
                                             <svg class="bookIcon">
-                                                <use xlink:href="#ISBN-BOOK-ICON"></use>
+                                                <use xlink:href="#LINK-BOOK-ICON"></use>
                                             </svg>
-                                        </li>
-                                        <li class="aboutBookItem Favorite" bookName="" listName="Favorite"
-                                            isFavorite="false">
-                                            <svg class="bookIcon">
-                                                <use xlink:href="#FAVORITE-BOOK-ICON"></use>
-                                            </svg>
-                                        </li>
-                                        <li class="aboutBookItem Cart" id="cart" bookName="" listName="Cart"
-                                            isAddedToCart="false">
-                                            <svg class="bookIcon">
-                                                <use xlink:href="#CART-BOOK-ICON"></use>
-                                            </svg>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </section>
-
+                                        </a>
+                                    </li>
+                                    <li id="ISBN" class="aboutBookItem ISBN" ISBN="">
+                                        <svg class="bookIcon">
+                                            <use xlink:href="#ISBN-BOOK-ICON"></use>
+                                        </svg>
+                                    </li>
+                                    <li class="aboutBookItem Favorite" bookName="" listName="Favorite"
+                                        isFavorite="false">
+                                        <svg class="bookIcon">
+                                            <use xlink:href="#FAVORITE-BOOK-ICON"></use>
+                                        </svg>
+                                    </li>
+                                    <li class="aboutBookItem Cart" id="cart" bookName="" listName="Cart"
+                                        isAddedToCart="false">
+                                        <svg class="bookIcon">
+                                            <use xlink:href="#CART-BOOK-ICON"></use>
+                                        </svg>
+                                    </li>
+                                </ul>
+                            </nav>
                         </section>
-                    </template>
-                </section>
+
+                    </section>
+                </template>
+            </section>
 
             </section>
 

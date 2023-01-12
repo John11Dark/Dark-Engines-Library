@@ -26,7 +26,9 @@ const notifications = [];
 function copyToClipboard(object, Attribute) {
   const textContent = object.getAttribute(Attribute);
   navigator.clipboard.writeText(textContent);
-  customAlert(textContent, "ClipBoard");
+  customAlert(
+    `"${textContent}" has been copied successfully!\n to the clipBoard"`
+  );
 }
 
 function removeAlertCard(object, duration = 1500) {
@@ -40,7 +42,7 @@ function removeAlertCard(object, duration = 1500) {
   notifications.shift();
 }
 
-function customAlert(
+function customAlertItems(
   itemName,
   objectName,
   requireLink = false,
@@ -77,4 +79,30 @@ function customAlert(
   });
 }
 
-export default { copyToClipboard, customAlert, removeAlertCard };
+function customAlert(message) {
+  const alertCardParent = document.querySelector(".notificationCenter");
+  const alertCard = document.querySelector(".alertCard").content.cloneNode(true)
+    .children[0];
+  const textLabel = alertCard.querySelector(".text");
+  const link = alertCard.querySelector(".customAlertLink");
+  const alertCloseBtn = alertCard.querySelector(".closeBtn");
+  link.setAttribute("notVisible", "true");
+  if (message) textLabel.textContent = message;
+
+  alertCardParent.appendChild(alertCard);
+  setTimeout(() => {
+    removeAlertCard(alertCard);
+  }, 3000);
+
+  alertCloseBtn.addEventListener("pointerdown", (e) => {
+    const notificationCard = e.target.parentElement;
+    removeAlertCard(notificationCard);
+  });
+}
+
+export default {
+  copyToClipboard,
+  customAlert,
+  removeAlertCard,
+  customAlertItems,
+};

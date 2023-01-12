@@ -10,4 +10,7 @@ function register(data) {
 function logout() {
   window.location = routes.INDEX;
 }
-export default { login, register, logout };
+function isAuthenticated() {
+  return true;
+}
+export default { login, register, logout, isAuthenticated };

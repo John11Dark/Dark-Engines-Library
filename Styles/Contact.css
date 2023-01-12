@@ -262,32 +262,6 @@ footer {
     max-height: 25px !important;
   }
 }
-.notificationCenter {
-  top: 0;
-  right: 0 !important;
-}
-
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateX(100%) translateY(-100%) !important;
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-170%) translateY(100%) !important;
-  }
-}
-
-@keyframes slideOut {
-  0% {
-    opacity: 1;
-    transform: translate(-100, 100%) !important;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(100%, 100%) !important;
-  }
-}
 
 .copyRight {
   font-size: 15px;

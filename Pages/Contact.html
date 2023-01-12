@@ -236,6 +236,9 @@
             </symbol>
          </svg>
       </SVGs>
+
+      <datalist id="countriesCodeOptions">
+      </datalist>
    </head>
 
    <body isObserving="true">
@@ -384,11 +387,13 @@
                </aside>
             </section>
 
-            <form action="mailto:john.moller.e21541@mcast.edu.mt" class="contactForm" method="POST">
+            <form action="mailto:john.moller.e21541@mcast.edu.mt?subject=Client Side Scripting!" id="contactForm"
+               class="contactForm" method="POST" autocapitalize="on" autocomplete="on" enctype="text/plain"
+               contenteditable="true" exportparts="all" spellcheck="true">
                <section class="userName FieldBox">
                   <label for="userNameInputField" class="userNameLabel FormLabel">Full Name</label>
-                  <input placeholder="John Muller" type="text" name="userName" id="userNameInputField"
-                     class="inputField NameField">
+                  <input autocomplete="name" pattern="[A-Za-z ]{4,20}" type="text" minlength="4" maxlength="20" required
+                     name="userName" id="userNameInputField" class="inputField NameField" title="Enter your full name">
                </section>
                <section class="phoneNumber FieldBox">
 
@@ -396,20 +401,23 @@
                   <dropDownlist class="phoneNumberDropDown">
                      <input list="countriesCodeOptions" class="countriesCodeList"
                         title="Country calling code ( dial-in codes)" id="countriesCode" placeholder="00">
-                     <input placeholder="7900 0000" type="tel" name="Phone-Number" id="phoneNumber"
+                     <input type="tel" autocomplete="tel-local" pattern="[\d]{8}" minlength="8" maxlength="8" required
+                        title="Enter your phone number" name="Phone-Number" id="phoneNumber"
                         class="inputField MobNumField">
                   </dropDownlist>
                </section>
                <section class="emailAddress FieldBox">
                   <label for="Email" class="emailLabel FormLabel">Email Address</label>
-                  <input placeholder="JohnMuller@example.example" type="email" name="email" id="Email"
+                  <input autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
+                     title="Enter your email address" type="email" name="email" i d="Email"
                      class="inputField MailAddress">
                </section>
                <section class="textAreaBox FieldBox">
 
                   <label for="messageBody" class="textArealabel FormLabel">Comment</label>
-                  <textarea placeholder="Any questions or remarks? &#10;Just write us a message!." name="body"
-                     id="messageBody" class="inputField BodyMessage"></textarea>
+                  <textarea title="write a message" maxlength="200" required
+                     placeholder="Any questions or remarks? &#10;Just write us a message!." name="body" id="messageBody"
+                     class="inputField BodyMessage"></textarea>
 
                   <button type="submit" class="submitBtn PrimaryBtn" title="Send message" aria-label="Send Message">
                      <svg class="sendMessageIcon plane">
@@ -420,8 +428,47 @@
 
 
             </form>
+            <!-- ? You Can uncomment the form below to remove html validation -->
+
+            <!-- <form action="mailto:john.moller.e21541@mcast.edu.mt?subject=Client Side Scripting!" id="contactForm" class="contactForm" method="POST"
+               autocapitalize="on" autocomplete="on" enctype="text/plain" contenteditable="true" exportparts="all"
+               spellcheck="true">
+               <section class="userName FieldBox">
+                  <label for="userNameInputField" class="userNameLabel FormLabel">Full Name</label>
+                  <input autocomplete="name" type="text" name="userName" id="userNameInputField"
+                     class="inputField NameField" title="Enter your full name">
+               </section>
+               <section class="phoneNumber FieldBox">
+
+                  <label for="phoneNumber" class="phoneNumberLabel FormLabel">Contact Number</label>
+                  <dropDownlist class="phoneNumberDropDown">
+                     <input autocomplete="tel-country-code" list="countriesCodeOptions" class="countriesCodeList"
+                        title="Country calling code ( dial-in codes)" id="countriesCode" placeholder="00">
+                     <input type="tel" autocomplete="tel-local" title="Enter your phone number" name="Phone-Number"
+                        id="phoneNumber" class="inputField MobNumField">
+                  </dropDownlist>
+               </section>
+               <section class="emailAddress FieldBox">
+                  <label for="Email" class="emailLabel FormLabel">Email Address</label>
+                  <input autocomplete="email" title="Enter your email address" type="email" name="email" id="Email"
+                     class="inputField MailAddress">
+               </section>
+               <section class="textAreaBox FieldBox">
+
+                  <label for="messageBody" class="textArealabel FormLabel">Comment</label>
+                  <textarea title="write a message"
+                     placeholder="Any questions or remarks? &#10;Just write us a message!." name="body" id="messageBody"
+                     class="inputField BodyMessage"></textarea>
+
+                  <button type="submit" class="submitBtn PrimaryBtn" title="Send message" aria-label="Send Message">
+                     <svg class="sendMessageIcon plane">
+                        <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+                     </svg>
+                  </button>
+               </section>
 
 
+            </form> -->
 
          </section>
 

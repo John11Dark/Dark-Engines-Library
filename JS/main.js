@@ -1,6 +1,8 @@
 "use strict";
 
+import Validation from "./Validation.js";
 import Auth from "./auth.js";
+import Client from "./client.js";
 import routes from "./routes.js";
 
 // ? * --> DOM Elements
@@ -26,10 +28,17 @@ const loginForm = document.querySelector("#loginForm");
 const ColorSchemeMetaTag = document.querySelector("meta[name=color-scheme]");
 const redirectButtons = document.querySelectorAll("button[href]");
 const inputFields = document.querySelectorAll("input");
+const linksAuth = document.querySelectorAll("[isAuthenticated]");
 const heroSection = document.querySelector("#heroSection");
+
+const contactForm = document.querySelector("#contactForm");
+const countryCodeSelectOptions = document.querySelector(
+  "#countriesCodeOptions"
+);
+const countryCodeInputOptions = document.querySelector("#countriesCode");
+
 // ? * --> Variables
 const userModePreference = window.matchMedia("(prefers-color-scheme: Dark)");
-
 const platform = navigator.platform;
 const today = new Date();
 const observerConfig = { rootMargin: "0px 0px 0px 0px" };
@@ -145,6 +154,26 @@ function setupUser(fullName, imgUrl) {
   });
 }
 
+async function getCountriesCode() {
+  const countryCodes = await Client.getCountriesCode(
+    "/Assets/Data/countriesCode.json"
+  );
+  if (countryCodes) {
+    countryCodes.forEach((country) => {
+      const option = document.createElement("option");
+      option.value = `${country.code} ${country.dialCode}`;
+      option.append(country.name);
+      countryCodeSelectOptions.append(option);
+      if (country.name.toLowerCase() === "malta") {
+        countryCodeInputOptions.setAttribute(
+          "placeholder",
+          `${country.code} ${country.dialCode}`
+        );
+      }
+    });
+  }
+}
+
 // ? * --> Setup document
 
 // * --> Theme
@@ -163,11 +192,20 @@ root.style.setProperty(
   "----scrollPadding",
   Math.round(navigationHight - 1) + "px"
 );
+
+// * --> setup country codes
+if (linksAuth != null)
+  linksAuth.forEach((link) => {
+    link.setAttribute("isAuthenticated", Auth.isAuthenticated());
+    console.log(link);
+  });
+
+if (countryCodeInputOptions != null) getCountriesCode();
 // ? * --> Event listeners
 
 // * --> scroll
 
-headerObserver.observe(heroSection);
+if (heroSection != null) headerObserver.observe(heroSection);
 
 // * --> Click
 
@@ -253,3 +291,10 @@ inputFields.forEach((field) => {
     }
   });
 });
+
+// * --> Submit
+if (contactForm)
+  contactForm.addEventListener("submit", (e) => {
+    const valid = Validation.validateForm(contactForm);
+    if (!valid) e.preventDefault();
+  });

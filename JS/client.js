@@ -6,4 +6,10 @@ async function getBooks(query) {
   return books;
 }
 
-export default { getBooks };
+async function getCountriesCode(url) {
+  const response = await fetch(url);
+  if (!response.ok) return null;
+  const countries = await response.json();
+  return countries;
+}
+export default { getBooks, getCountriesCode };
