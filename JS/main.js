@@ -94,7 +94,10 @@ function setTheme(theme) {
     root.style.setProperty("--primaryCardColor", "#e2efffa2");
     root.style.setProperty("--primaryColorLight", "#181414");
     root.style.setProperty("--backgroundColor", "#d9e9f1");
+    root.style.setProperty("--primaryColorLightGray", "#a4adb4");
+
     root.style.setProperty("--customBackgroundColorDarkMode", "#cbd9df");
+
     document.style = `color-scheme: light dark; transition: all 1s ease-in-out;`;
     document.body.style = `color-scheme: light dark; transition: all 1s ease-in-out;`;
     themeIcon.setAttribute("xlink:href", "#LIGHT-MODE-ICON");
@@ -106,6 +109,8 @@ function setTheme(theme) {
     root.style.setProperty("--primaryCardColor", "#23282ea2");
     root.style.setProperty("--primaryColorLight", "#fffeff");
     root.style.setProperty("--backgroundColor", "#1d2325");
+    root.style.setProperty("--primaryColorLightGray", "#cad3da");
+
     root.style.setProperty("--customBackgroundColorDarkMode", "#488d9f");
     document.style = `color-scheme: dark light; transition: all 1s ease-in-out;`;
     logos.forEach((logo) => {
@@ -195,7 +200,7 @@ setTheme(THEME);
 Auth.generateUniqueId();
 
 // * --> make sure that the user is authenticated
-//Auth.restrictIndexPage("token");
+Auth.restrictIndexPage("token");
 
 // * --> setup user content
 if (

@@ -8,7 +8,6 @@
   --primaryColor: #62bde7;
   --customBackgroundColorDarkMode: #488d9f;
   --CustomTertiaryColor: #b5d4b9;
-  --primaryColorLightGray: #cad3da;
 
   /* Fonts */
   --primaryFont: "Montserrat Alternates", sans-serif;
@@ -19,6 +18,7 @@
   /* box shadows */
   --boxShadowLightBehind: 0 0 2em -1em var(--DarkModeOpacity);
   --boxShadowDarkOut: 0 0 5em 1em var(--DarkModeOpacity);
+  --boxShadowDarkMode: 1px 1px 3em -1em #4242428a;
   --textThreeD: 3px 3px 1px var(--primaryColor);
   --linkTextShadow: 0.5px 0.5px 5px #488e9f9d;
 
@@ -78,6 +78,7 @@
     --primaryCardColor: #23282ea2;
     --labelColor: #aaa9b6;
     --inputBackgroundColor: #2a3133;
+    --primaryColorLightGray: #cad3da;
   }
 }
 
@@ -94,6 +95,7 @@
     --primaryCardColor: #e2efffa2;
     --labelColor: #978f8f;
     --inputBackgroundColor: #2a3133;
+    --primaryColorLightGray: #a4adb4;
   }
 }
 
@@ -429,7 +431,7 @@ html,
 html:focus-within {
   scroll-padding: var(--scrollPadding, 10vh);
   overflow-x: hidden !important;
-  max-width: 100vw;
+  max-width: min(100vw, 1920px);
 }
 
 /* Set core  defaults */
@@ -459,7 +461,7 @@ header {
   position: fixed;
   inset: 0;
   z-index: var(--aboveLayer);
-  width: 100vw;
+  width: 100%;
   height: 15vh;
   display: flex;
   align-items: center;
@@ -913,6 +915,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   transition: all 0.5s ease-in-out;
   width: var(--dialogWidth);
   height: var(--dialogHeight);
+  box-shadow: var(--boxShadowDarkMode);
 }
 
 #registerForm {
@@ -943,9 +946,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 .formHeader {
   /* background-color: var(--primaryColor); */
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  position: static;
+  position: relative;
 }
 
 .formLogo {
@@ -955,9 +956,8 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 }
 
 .formTitle {
-  font-size: var(--titleFontSize);
+  font-size: var(--subHeadingFS);
   font-weight: bolder;
-  font-family: var(--primaryFont);
   color: var(--primaryColorLight);
 }
 

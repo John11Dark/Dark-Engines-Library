@@ -15,36 +15,36 @@ async function getCountriesCode(url) {
 }
 
 async function login(email, password) {
-  const response = await fetch(`${URL}/user`, {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-      xUiqValue: localStorage.getItem("x-he-us-un-as"),
-    },
-    body: JSON.stringify({ email, password }),
-  });
+  // const response = await fetch(`${URL}/user`, {
+  //   method: "POST",
+  //   credentials: "include",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     xUiqValue: localStorage.getItem("x-he-us-un-as"),
+  //   },
+  //   body: JSON.stringify({ email, password }),
+  // });
 
-  if (!response.ok) return response?.data?.error;
+  // if (!response.ok) return response?.data?.error;
 
-  const data = await response.json();
-  return data;
+  // const data = await response.json();
+  return true;
 }
 
 async function register(user) {
-  const response = await fetch(`${URL}/user`, {
-    method: "POST",
-    credentials: "include",
-    headers: {
-      "Content-Type": "multipart/form-data",
-      xUiqValue: localStorage.getItem("x-he-us-un-as"),
-    },
-    body: JSON.stringify(user),
-  });
+  // const response = await fetch(`${URL}/user`, {
+  //   method: "POST",
+  //   credentials: "include",
+  //   headers: {
+  //     "Content-Type": "multipart/form-data",
+  //     xUiqValue: localStorage.getItem("x-he-us-un-as"),
+  //   },
+  //   body: JSON.stringify(user),
+  // });
 
-  if (!response.ok) return response?.data?.error;
+  // if (!response.ok) return response?.data?.error;
 
-  const data = await response.json();
-  return data;
+  // const data = await response.json();
+  return true;
 }
 export default { getBooks, getCountriesCode, login, register };
