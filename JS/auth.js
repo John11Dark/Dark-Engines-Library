@@ -3,7 +3,7 @@ import { redirect } from "./main.js";
 import client from "./client.js";
 
 function generateUniqueId() {
-  const uniqueValue = crypto.randomUUID();
+  const uniqueValue = self.crypto.randomUUID();
   localStorage.setItem("x-he-us-un-as", uniqueValue);
 }
 
