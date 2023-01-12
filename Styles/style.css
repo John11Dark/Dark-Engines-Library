@@ -35,8 +35,8 @@
   --logoWidth: 150px;
   --switchModeBlockSize: 55px;
   --asideSvgIcons: 25px;
-  --dialogWidth: 30vw;
-  --dialogHeight: 80vh;
+  --dialogWidth: max(25vw, 300px);
+  --dialogHeight: max(500px, 50vh);
   --cardBorderRadius: 0.5rem;
   --largeCardBorderRadius: 0.75rem;
   --btnBorderRadius: 0.25rem;
@@ -52,19 +52,16 @@
 
   /* Font sizes */
 
-  --headFontSize: calc(1em + 0.5vh + 0.5vw + 1vmax);
-  --paragraphFS: 1rem;
-
-  --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
-  --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
-  --heroSectionTitle: calc(1.5rem + 1vw + 1vh + 25%);
+  --heroSectionTitle: calc(1em + 1vw + 1vh + 25% + 1vmax);
   --headTitleFontSize: calc(90% + 0.75vh + 0.75vw + 0.75rem);
   --headTitleFontSizeLarger: calc(90% + 1vh + 1vw + 1rem);
-  --subTitleFontSize: calc(50% + 0.25vh + 0.25vw + 0.25rem);
-  --titleFontSize: calc(1vmax + 0.5vw + 5px + 0.5vh);
-  --calcFontSize: calc(80% + 0.5vh + 0.5vw);
-  --dateFontSize: calc(1.2rem + 12%);
   --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
+  --titleFontSize: calc(1vmax + 0.5vw + 5px + 0.5vh);
+  --subTitleFontSize: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
+  --paragraphFS: 1rem;
+  --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
+  --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
+  --dateFontSize: calc(1.2rem + 12%);
   --descriptionLabelFS: calc(2px + 0.5vmax);
 }
 
@@ -441,19 +438,15 @@ html:focus-within {
 
 /* Set core  defaults */
 body {
-  width: 100vw;
   line-height: 1.5;
   background: var(--backgroundColor);
   transition: all 0.2s ease;
-  font-size: var(--FS);
-  font-family: var(--primaryFont);
+  font-size: var(--bodyFS);
+  font-family: var(--secondaryFont);
   font-weight: 400;
   position: relative;
   word-spacing: 1px;
   padding: 0 1rem;
-  display: grid;
-  align-items: center;
-  justify-content: center;
 }
 
 /* when another element is observing disable scrolling */
@@ -470,14 +463,12 @@ header {
   position: fixed;
   inset: 0;
   z-index: var(--aboveLayer);
-  width: 100%;
+  width: 100vw;
   height: 15vh;
-  display: grid;
-  grid-template-columns: 10% 20% 60% 20% 10%;
-  place-content: center;
-  place-items: center;
-  place-self: center;
-  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
 }
 
 header[isInteracting="true"] {
@@ -494,9 +485,9 @@ header:hover[isInteracting="true"] {
   transform: translateY(0%);
   height: 10vh;
 }
+
 /* Logo */
 .mainLogo {
-  grid-column: 2;
   pointer-events: all;
   width: var(--logoWidth);
   height: 100%;
@@ -866,14 +857,242 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   display: none;
 }
 
-/* main content */
-main {
+.heroSection {
+  width: max(100%, 99vw);
+  height: 85vh;
+  margin-top: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.heroSectionArticle {
   display: grid;
   align-items: center;
-  justify-content: center;
-  margin: 15vh auto 0;
+  justify-content: left;
+  max-width: 40%;
+  padding-left: 1em;
 }
-/* footer */
+
+.callActionButtons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: left;
+}
+
+.HeroSection.callActionButtons {
+  margin: 1em 0;
+}
+
+.heroSectionImage {
+  max-width: 75%;
+  max-height: 75%;
+  object-fit: contain;
+}
+
+.HeroSection.heroSectionTitle {
+  font-size: var(--heroSectionTitle);
+  margin-bottom: 0.25em;
+}
+
+.HeroSection.descriptionParagraph {
+  font-size: var(--subTitleFontSize);
+  max-width: 90%;
+}
+
+/* Resister and login forms */
+
+.authForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primaryColorDark);
+  color: var(--primaryColorLight);
+  border-radius: var(--cardBorderRadius);
+  align-content: space-around;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  width: var(--dialogWidth);
+  height: var(--dialogHeight);
+}
+
+#registerForm {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#registerForm .mainFormContent {
+  margin: 5em 3em 3em;
+}
+
+.authForm[visible="false"] {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: -55555;
+  visibility: hidden;
+  display: none;
+}
+
+.authForm[visible="true"] {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: var(--aboveLayer);
+  visibility: visible;
+}
+
+.formHeader {
+  /* background-color: var(--primaryColor); */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: static;
+}
+
+.formLogo {
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.formTitle {
+  font-size: var(--titleFontSize);
+  font-weight: bolder;
+  font-family: var(--primaryFont);
+  color: var(--primaryColorLight);
+}
+
+.formErrorMessage {
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  color: var(--tertiaryColor);
+  font-weight: 400;
+  display: none;
+}
+
+.formErrorMessage[error="true"] {
+  display: block;
+}
+.userAvatarContainer {
+  position: absolute;
+  top: 4em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--aboveLayer);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--primaryColor);
+  padding: 0;
+  display: none;
+}
+
+.mainFormContent {
+  margin: 3em;
+  position: relative;
+}
+
+.inputFieldContainer {
+  position: relative;
+  display: grid;
+  width: 100%;
+  margin-bottom: 1em;
+  transition: all 0.5s ease;
+}
+
+.authFormInputFiledLabel {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  transform: translateY(50%);
+}
+
+.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible)
+  .inputField {
+  border: 1px solid var(--primaryColor);
+}
+
+.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible)
+  .authFormInputFiledLabel {
+  color: var(--primaryColor);
+  transform: translateY(-50%) scale(1.05);
+}
+.inputFieldContainer:has(input[hasContent="true"], .inputField:-webkit-autofill)
+  .authFormInputFiledLabel {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.inputField {
+  width: 100%;
+  height: 100%;
+}
+
+.inputDescription {
+  font-size: var(--descriptionLabelFS);
+  margin: 0.5rem 0 0 0.5rem;
+  font-weight: 500;
+  color: var(--primaryColorLightGray);
+}
+
+.inputDescription[valid="false"] {
+  color: var(--tertiaryColor);
+}
+
+.inputField[valid="false"] {
+  color: var(--tertiaryColor);
+  border: 1px solid var(--tertiaryColor);
+}
+
+.genderList {
+  position: relative;
+
+  margin: 0.5em 0 1em;
+  height: 50px;
+}
+
+.forgetPassword {
+  position: absolute;
+  text-align: right;
+  bottom: -3em;
+  right: 0em;
+  font-size: 0.75rem;
+  color: var(--primaryColor);
+}
+
+.formActionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1em;
+}
+
+.submitBtn {
+  width: 130px;
+  height: auto;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.formCloseButton {
+  width: 130px;
+  height: auto;
+  padding: 0.5em;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.formCloseButton > svg {
+  max-width: 25px;
+}
+
+/* Footer */
 .mainFooter {
   width: 100vw;
   height: 100vh;
@@ -934,7 +1153,7 @@ main {
   bottom: 0;
 }
 
-/* bottom footer */
+/* Bottom Footer */
 .Footer.backgroundColor {
   position: absolute;
   bottom: 0;
@@ -1080,183 +1299,4 @@ main {
     left: 0;
     margin-left: 1rem;
   }
-}
-
-/* Resister and login forms */
-
-.formCloseBtn {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  cursor: pointer;
-  font-size: 1.25rem;
-  font-weight: 500;
-  font-family: var(--secondaryFont);
-  color: var(--tertiaryColor);
-  border: 2px solid currentColor;
-  display: grid;
-  place-content: center;
-  place-items: center;
-  place-self: center;
-  text-align: center;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 50%;
-}
-
-.authForm {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  align-content: space-around;
-  background-color: var(--primaryCardColor);
-  color: var(--primaryColorLight);
-  border-radius: var(--cardBorderRadiusThin);
-  border: 1px solid var(--primaryColor);
-  width: var(--dialogWidth);
-  height: var(--dialogHeight);
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  align-content: space-around;
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
-}
-.authForm[visible="false"] {
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: -55555;
-}
-.authForm[visible="true"] {
-  opacity: 1;
-  pointer-events: all;
-  transform: translate(-50%, -50%) scale(1);
-  z-index: var(--aboveLayer);
-}
-
-.formHeader {
-  /* background-color: var(--primaryColor); */
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 15vh;
-}
-
-.formCloseButton {
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-content: center;
-  place-items: center;
-  place-self: center;
-  border-radius: 50%;
-  color: var(--tertiaryColor);
-  border: 2.5px currentColor solid;
-  padding: 0.5rem;
-  position: absolute;
-  right: 1em;
-  top: 1em;
-}
-.formLogo {
-  width: 200px;
-  height: 100px;
-  object-fit: contain;
-}
-
-.formTitle {
-  font-size: var(--titleFontSize);
-  font-weight: bolder;
-  font-family: var(--primaryFont);
-}
-
-.userAvatarContainer {
-  position: absolute;
-  top: 4em;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: var(--aboveLayer);
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px solid var(--primaryColor);
-  padding: 0;
-  display: none;
-}
-
-.mainFormContent {
-  margin-top: 20vh;
-  display: grid;
-  align-items: center;
-  justify-content: space-around;
-  align-content: space-around;
-  gap: 1em 0;
-}
-
-.inputFieldContainer {
-  position: relative;
-  display: grid;
-  width: 100%;
-  margin: 0.5em;
-  padding: 0;
-  transition: all 0.5s ease;
-}
-
-.authFormInputFiledLabel {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  transform: translateY(50%);
-}
-
-.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible)
-  .inputField {
-  border: 1px solid var(--primaryColor);
-}
-
-.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible)
-  .authFormInputFiledLabel {
-  color: var(--primaryColor);
-  transform: translateY(-50%) scale(1.05);
-}
-.inputFieldContainer:has(input[hasContent="true"]) .authFormInputFiledLabel {
-  transform: translateY(-50%) scale(1.05);
-}
-
-.inputField {
-  width: 100%;
-  height: 100%;
-}
-
-.inputDescription {
-  font-size: var(--descriptionLabelFS);
-  margin: 0.5rem 0 0 0.5rem;
-  font-weight: 500;
-  color: var(--primaryColorLightGray);
-}
-.inputDescription[valid="false"] {
-  color: var(--tertiaryColor);
-}
-.inputField[valid="false"] {
-  color: var(--tertiaryColor);
-  border: 1px solid var(--tertiaryColor);
-}
-
-.genderList {
-  position: relative;
-  left: 0.5em;
-}
-
-.formFooter {
-  width: 80%;
-  height: 10%;
-  text-align: center;
-  margin: 0 auto;
 }

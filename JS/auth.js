@@ -1,37 +1,59 @@
 import routes from "./routes.js";
 import { redirect } from "./main.js";
-function login(email, password) {
-  //console.log(password, email);
-  // console.log(routes.HOME);
-  redirect(routes.HOME);
-}
-function register(data) {
-  const { name, surname, image, dateofbirth } = data;
-  redirect(routes.HOME);
-}
-function logout() {
-  redirect(routes.INDEX);
-}
-function isAuthenticated() {
-  return false;
+import client from "./client.js";
+
+function generateUniqueId() {
+  const uniqueValue = crypto.randomUUID();
+  localStorage.setItem("x-he-us-un-as", uniqueValue);
 }
 
-function restrictIndexPage() {
+async function login(email, password) {
+  const response = await client.login(email, password);
+
+  isAuthenticated("token");
+  return { ok: true, message: response.message };
+}
+
+async function register(data) {
+  const response = await client.register(data);
+  isAuthenticated("token");
+  return { ok: true, message: response.message };
+}
+
+function logout() {
+  localStorage.removeItem("x-he-us-un-as");
+  localStorage.removeItem("session-UUI-ID");
+  redirect(routes.INDEX);
+}
+
+function isAuthenticated(token) {
+  return token === "token";
+}
+
+function restrictIndexPage(token) {
   if (
     window.location.href.toLowerCase().includes("/index.html") &&
-    isAuthenticated()
+    isAuthenticated(token)
   ) {
     redirect(routes.HOME);
   } else if (
     window.location.href.toLowerCase().includes("/home.html") &&
-    !isAuthenticated()
+    !isAuthenticated(token)
   ) {
     redirect(routes.INDEX);
   } else if (
     window.location.href.toLowerCase().includes("/books.html") &&
-    !isAuthenticated()
+    !isAuthenticated(token)
   ) {
     redirect(routes.INDEX);
   }
 }
-export default { login, register, logout, isAuthenticated, restrictIndexPage };
+
+export default {
+  login,
+  register,
+  logout,
+  isAuthenticated,
+  restrictIndexPage,
+  generateUniqueId,
+};

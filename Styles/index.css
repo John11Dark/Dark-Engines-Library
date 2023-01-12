@@ -1,6 +1,11 @@
 :root {
   --heroImageWidth: 58%;
 }
+
+.heroSectionImage {
+  background-color: green;
+  max-width: 50%;
+}
 header {
   display: flex;
   justify-content: space-around;
@@ -77,11 +82,6 @@ header {
   width: 175px;
   padding: 0.85em 1em;
 }
-.heroSectionImage {
-  max-width: var(--heroImageWidth);
-  object-fit: cover;
-  padding-top: 1em;
-}
 
 /* Laptop view port */
 @media only screen and (max-width: 1250px) {
@@ -101,9 +101,7 @@ header {
   header {
     height: 10vh;
   }
-  .mainContent {
-    margin-top: 15vh;
-  }
+
   .backgroundEffect {
     height: 100vw;
     width: 100vh;
@@ -124,12 +122,15 @@ header {
     text-align: center;
     padding-left: 0em;
   }
-  .heroSectionImage {
-    max-width: 100%;
-    object-fit: fill;
-  }
+
   .callActionButtons {
     justify-content: center;
     margin-top: 1em;
   }
+}
+
+.copyRight {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
 }

@@ -48,6 +48,24 @@ function validateSingleInput(input, type, title) {
         return false;
       }
 
+    // case "password":
+    //   if (
+    //     !input.value.match(
+    //       /^(\d?=.*[a-z])(\d?=.*[A-Z])(?=.*[\da-zA-Z]).{12,32}$/
+    //     ) !== true &&
+    //     input.value !== "" &&
+    //     input != null
+    //   ) {
+    //     input.setAttribute("valid", "true");
+    //     return true;
+    //   } else {
+    //     input.setAttribute("valid", "false");
+    //     input.focus();
+    //     Notify.customAlert(
+    //       `enter a valid ${title} please!..\nthe ${title} must be between 12 - 32 characters`
+    //     );
+    //     return false;
+    //   }
     case "badWords":
       if (
         !input.value.match(/^[a-zA-Z ]*$/) !== true &&
@@ -62,6 +80,9 @@ function validateSingleInput(input, type, title) {
         Notify.customAlert(`enter a valid ${title} please!..`);
         return false;
       }
+
+    default:
+      return true;
   }
 }
 

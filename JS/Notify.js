@@ -32,9 +32,6 @@ function copyToClipboard(object, Attribute) {
 }
 
 function removeAlertCard(object, duration = 1500) {
-  // object.addEventListener("pointerover", (e) => {
-  //   console.log(e);
-  // });
   object.style = `animation: slideOut 1s ease-out both`;
   setTimeout(() => {
     object.remove();

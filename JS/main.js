@@ -1,5 +1,6 @@
 "use strict";
 
+import Notify from "./Notify.js";
 import Validation from "./Validation.js";
 import Auth from "./auth.js";
 import Client from "./client.js";
@@ -15,20 +16,24 @@ const userAvatar = document.querySelector(".userAvatar");
 const userAvatarURL = "/Assets/userAvatar.png";
 
 const header = document.querySelector("header");
+const menu = document.querySelector(".mainNav");
 const dropDownMenu = document.querySelector("dropDownMenu");
 const logo = document.querySelector(".Logo");
 const logos = document.querySelectorAll(".Logo");
 const themeSwitch = document.querySelector(".switchMode");
+const ColorSchemeMetaTag = document.querySelector("meta[name=color-scheme]");
 const themeIcon = document.querySelector("#themeIconLink");
 const navLinks = document.querySelectorAll(".pageLink");
 const navButton = document.querySelector("#navButton");
-const menu = document.querySelector(".mainNav");
+const linksAuth = document.querySelectorAll("[isAuthenticated]");
+
 const loginButton = document.querySelector("#loginButton");
 const loginForm = document.querySelector("#loginForm");
-const ColorSchemeMetaTag = document.querySelector("meta[name=color-scheme]");
+const signupButton = document.querySelector("#signupButton");
+const registerForm = document.querySelector("#registerForm");
+
 const redirectButtons = document.querySelectorAll("button[href]");
 const inputFields = document.querySelectorAll("input");
-const linksAuth = document.querySelectorAll("[isAuthenticated]");
 const heroSection = document.querySelector("#heroSection");
 
 const contactForm = document.querySelector("#contactForm");
@@ -63,13 +68,15 @@ const headerObserver = new IntersectionObserver((entries, headerObserver) => {
 
 // ? * --> Functions
 
-function formVisibility(form) {
+function formVisibility(form, anotherForm) {
   form.reset();
   const visible = form.getAttribute("visible");
   if (visible === "false") {
     form.setAttribute("visible", true);
     form.setAttribute("aria-hidden", false);
-    () => ins.focus();
+    anotherForm.setAttribute("aria-hidden", true);
+    anotherForm.setAttribute("visible", false);
+    anotherForm.reset();
   } else if (visible === "true") {
     form.setAttribute("aria-hidden", true);
     form.setAttribute("visible", false);
@@ -184,8 +191,11 @@ export function redirect(url) {
 // * --> Theme
 setTheme(THEME);
 
+// *--> create a unique id for each user
+Auth.generateUniqueId();
+
 // * --> make sure that the user is authenticated
-Auth.restrictIndexPage();
+//Auth.restrictIndexPage("token");
 
 // * --> setup user content
 if (
@@ -205,7 +215,6 @@ root.style.setProperty(
 if (linksAuth != null)
   linksAuth.forEach((link) => {
     link.setAttribute("isAuthenticated", Auth.isAuthenticated());
-    console.log(link);
   });
 
 if (countryCodeInputOptions != null) getCountriesCode();
@@ -260,18 +269,71 @@ navButton.addEventListener("pointerdown", (e) => {
 
 if (loginButton != null) {
   const closeFormButton = loginForm.querySelector("#closeButton");
-  loginButton.addEventListener("pointerdown", () => formVisibility(loginForm));
-  closeFormButton.addEventListener("pointerdown", () =>
-    formVisibility(loginForm)
-  );
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const { password, email } = Object.fromEntries(
-      new FormData(loginForm).entries()
-    );
+  const errorMessage = loginForm.querySelector("#errorMessageLg");
 
-    Auth.login(password, email);
-    loginForm.reset();
+  loginButton.addEventListener("pointerdown", () =>
+    formVisibility(loginForm, registerForm)
+  );
+  closeFormButton.addEventListener("pointerdown", () =>
+    formVisibility(loginForm, registerForm)
+  );
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const emailFiled = loginForm.querySelector("#email");
+    const passwordFiled = loginForm.querySelector("#password");
+    if (
+      Validation.validateSingleInput(emailFiled, "email", "Email") &&
+      Validation.validateSingleInput(passwordFiled, "password", "Password")
+    ) {
+      const { password, email } = Object.fromEntries(
+        new FormData(loginForm).entries()
+      );
+      const response = await Auth.login(email, password);
+      if (response.ok) {
+        loginForm.reset();
+        return redirect(routes.HOME);
+      }
+
+      errorMessage.textContent = response.message;
+      Notify.customAlert(response.message);
+    }
+  });
+}
+
+if (signupButton != null) {
+  const closeFormButton = registerForm.querySelector("#closeButtonReg");
+  const errorMessage = registerForm.querySelector("#errorMessage");
+
+  signupButton.addEventListener("pointerdown", () => {
+    formVisibility(registerForm, loginForm);
+  });
+  closeFormButton.addEventListener("pointerdown", () =>
+    formVisibility(registerForm, loginForm)
+  );
+  registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const emailFiled = registerForm.querySelector("#emailReg");
+    const fullName = registerForm.querySelector("#fullName");
+    const phoneNumber = registerForm.querySelector("#phoneNumber");
+    const passwordFiled = registerForm.querySelector("#passwordReg");
+    const dateOfBirth = registerForm.querySelector("#dateOfBirth");
+    const gender = registerForm.querySelector("#gender");
+    if (
+      Validation.validateSingleInput(fullName, "string", "Full name") &&
+      Validation.validateSingleInput(phoneNumber, "integer", "phone number") &&
+      Validation.validateSingleInput(emailFiled, "email", "Email") &&
+      Validation.validateSingleInput(passwordFiled, "password", "Password")
+    ) {
+      const userData = Object.fromEntries(new FormData(registerForm).entries());
+      const response = await Auth.register(userData);
+      if (response.ok) {
+        loginForm.reset();
+        return redirect(routes.HOME);
+      }
+
+      errorMessage.textContent = response.message;
+      Notify.customAlert(response.message);
+    }
   });
 }
 
@@ -290,6 +352,38 @@ if (dropDownMenu != null) {
 
 inputFields.forEach((field) => {
   field.addEventListener("focusout", () => {
+    const data = field.value.trim();
+    if (data === "" || data === " ") {
+      field.setAttribute("hasContent", false);
+    } else {
+      field.setAttribute("hasContent", true);
+    }
+  });
+  field.addEventListener("blur", () => {
+    const data = field.value.trim();
+    if (data === "" || data === " ") {
+      field.setAttribute("hasContent", false);
+    } else {
+      field.setAttribute("hasContent", true);
+    }
+  });
+  field.addEventListener("change", () => {
+    const data = field.value.trim();
+    if (data === "" || data === " ") {
+      field.setAttribute("hasContent", false);
+    } else {
+      field.setAttribute("hasContent", true);
+    }
+  });
+  field.addEventListener("focus", () => {
+    const data = field.value.trim();
+    if (data === "" || data === " ") {
+      field.setAttribute("hasContent", false);
+    } else {
+      field.setAttribute("hasContent", true);
+    }
+  });
+  field.addEventListener("reset", () => {
     const data = field.value.trim();
     if (data === "" || data === " ") {
       field.setAttribute("hasContent", false);

@@ -113,7 +113,6 @@ async function setupContainer(container, template, searchQuery, searchList) {
 
 booksContainers.forEach((container) => {
   const searchQuery = container.getAttribute("searchQuery");
-  console.log(searchQuery);
   setupContainer(container, template, searchQuery, booksQuery);
 });
 

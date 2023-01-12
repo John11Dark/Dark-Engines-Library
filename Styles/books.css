@@ -16,7 +16,7 @@
 }
 
 .searchResultTitle {
-  font-size: var(--headFontSize);
+  font-size: var(--headingFS);
   font-weight: 500;
   letter-spacing: 3px;
   text-transform: capitalize;
