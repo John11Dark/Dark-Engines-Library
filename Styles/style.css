@@ -571,7 +571,6 @@ header:hover[isInteracting="true"] {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  justify-self: right;
   width: 60%;
   transition: width 1s ease-in-out;
 }
@@ -614,8 +613,29 @@ header:hover[isInteracting="true"] {
 .link[isAuthenticated="true"] {
   display: block;
 }
+
 .link[isAuthenticated="false"] {
   display: none;
+}
+
+.callActionButtonsNav[isAuthenticated="true"] {
+  display: none !important;
+}
+
+.callActionButtonsNav button {
+  width: auto;
+  height: auto;
+  font-size: 1rem;
+  padding: 0.75rem;
+  margin: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.callActionButtonsNav[isAuthenticated="false"] {
+  display: flex !important;
+  transform: translateX(50%);
 }
 
 /* Theme switch button */

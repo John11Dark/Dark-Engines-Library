@@ -174,10 +174,18 @@ async function getCountriesCode() {
   }
 }
 
+export function redirect(url) {
+  const route = `${window.origin}${url.slice(1)}`;
+  window.location.href = route;
+}
+
 // ? * --> Setup document
 
 // * --> Theme
 setTheme(THEME);
+
+// * --> make sure that the user is authenticated
+Auth.restrictIndexPage();
 
 // * --> setup user content
 if (
@@ -218,8 +226,7 @@ logo.addEventListener("pointerdown", () => {
 
 redirectButtons.forEach((button) => {
   button.addEventListener("pointerdown", () => {
-    const route = `${window.origin}${button.getAttribute("href").slice(1)}`;
-    window.location.href = route;
+    redirect(button.getAttribute("href"));
   });
 });
 
