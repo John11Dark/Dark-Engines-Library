@@ -83,7 +83,7 @@ footer {
   fill: var(--tertiaryColor);
 }
 
-.textArealabel {
+.textAreaLabel {
   position: relative;
 }
 .contactForm {
@@ -128,7 +128,7 @@ footer {
 }
 
 .FormLabel {
-  font-size: calc(var(--subTitleFontSize) + 0.1vw);
+  font-size: calc(var(--subHeadingFS) + 0.1vw);
   color: var(--primaryColor);
 }
 

@@ -175,7 +175,6 @@
   display: grid;
 }
 .topicTitleExpanded {
-  font-size: var(--headTitleFontSizeLarger);
   font-family: var(--tertiaryFontExtra);
   color: var(--primaryColor);
   text-shadow: var(--textThreeD);

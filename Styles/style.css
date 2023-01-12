@@ -22,7 +22,7 @@
   --textThreeD: 3px 3px 1px var(--primaryColor);
   --linkTextShadow: 0.5px 0.5px 5px #488e9f9d;
 
-  /*  */
+  /* Transitions   */
 
   --transition-5ms-Ease: all 0.5s ease;
   --transition-backgroundColor-Ease: background-color 0.5s ease;
@@ -46,18 +46,18 @@
   --imageBorderRadius: calc(0.5rem + var(--cardBorderRadius));
   --cardBorderRadiusThin: 0.25rem;
   --inputBorderRadius: 0.75rem;
-  --logoScale: 85%;
-  --navScale: 40%;
   --padding-500: 1.5em;
+  --margin: 2rem;
+  --spacing-700: 5em;
+  --width-700: 90vw;
+  --height-700: 200px;
+  --spacing-200: 0.5em;
 
   /* Font sizes */
 
   --heroSectionTitle: calc(1em + 1vw + 1vh + 25% + 1vmax);
-  --headTitleFontSize: calc(90% + 0.75vh + 0.75vw + 0.75rem);
-  --headTitleFontSizeLarger: calc(90% + 1vh + 1vw + 1rem);
   --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
-  --titleFontSize: calc(1vmax + 0.5vw + 5px + 0.5vh);
-  --subTitleFontSize: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
+  --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
   --paragraphFS: 1rem;
   --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
   --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
@@ -99,43 +99,39 @@
 
 @media (max-width: 90em) {
   :root {
+    /* Sizes */
     --width-700: calc(30vw + 10rem + 10vmax + 5vh);
     --height-700: calc(25vh + 5rem + 5vw);
+
+    /* Font sizes */
+
+    --heroSectionTitle: calc(1em + 1vw + 1vh + 25% + 1vmax);
     --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
-    --titleFontSize: calc(2vmax + 1.5vw + 10px + 1.5rem + 1.5vh);
+    --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
+    --paragraphFS: 1rem;
+    --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
+    --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
+    --dateFontSize: calc(1.2rem + 12%);
+    --descriptionLabelFS: calc(2px + 0.5vmax);
   }
 }
 
 @media (max-width: 50em) {
   :root {
     --userAvatarContainerSize: calc(2vw + 2vh + 10px + 0.5rem);
-    --largeHeadingFS: calc(1.5vmax + 2.65rem);
+
+    /* Font sizes */
+
+    --heroSectionTitle: calc(1em + 1vw + 1vh + 25% + 1vmax);
     --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
-    --subHeadingFS: calc(1vmax + 0.5rem + 0.25vw + 0.25vh + 0.25em);
-    --titleFontSize: calc(2vmax + 1.5vw + 10px + 1.5rem + 1.5vh);
-    --paragraphFS: calc(1rem + 0.5vmax);
-    --bodyFS: calc(1.05vw + 0.55vh + 0.85rem);
-    --navFS: calc(1.5vmax + 0.5vw + 0.5rem);
-    --buttonFs: calc(0.5rem + 0.75vmax);
-    --shadowBlur: 25px;
-    --margin: 2rem;
-    --spacing-700: 5em;
-    --width-700: 90vw;
-    --height-700: 200px;
-    --padding-200: 1.5rem;
-    --spacing-200: 0.5em;
-    --iconSize-300: 2rem;
-    --iconSize-400: 3rem;
+    --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
+    --paragraphFS: 1rem;
+    --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
+    --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
+    --dateFontSize: calc(1.2rem + 12%);
+    --descriptionLabelFS: calc(2px + 0.5vmax);
   }
 }
-
-/* 
-*
-*
-Remove and assign new Global styling
-*
-*
-*/
 
 /* Remove all animations, transitions and smooth scroll for people that does not like animations */
 @media (prefers-reduced-motion: reduce) {
@@ -898,7 +894,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 }
 
 .HeroSection.descriptionParagraph {
-  font-size: var(--subTitleFontSize);
+  font-size: var(--subHeadingFS);
   max-width: 90%;
 }
 
@@ -1256,47 +1252,66 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 }
 /* laptop screen size */
 @media only screen and (max-width: 1400px) {
-  /*   .floorShape {
-        transform: scale(1.15) translate(-5%, 17.5%);
-      } */
-  /* .heroSectionTitle {
-    font-size: calc(var(--heroSectionTitle) + 0.75rem);
-  } */
+  .heroSectionImage {
+    max-width: 70%;
+    max-height: 70%;
+  }
+  .floorShape {
+    transform: scale(1.15) translate(-5%, 17.5%);
+  }
 }
 
 @media only screen and (max-width: 800px) {
   header {
-    display: flex;
-    justify-content: space-around;
+    background-color: var(--backgroundColor);
   }
-  main {
-    display: grid;
-    align-items: flex-end;
+
+  .heroSection {
+    margin: 7.5vh 0 0 0;
+    align-content: center;
+    align-items: center;
     justify-content: center;
-    align-content: space-around;
-    margin-top: 15vh;
+    z-index: -10;
   }
+
+  .heroSectionArticle {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .HeroSection.callActionButtons {
+    justify-content: center;
+  }
+
+  .heroSectionImage {
+    margin-top: 1em;
+    margin-right: 1.5em;
+    max-width: 90%;
+    max-height: 90%;
+  }
+
   .mainNav {
     display: none;
   }
+
   .mainNav[isToggled="true"] {
     display: grid;
   }
+
   .navButton {
     display: grid;
+    pointer-events: all;
   }
+
   .link {
-    font-size: calc(var(--subTitleFontSize) + 0.5rem);
+    font-size: calc(var(--subHeadingFS) + 0.5rem);
   }
+
   .link[animation="true"] {
     transform: translate(500%);
     animation-fill-mode: forwards;
-  }
-  .logoParent {
-    width: 180px;
-    height: 80%;
-    position: absolute;
-    left: 0;
-    margin-left: 1rem;
   }
 }
