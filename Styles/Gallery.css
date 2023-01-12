@@ -49,7 +49,6 @@
 }
 
 .descriptionParagraph {
-  font-size: var(--calcFontSize);
   color: var(--labelColor);
 }
 
