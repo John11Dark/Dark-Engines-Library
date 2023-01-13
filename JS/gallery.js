@@ -121,3 +121,7 @@
 // }
 
 // onClickSlideContent(expandButton, topicsCarousel);
+
+const carousel = document.querySelector("#heroCarousel");
+
+carousel.setAttribute("data-bs-ride", false);

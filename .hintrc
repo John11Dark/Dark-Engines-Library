@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "development"
-  ],
+  "extends": ["development"],
   "browserslist": [
     "defaults",
     "not ie 11",
@@ -15,9 +13,7 @@
     "compat-api/html": [
       "default",
       {
-        "ignore": [
-          "form[autocapitalize]"
-        ]
+        "ignore": ["form[autocapitalize]"]
       }
     ]
   }
