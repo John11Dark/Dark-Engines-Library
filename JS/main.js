@@ -200,7 +200,7 @@ setTheme(THEME);
 Auth.generateUniqueId();
 
 // * --> make sure that the user is authenticated
-Auth.restrictIndexPage("token");
+//Auth.restrictIndexPage("token");
 
 // * --> setup user content
 if (

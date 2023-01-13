@@ -4,8 +4,8 @@
 
 :root {
   /* Colors */
-  --tertiaryColor: #ff424d;
-  --primaryColor: #62bde7;
+  --tertiaryColor: #ec4149;
+  --primaryColor: #50a3ca;
   --customBackgroundColorDarkMode: #488d9f;
   --CustomTertiaryColor: #b5d4b9;
 
@@ -108,7 +108,7 @@
 
     /* Font sizes */
 
-    --heroSectionTitle: calc(1em + 1vw + 1vh + 25% + 1vmax);
+    --heroSectionTitle: calc(0.5em + 1vw + 1vh + 1vmax);
     --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
     --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
     --paragraphFS: 1rem;
@@ -125,7 +125,7 @@
 
     /* Font sizes */
 
-    --heroSectionTitle: calc(1em + 1vw + 1vh + 25% + 1vmax);
+    --heroSectionTitle: calc(1vw + 1vh + 25% + 1vmax);
     --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
     --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
     --paragraphFS: 1rem;

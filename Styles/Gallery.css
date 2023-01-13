@@ -1,16 +1,22 @@
+:root {
+  --containerHight: 100dvh;
+}
 header {
+  --headerHight: 12vh;
   background-color: transparent !important;
   opacity: 0.8;
   box-shadow: 0 0 0.5em -0.25em var(--DarkModeOpacity);
 }
+
 body {
   padding: 0;
 }
 main {
-  height: 100dvh;
+  height: var(--containerHight);
 }
+
 .sectionCarousel {
-  height: 100dvh;
+  height: var(--containerHight);
   width: 100vw;
 }
 
@@ -19,7 +25,63 @@ main {
   width: 100%;
   object-fit: cover;
   filter: brightness(0.5);
-  opacity: 0.7;
+  opacity: 0.9;
+}
+
+.carouselArticle {
+  width: 60%;
+  height: 100%;
+  inset: 0;
+  left: 10%;
+  display: grid;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  place-self: center;
+  text-align: left;
+  padding-left: 1em;
+}
+
+.carouselTitle {
+  font-size: var(--heroSectionTitle);
+  width: 90%;
+  transition: all 0.5s ease-in-out;
+  opacity: 0.8;
+}
+
+.carouselDescription {
+  font-size: var(--subHeadingFS);
+  max-width: 80%;
+  transition: all 0.5s ease-in-out;
+  opacity: 0.8;
+  padding-left: 0.25em;
+  color: var(--primaryColorLightGray);
+}
+
+.carouselDescription:hover,
+.carouselTitle:hover {
+  opacity: 1;
+}
+
+.GalleryBtn {
+  padding: 1rem 0.5rem;
+  margin: 0;
+  width: 175px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: unset;
+  opacity: 0.6;
+  transform: scale(1);
+}
+.GalleryBtn > svg {
+  max-width: 25px;
+  max-height: 20px;
+}
+
+.GalleryBtn:hover {
+  opacity: 0.9;
 }
 
 .indicator {
@@ -32,4 +94,52 @@ main {
   height: 8px !important;
   border-radius: 2.5em !important;
   border: unset !important;
+}
+.lottieAnimation {
+  position: absolute;
+  top: 20%;
+  right: 1em;
+  opacity: 0.7;
+  width: max(40vw, 500px);
+  height: min(600px, 65dvh);
+}
+
+.Controllers {
+  width: min(10vw, 120px) !important;
+}
+
+.javaScript {
+  color: #eea216;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --heroSectionTitle: calc(0.25em + 1vw + 1vh + 1vmax);
+  }
+  .lottieAnimation {
+    width: max(30vw, 300px);
+    height: min(350px, 50dvh);
+    right: 5%;
+    top: 30%;
+  }
+  .carouselArticle {
+    width: 65%;
+  }
+}
+
+@media (max-width: 65em) {
+  .lottieAnimation {
+    display: none !important;
+  }
+  .carouselArticle {
+    width: 95%;
+    place-content: center;
+    place-items: center;
+    place-self: center;
+    text-align: center;
+    padding-left: 0;
+    left: 0;
+    gap: 0.75em 0;
+    margin: 0 auto;
+  }
 }

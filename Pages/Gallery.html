@@ -32,6 +32,8 @@
       <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
          crossorigin="anonymous"></script>
+      <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
       <script src="../JS/main.js" type="module"></script>
       <script src="../JS/gallery.js" type="module"></script>
 
@@ -75,13 +77,6 @@
                   d="M1964.825,2464.944c271.735,19.138,162.875,182.442-287.371,153.959-221.944-14.036-387.189-10.09-564.713,12.585-504.538,64.451-607.475-89.546-787.921-65.121-164.613,22.3-249.781-70.073-11.332-99.338,97.291-11.952,228.578-37.829,742.316-37.829S1829.195,2455.412,1964.825,2464.944Z"
                   transform="translate(-0 -2428)" fill="#9ddcfa" />
             </symbol>
-         </svg>
-
-         <!-- search icon -->
-         <svg xmlns="http://www.w3.org/2000/svg">
-            <symbol id="SEARCH-BAR-ICON" viewBox="0 0 512 512" preserveAspectRatio="xMinYMin meet">
-               <path
-                  d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
          </svg>
 
          <!-- ISBN icon -->
@@ -147,6 +142,7 @@
                   d="M20.635,16.982A1.213,1.213,0,0,0,19.422,18.2V24.26H14.57V4.852a1.214,1.214,0,0,0-.865-1.162L9.492,2.426h9.93V8.491a1.213,1.213,0,1,0,2.426,0V1.213A1.213,1.213,0,0,0,20.635,0H1.227A1.081,1.081,0,0,0,1.1.023,1.2,1.2,0,0,0,.588.2C.561.22.528.221.5.24.493.247.489.261.48.268A1.2,1.2,0,0,0,.157.651a.991.991,0,0,0-.034.1,1.15,1.15,0,0,0-.1.284.755.755,0,0,0,0,.106c0,.024-.017.046-.017.07v24.26a1.212,1.212,0,0,0,.975,1.189l12.13,2.426a1.129,1.129,0,0,0,.238.024A1.214,1.214,0,0,0,14.57,27.9V26.686h6.065a1.213,1.213,0,0,0,1.213-1.213V18.2A1.213,1.213,0,0,0,20.635,16.982Z" />
             </symbol>
          </svg>
+
          <!-- HELP icon -->
          <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="HELP-ICON" viewBox="0 0 512 512" preserveAspectRatio="xMinYMin meet">
@@ -154,6 +150,7 @@
                   d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z" />
             </symbol>
          </svg>
+
          <!-- User icon -->
          <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="USER-ICON" viewBox="0 0 512 512" preserveAspectRatio="xMinYMin meet">
@@ -161,20 +158,24 @@
                   d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z" />
             </symbol>
          </svg>
-         <!-- User icon -->
+
+         <!-- Close icon -->
          <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="CLOSE-BUTTON-ICON" viewBox="0 0 512 512" preserveAspectRatio="xMinYMin meet">
                <path
                   d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM175 208.1L222.1 255.1L175 303C165.7 312.4 165.7 327.6 175 336.1C184.4 346.3 199.6 346.3 208.1 336.1L255.1 289.9L303 336.1C312.4 346.3 327.6 346.3 336.1 336.1C346.3 327.6 346.3 312.4 336.1 303L289.9 255.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175C327.6 165.7 312.4 165.7 303 175L255.1 222.1L208.1 175C199.6 165.7 184.4 165.7 175 175C165.7 184.4 165.7 199.6 175 208.1V208.1z" />
             </symbol>
          </svg>
-         <!-- User icon -->
+
+         <!-- Copy icon -->
          <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="COPY-CLIPBOARD-ICON" viewBox="0 0 512 512" preserveAspectRatio="xMinYMin meet">
                <path
                   d="M0 224C0 188.7 28.65 160 64 160H128V288C128 341 170.1 384 224 384H352V448C352 483.3 323.3 512 288 512H64C28.65 512 0 483.3 0 448V224zM224 352C188.7 352 160 323.3 160 288V64C160 28.65 188.7 0 224 0H448C483.3 0 512 28.65 512 64V288C512 323.3 483.3 352 448 352H224z" />
             </symbol>
          </svg>
+
+
          <!-- social media icons  -->
          <!-- Instagram icon -->
          <svg class="svgIcon">
@@ -244,6 +245,7 @@
                   d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" />
             </symbol>
          </svg>
+
       </data>
    </head>
 
@@ -327,6 +329,7 @@
       </header>
 
       <main id="mainContent">
+
          <section id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators indicatorsContainer">
                <li>
@@ -345,57 +348,258 @@
 
             <section class="carousel-inner">
                <section class="carousel-item active sectionCarousel">
+                  <section class="upperPart" id="mainTopic" topic="main">
+                     <img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?fit=crop&w=1964&q=100"
+                        class="containerBgIma" alt="Slide One background Image">
 
-                  <img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?fit=crop&w=1964&q=100"
-                     class="containerBgIma" alt="Slide One background Image">
+                     <article id="SlideOne" class="carousel-caption | carouselArticle">
+                        <h1 class="carouselTitle">Welcome to Dark Engines Library, Where You can Discover, Learn and
+                           Gain
+                           your IT knowledge!. </h1>
+                        <p class="carouselDescription">at dark engines we provide you with all IT, design, software
+                           and/or
+                           AI books for the lowest cost Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        </p>
+                        <button type="button" aria-controls="SlideOne" class="button | PrimaryBtn | GalleryBtn">
+                           Learn more <svg>
+                              <use xlink:href="#HELP-ICON"></use>
+                           </svg>
+                        </button>
+                     </article>
 
-                  <article id="SlideOne" class="carousel-caption | carouselArticle">
-                     <h1 class="carouselTitle">Lorem ipsum dolor sit amet.</h1>
-                     <p class="carouselDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam,
-                        consequatur ex debitis ut similique vero rerum suscipit perspiciatis aliquid ratione. Dolore
-                        accusamus suscipit laboriosam harum!</p>
-                     <button type="button" aria-controls="SlideOne" class="button PrimaryBtn">
+                     <lottie-player class="lottieAnimation d-none d-lg-block"
+                        src="https://assets1.lottiefiles.com/packages/lf20_akio2kni.json" mode="bounce"
+                        background="transparent" speed="0.5" hover autoplay loop></lottie-player>
+
+                  </section>
+
+                  <section class="bottomPart" id="main" topic="main">
+                     <section class="aboutTopic allTopics" id="webDevelopmentTopic" searchQuery="webDevelopment"
+                        isToggled="true" hidden>
+                        <a title="go Back to gallery" class="button SecondaryBtn GoBack">
+                           Go back
+                           <svg class="btnSvgIcon">
+                              <use xlink:href="#GO-BACK-ICON"></use>
+                           </svg>
+                        </a>
+                        <h1 class="topicTitleExpanded Title">Web Development</h1>
+
+                        <section class="aboutSectionCard">
+                           <h3 class="articleHeading">What Does Web Development Mean?</h3>
+                           <section class="flex">
+                              <p class="articleDescription">Web development refers in general to the tasks associated
+                                 with developing websites for hosting via intranet or internet. The web development
+                                 process includes web design, web content development, client-side/server-side scripting
+                                 and network security configuration, among other tasks.
+                                 In a broader sense, web development encompasses all the actions, updates, and
+                                 operations required to build, maintain and manage a website to ensure its performance,
+                                 user experience, and speed are optimal.
+                                 It might also, but not necessarily, include all those strategic actions needed to
+                                 ensure its proper ranking on search engine results. Usually, those tasks pertain to a
+                                 different specialization, namely search engine optimization (SEO)
+                                 Web development is also known as website development, while the professionals that
+                                 maintain a website are called web developers or (more commonly) web devs.
+                              </p>
+                              <img src="/Assets/frontCover/bookOne.png" class="articleImage" alt="">
+                           </section>
+                        </section>
+
+                        <section class="aboutSectionCard">
+                           <h3 class="articleHeading">Explanation of Web development work flow?</h3>
+                           <section class="flex">
+                              <p class="articleDescription"> is the coding or programming that enables website
+                                 functionality, per the owner's requirements. It mainly deals with the non-design aspect
+                                 of building websites, which includes coding and writing markup.
+                                 Web development ranges from creating plain text pages to complex web-based
+                                 applications, social network applications and electronic business applications.
+                                 The web development hierarchy is as follows:
+                                 Client-side coding.
+                                 Server-side coding.
+                                 Database technology.
+                                 Most web devs use Hypertext Markup Language (HTML), Cascading Style Sheets (CSS), and
+                                 JavaScript to develop websites.
+                                 HTML defines the basic framework of a website – the foundation upon which everything
+                                 else is built upon. It forms the blocks that define a page’s layout, format, and
+                                 critical components. Although it is theoretically possible to code a website on HTML
+                                 only, it will be just a barebone site with no functions unless it’s enriched with CSS
+                                 and JavaScript. Also, even simple style modifications such as changing the color of a
+                                 button require a lot of coding to be executed using HTML only.
+                                 CSS is used to style the content of a website using a small set of files that are kept
+                                 across the entire site. This way, whenever a change must be applied to say,
+                                 consistently change the color of all the buttons found in every page of the website, a
+                                 web dev needs to edit only a single file in CSS.
+                                 The JavaScript programming language is used to take care of the interactivity of many
+                                 unique website elements. It can be used to create effects that alter the appearance of
+                                 icons and drop-down menus, add animations, games, and other interactive elements.
+                                 Web developers are usually divided into front-end devs, back-end devs, and full-stack
+                                 devs. A front-end dev takes care of all the visual aspects of the website (layout,
+                                 navigation bar, etc.), its interactivity, and binds together all its elements.
+                                 Back-end devs take care of less visible tasks that ensure the website runs smoothly,
+                                 such as managing the website’s hosting services, database, and applications. Back-end
+                                 devs might need to engineer solution to server issues by using additional server-side
+                                 languages such as Python, Ruby, Java, and PHP.
+                                 Full-stack devs are developers able to do both front-end and back-end tasks at the same
+                                 time.
+                              </p>
+                              <img src="/Assets/frontCover/bookOne.png" class="articleImage" alt="">
+                           </section>
+                        </section>
+                        <section class="findBooksRelatedSection">
+
+                           <h4 class="findRelated  topicTitleExpanded bottom">
+                              Find books related to Web Development
+                              <topic class="topicInnerText Title"></topic>
+                           </h4>
+                           <section class="books"></section>
+                        </section>
+
+                        <template class="bookCardsTemplate">
+                           <section class="bookCard">
+                              <img class="frontCover" src="" alt="book cover">
+                              <section class="aboutBook">
+                                 <h3 class="bookTitle"> </h3>
+                                 <p class="bookSubtitle"></p>
+                                 <p class="bookDescription"></p>
+                                 <nav class="aboutBookNav">
+                                    <ul class="aboutBookList">
+                                       <li class="aboutBookItem Price" price="€000.00">€000.00</li>
+                                       <li class="aboutBookItem Link">
+                                          <a title="view book on" target="_blank" href="#" class="linkDirectory Link">
+                                             <svg class="bookIcon">
+                                                <use xlink:href="#LINK-BOOK-ICON"></use>
+                                             </svg>
+                                          </a>
+                                       </li>
+                                       <li class="aboutBookItem ISBN" ISBN="">
+                                          <svg class="bookIcon">
+                                             <use xlink:href="#ISBN-BOOK-ICON"></use>
+                                          </svg>
+                                       </li>
+                                       <li class="aboutBookItem Favorite" bookName="" listName="Favorite"
+                                          isFavorite="false">
+                                          <svg class="bookIcon">
+                                             <use xlink:href="#FAVORITE-BOOK-ICON"></use>
+                                          </svg>
+                                       </li>
+                                       <li class="aboutBookItem Cart" bookName="" listName="Cart" isAddedToCart="false">
+                                          <svg class="bookIcon">
+                                             <use xlink:href="#CART-BOOK-ICON"></use>
+                                          </svg>
+                                       </li>
+                                    </ul>
+                                 </nav>
+                              </section>
+                           </section>
+                        </template>
+
+                        <section class="aboutSectionCard">
+                           <h3 class="articleHeading">Web Developer job description</h3>
+                           <section class="flex">
+                              <p class="articleDescription">
+                                 A Web Developer is a professional who is responsible for the design and construction of
+                                 websites. They ensure that sites meet user expectations by ensuring they look good, run
+                                 smoothly and offer easy access points with no loading issues between pages or error
+                                 messages.
+                                 This Web Developer job description sample template is optimized for advertising for a
+                                 website developer on online job boards or careers pages. It is easy to customize with
+                                 key duties and responsibilities. Feel free to modify this posting to a web designer job
+                                 description, or for your specific needs.
+                                 Web Developer responsibilities include:
+                                 Writing well designed, testable, efficient code by using best software development
+                                 practices
+                                 Creating website layout/user interfaces by using standard HTML/CSS practices
+                                 Integrating data from various back-end services and databases
+                              </p>
+                              <img src="/Assets/frontCover/bookOne.png" class="articleImage" alt="">
+                           </section>
+                        </section>
+
+                        <section class="findRelatedContent">
+                           <h5 class="topicTitleExpanded bottom">
+                              Find more content related to <br>
+                              <keyWards class="secondaryColor">Web Development</keyWards>
+                              <br>
+                              <topic class="topicInnerText"></topic>
+                           </h5>
+
+                           <a title="go to books page" id="getURL" href="/Books.html" class="button PrimaryBtn">
+                              Find More
+                              <svg class="btnSvgIcon">
+                                 <use xlink:href="#SEARCH-BAR-ICON"></use>
+                              </svg>
+                           </a>
+                        </section>
+
+                     </section>
+                  </section>
+
+
+               </section>
+               <section class="carousel-item  sectionCarousel">
+
+                  <img src="../Assets/galleryPageAssets/webdevee.jpg" class="containerBgIma"
+                     alt="Slide Two background Image">
+
+                  <article id="SlideTwo" class="carousel-caption | carouselArticle">
+                     <h1 class="carouselTitle">Welcome to Dark Engines Library, Where You can Discover, Learn and Gain
+                        your IT knowledge!. </h1>
+                     <p class="carouselDescription">at dark engines we provide you with all IT, design, software and/or
+                        AI books for the lowest cost Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                     </p>
+                     <button type="button" aria-controls="SlideOne" class="button | PrimaryBtn | GalleryBtn">
                         Learn more <svg>
-                           <use xlink:href="#plane"></use>
+                           <use xlink:href="#HELP-ICON"></use>
                         </svg>
                      </button>
                   </article>
 
+                  <lottie-player class="lottieAnimation d-none d-lg-block"
+                     src="https://assets1.lottiefiles.com/packages/lf20_akio2kni.json" mode="bounce"
+                     background="transparent" speed="0.5" hover autoplay loop></lottie-player>
+
 
                </section>
-               <section class="carousel-item sectionCarousel">
-                  <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?fit=crop&w=2134&q=100"
-                     class="d-block w-100 c-img" alt="Slide 2">
-                  <section class="carousel-caption top-0 mt-4">
-                     <p class="text-uppercase fs-3 mt-5">The season has arrived</p>
-                     <p class="display-1 fw-bolder text-capitalize">3 available tours</p>
-                     <button class="btn btn-primary px-4 py-2 fs-5 mt-5" data-bs-toggle="modal"
-                        data-bs-target="#booking-modal">Book a tour</button>
-                  </section>
-               </section>
-               <section class="carousel-item sectionCarousel">
-                  <img src="https://images.unsplash.com/photo-1612686635542-2244ed9f8ddc?fit=crop&w=2070&q=100"
-                     class="d-block w-100 c-img" alt="Slide 3">
-                  <section class="carousel-caption top-0 mt-4">
-                     <p class="text-uppercase fs-3 mt-5">Destination activities</p>
-                     <p class="display-1 fw-bolder text-capitalize">Go glacier hiking</p>
-                     <button class="btn btn-primary px-4 py-2 fs-5 mt-5" data-bs-toggle="modal"
-                        data-bs-target="#booking-modal">Book a tour</button>
-                  </section>
+
+               <section class="carousel-item  sectionCarousel">
+
+                  <img src="../Assets/galleryPageAssets/webdev.png" class="containerBgIma"
+                     alt="Slide Two background Image">
+
+                  <article id="SlideTwo" class="carousel-caption | carouselArticle">
+                     <h1 class="carouselTitle javaScript">JavaScript is one of the most widely-used programming
+                        languages in the world </h1>
+                     <p class="carouselDescription"> it can be used for both front-end and back-end web
+                        development, as well as for developing desktop and mobile applications.
+                     </p>
+                     <button type="button" aria-controls="SlideOne" class="button | PrimaryBtn | GalleryBtn">
+                        Learn more <svg>
+                           <use xlink:href="#HELP-ICON"></use>
+                        </svg>
+                     </button>
+                  </article>
+
+                  <lottie-player class="lottieAnimation d-none d-lg-block"
+                     src="https://assets10.lottiefiles.com/packages/lf20_w51pcehl.json" background="transparent"
+                     speed="0.5" hover loop autoplay></lottie-player>
+
+
                </section>
             </section>
 
-            <button aria-controls="heroCarousel" class="carousel-control-prev" type="button"
+            <button aria-controls="heroCarousel" class="carousel-control-prev | Controllers" type="button"
                data-bs-target="#heroCarousel" data-bs-slide="prev">
                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                <span class="visually-hidden">Previous</span>
             </button>
 
-            <button aria-controls="heroCarousel" class="carousel-control-next" type="button"
+            <button aria-controls="heroCarousel" class="carousel-control-next | Controllers" type="button"
                data-bs-target="#heroCarousel" data-bs-slide="next">
                <span class="carousel-control-next-icon" aria-hidden="true"></span>
                <span class="visually-hidden">Next</span>
             </button>
+
+         </section>
+         <section>
 
          </section>
       </main>
