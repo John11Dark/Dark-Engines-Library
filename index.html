@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 
   <head>
     <meta charset="UTF-8" />
@@ -26,7 +26,7 @@
     <!-- Scripts -->
     <script src="./JS/main.js" type="module"></script>
     <!-- wrap all lists and SVGs content in global data section -->
-    <data class="globalData">
+    <data value="false" class="globalData">
       <!-- message icon -->
       <svg xmlns="http://www.w3.org/2000/svg">
         <symbol id="MESSAGE-BUTTON-ICON" viewBox="0 0 640 512" preserveAspectRatio="xMinYMin meet">
@@ -74,12 +74,12 @@
 
 
     <!-- page header and navigation bar -->
-    <header isIntersecting="false">
-      <img tabindex="2" title="Go to welcome page" aria-label="Clickable logo image" mode="Dark" id="mainLogo"
-        class="mainLogo Logo" aria-hidden="true" src="./Assets/DarkEnginesLibraryLogoLight.png"
-        alt="Dark Engines Library logo" />
+    <header>
+      <img tabindex="2" title="Go to welcome page" aria-label="Clickable logo image" id="mainLogo"
+           class="mainLogo Logo" aria-hidden="true" src="./Assets/DarkEnginesLibraryLogoLight.png"
+           alt="Dark Engines Library logo" />
       <section aria-label="main menu button" aria-controls="mainMenu" class="navButton" id="navButton" isToggled="false"
-        title="open main menu" type="button">
+        title="open main menu">
         <section class="line LineNumOne"></section>
         <section class="line LineNumTwo"></section>
         <section class="line LineNumThree"></section>
@@ -106,7 +106,7 @@
             <a active="false" class="link" title="Dark Engines Library About page" href="./Pages/About.html">About</a>
           </li>
           <li tabindex="8" class="switchMode" currentMode="dark">
-            <svg class="themeIcon" theme="dark">
+            <svg class="themeIcon">
               <use id="themeIconLink" xlink:href="#DARK-MODE-ICON"></use>
             </svg>
           </li>
@@ -183,11 +183,11 @@
         <img src="./Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
         <p class="formTitle">Register</p>
       </header>
-      <p class="formErrorMessage" id="errorMessage">Lorem ipsum dolor sit amet consecrator adipisicing elit. Eos, ad!
+      <p class="formErrorMessage" id="errorMessage">
       </p>
       <section class="mainFormContent">
         <section class="inputFieldContainer">
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="firstName"> Full Name</label>
+          <label class="inputFiledLabel | authFormInputFiledLabel" for="fullName"> Full Name</label>
           <input hasContent="false" type="text" id="fullName" class="inputField" name="fullName"
             title="insert your full name" required maxlength="20" minlength="3" aria-required="true">
         </section>
@@ -198,8 +198,8 @@
           <option value="female">Female</option>
         </select>
         <section class="inputFieldContainer">
-          <input hasContent="true" autocomplete="bday" type="date" id="dateOfbirth" class="dateOfBirth"
-            name="dateOfBirth" title="insert your Date of birth" required>
+          <input hasContent="true" autocomplete="bday" type="date" id="dateOfBirth" class="dateOfBirth"
+                 name="dateOfBirth" title="insert your Date of birth" required>
           <label class="inputFiledLabel | authFormInputFiledLabel" for="dateOfBirth">Date of birth</label>
         </section>
         <section class="inputFieldContainer">
@@ -237,49 +237,48 @@
 
     <!-- Login Form  -->
     <form class="loginForm | authForm" visible="false" aria-hidden="true"
-      aria-label="login to dark engines library Form" autocomplete="on" aria-autocomplete="on" id="loginForm"
+      aria-label="login to dark engines library Form" autocomplete="on"  id="loginForm"
       title="register to dark engines library Form" method="POST" enctype="application/x-www-form-urlencoded">
       <header class="formHeader">
         <img src="./Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
         <p class="formLoginTitle | formTitle ">Login</p>
       </header>
-      <p class="formErrorMessage" id="errorMessageLg">Lorem ipsum dolor sit amet adipisicing elit. Eos,
+      <p class="formErrorMessage" id="errorMessageLg">Lorem ipsum dolor sit amet . Eos,
         ad!
       </p>
       <section class="mainFormContent">
-        <section class="mainFormContent">
-          <section class="inputFieldContainer">
-            <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
-            <input hasContent="false" class="inputField | authFormInputFiled"
-              pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="email" name="email" type="email" title="email"
-              aria-required="true" autocomplete="email" required>
-            <p class="inputDescription" id="emailDescription" valid="unset">Enter your email.</p>
-          </section>
-          <section class="inputFieldContainer">
-            <label class="inputFiledLabel | authFormInputFiledLabel" for="password">Password</label>
-            <input hasContent="false" autocomplete="current-password" class="inputField | authFormInputFiled" required
-              id="password" name="password" type="password" title="password" aria-required="true" minlength="12"
-              maxlength="32">
-            <p class="inputDescription" id="passwordDescription" valid="unset">Password must be between 12 - 32
-              characters long.
-            </p>
-          </section>
-          <section class="formActionButtons">
-            <button class="submitBtn | PrimaryButton" id="submitButton" type="submit" title="Submit">
-              Submit
-              <svg>
-                <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
-              </svg>
-            </button>
-            <button class="formCloseButton | SecondaryBtn" id="closeButton" type="reset" title="cancel">
-              Cancel
-              <svg>
-                <use xlink:href="#CLOSE-BUTTON-ICON"></use>
-              </svg>
-            </button>
-          </section>
+        <section class="inputFieldContainer">
+          <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
+          <input hasContent="false" class="inputField | authFormInputFiled"
+                 pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="email" name="email" type="email" title="email"
+                 aria-required="true" autocomplete="email" required>
+          <p class="inputDescription" id="emailDescription" valid="unset">Enter your email.</p>
         </section>
-        <a class="forgetPassword | " id="forgetPassword" href="#">Forget password?</a>
+        <section class="inputFieldContainer">
+          <label class="inputFiledLabel | authFormInputFiledLabel" for="password">Password</label>
+          <input hasContent="false" autocomplete="current-password" class="inputField | authFormInputFiled" required
+                 id="password" name="password" type="password" title="password" aria-required="true" minlength="12"
+                 maxlength="32">
+          <p class="inputDescription" id="passwordDescription" valid="unset">Password must be between 12 - 32
+            characters long.
+          </p>
+        </section>
+        <section class="formActionButtons">
+          <button class="submitBtn | PrimaryButton" id="submitButton" type="submit" title="Submit">
+            Submit
+            <svg>
+              <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+            </svg>
+          </button>
+          <button class="formCloseButton | SecondaryBtn" id="closeButton" type="reset" title="cancel">
+            Cancel
+            <svg>
+              <use xlink:href="#CLOSE-BUTTON-ICON"></use>
+            </svg>
+          </button>
+        </section>
+      </section>
+      <a class="forgetPassword | " id="forgetPassword" href="#">Forget password?</a>
     </form>
 
   </body>

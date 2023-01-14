@@ -23,9 +23,10 @@
 
 const notifications = [];
 
-function copyToClipboard(object, Attribute) {
+async function copyToClipboard(object, Attribute) {
   const textContent = object.getAttribute(Attribute);
-  navigator.clipboard.writeText(textContent);
+  const response = await navigator.clipboard.writeText(textContent);
+  if(response)
   customAlert(
     `"${textContent}" has been copied successfully!\n to the clipBoard"`
   );
@@ -100,6 +101,5 @@ function customAlert(message) {
 export default {
   copyToClipboard,
   customAlert,
-  removeAlertCard,
   customAlertItems,
 };

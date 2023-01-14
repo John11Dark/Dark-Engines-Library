@@ -60,7 +60,6 @@ footer {
 }
 
 .socialLinksAside {
-  margin-top: 1em;
   display: flex !important;
   justify-content: center;
   gap: 2.5rem;
@@ -136,7 +135,7 @@ footer {
   width: 100%;
   padding: 1em;
   font-size: var(--paragraphFontSize);
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   box-shadow: var(--boxShadowLightBehind);
   background-color: var(--backgroundColor);
   color: var(--labelColor);
@@ -154,11 +153,11 @@ footer {
 }
 .phoneNumberDropDown {
   position: relative;
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   overflow: hidden;
 }
 .countriesCodeList {
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   cursor: pointer;
   appearance: none;
   background-color: var(--primaryCardColor);

@@ -22,7 +22,13 @@ const booksQuery = [];
 
 function showResult(query) {}
 
-async function setupContainer(container, template, searchQuery, searchList) {
+export async function setupContainer(
+  container,
+  template,
+  searchQuery,
+  searchList
+) {
+  container.textContent = "";
   searchQuery = searchQuery || "new books";
   const books = await Client.getBooks(searchQuery);
   if (books === null || books.length === 0) showResult(null);

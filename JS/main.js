@@ -26,7 +26,7 @@ const themeIcon = document.querySelector("#themeIconLink");
 const navLinks = document.querySelectorAll(".pageLink");
 const navButton = document.querySelector("#navButton");
 const linksAuth = document.querySelectorAll("[isAuthenticated]");
-
+const goToTopButton = document.querySelector("[go-top-button]");
 const loginButton = document.querySelector("#loginButton");
 const loginForm = document.querySelector("#loginForm");
 const signupButton = document.querySelector("#signupButton");
@@ -35,7 +35,7 @@ const registerForm = document.querySelector("#registerForm");
 const redirectButtons = document.querySelectorAll("button[href]");
 const inputFields = document.querySelectorAll("input");
 const heroSection = document.querySelector("#heroSection");
-
+const heroCarousel = document.querySelector("#heroCarousel");
 const contactForm = document.querySelector("#contactForm");
 const countryCodeSelectOptions = document.querySelector(
   "#countriesCodeOptions"
@@ -44,11 +44,9 @@ const countryCodeInputOptions = document.querySelector("#countriesCode");
 
 // ? * --> Variables
 const userModePreference = window.matchMedia("(prefers-color-scheme: Dark)");
-const platform = navigator.platform;
-const today = new Date();
 const observerConfig = { rootMargin: "0px 0px 0px 0px" };
 const root = document.documentElement;
-const navigationHight = header.offsetHeight;
+const navigationHeight = header.offsetHeight;
 const THEME = localStorage.getItem("theme")
   ? localStorage.getItem("theme")
   : userModePreference.matches
@@ -57,12 +55,16 @@ const THEME = localStorage.getItem("theme")
 
 // ? * --> Instance
 
-const headerObserver = new IntersectionObserver((entries, headerObserver) => {
+const headerObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting)
-      return header.setAttribute("isInteracting", false);
+    if (entry.isIntersecting) {
+      header.setAttribute("isInteracting", false);
+      if (goToTopButton) goToTopButton.setAttribute("go-top-button", false);
+      return;
+    }
 
     header.setAttribute("isInteracting", true);
+    if (goToTopButton) goToTopButton.setAttribute("go-top-button", true);
   });
 }, observerConfig);
 
@@ -94,6 +96,7 @@ function setTheme(theme) {
     root.style.setProperty("--primaryCardColor", "#e2efffa2");
     root.style.setProperty("--primaryColorLight", "#181414");
     root.style.setProperty("--backgroundColor", "#d9e9f1");
+    root.style.setProperty("--cardBackgroundColorOpacity", "#ccf4fc7a");
     root.style.setProperty("--primaryColorLightGray", "#a4adb4");
 
     root.style.setProperty("--customBackgroundColorDarkMode", "#cbd9df");
@@ -109,6 +112,7 @@ function setTheme(theme) {
     root.style.setProperty("--primaryCardColor", "#23282ea2");
     root.style.setProperty("--primaryColorLight", "#fffeff");
     root.style.setProperty("--backgroundColor", "#1d2325");
+    root.style.setProperty("--cardBackgroundColorOpacity", "#18292e71");
     root.style.setProperty("--primaryColorLightGray", "#cad3da");
 
     root.style.setProperty("--customBackgroundColorDarkMode", "#488d9f");
@@ -187,8 +191,7 @@ async function getCountriesCode() {
 }
 
 export function redirect(url) {
-  const route = `${window.origin}${url.slice(1)}`;
-  window.location.href = route;
+  window.location.href = `${window.origin}${url.slice(1)}`;
 }
 
 // ? * --> Setup document
@@ -205,15 +208,14 @@ Auth.generateUniqueId();
 // * --> setup user content
 if (
   userAvatar != null &&
-  usernameLabels.length !== 0 &&
-  usernameLabels != null
+    usernameLabels.length !== 0
 ) {
   setupUser(userName, userAvatarURL);
 }
 // ? * -->  section navigation smooth scroll
 root.style.setProperty(
   "----scrollPadding",
-  Math.round(navigationHight - 1) + "px"
+  Math.round(navigationHeight - 1) + "px"
 );
 
 // * --> setup country codes
@@ -228,14 +230,14 @@ if (countryCodeInputOptions != null) getCountriesCode();
 // * --> scroll
 
 if (heroSection != null) headerObserver.observe(heroSection);
+if (heroCarousel != null) headerObserver.observe(heroCarousel);
 
 // * --> Click
 
 themeSwitch.addEventListener("pointerdown", () => setTheme());
 
 logo.addEventListener("pointerdown", () => {
-  const route = `${window.origin}${routes.INDEX.slice(1)}`;
-  window.location.href = route;
+  window.location.href = `${window.origin}${routes.INDEX.slice(1)}`;
 });
 
 redirectButtons.forEach((button) => {
@@ -244,7 +246,7 @@ redirectButtons.forEach((button) => {
   });
 });
 
-navButton.addEventListener("pointerdown", (e) => {
+navButton.addEventListener("pointerdown", () => {
   const isExpanded = navButton.getAttribute("isToggled");
   if (isExpanded === "false") {
     navButton.setAttribute("isToggled", true);

@@ -40,6 +40,15 @@
 
       <!-- wrap all lists and SVGs content in global data section -->
       <data class="globalData">
+
+         <!--  -->
+
+         <svg xmlns="http://www.w3.org/2000/svg">
+            <symbol id="ARROW-ICON" viewBox="0 0 384 512" preserveAspectRatio="xMinYMin meet">
+               <path
+                  d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
+            </symbol>
+         </svg>
          <!-- message icon -->
          <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="MESSAGE-BUTTON-ICON" viewBox="0 0 640 512" preserveAspectRatio="xMinYMin meet">
@@ -256,6 +265,11 @@
          skip navigation bar
       </button>
 
+      <!-- Go to top button -->
+      <a class="goUpButton" go-top-button="false" href="#heroCarousel" name="top" title="go to top"><svg class="sm-svg">
+            <use xlink:href="#ARROW-ICON"></use>
+         </svg>
+      </a>
       <!--   Notification system  -->
       <section class="notificationCenter">
          <!-- custom alert content  -->
@@ -269,6 +283,48 @@
             </section>
          </template>
       </section>
+
+      <!-- Books Template -->
+      <template id="template" class="bookCardsTemplate">
+         <section class="bookCard">
+
+            <img class="frontCover" src="" alt="book cover">
+
+            <section class="aboutBook">
+               <h3 class="bookTitle"></h3>
+               <p class="bookSubtitle"></p>
+
+               <nav class="aboutBookNav">
+                  <ul class="aboutBookList">
+                     <li class="aboutBookItem Price" price="€000.00">€000.00</li>
+                     <li class="aboutBookItem Link">
+                        <a title="view book on" target="_blank" href="#" class="linkDirectory Link">
+                           <svg class="bookIcon">
+                              <use xlink:href="#LINK-BOOK-ICON"></use>
+                           </svg>
+                        </a>
+                     </li>
+                     <li id="ISBN" class="aboutBookItem ISBN" ISBN="">
+                        <svg class="bookIcon">
+                           <use xlink:href="#ISBN-BOOK-ICON"></use>
+                        </svg>
+                     </li>
+                     <li class="aboutBookItem Favorite" bookName="" listName="Favorite" isFavorite="false">
+                        <svg class="bookIcon">
+                           <use xlink:href="#FAVORITE-BOOK-ICON"></use>
+                        </svg>
+                     </li>
+                     <li class="aboutBookItem Cart" id="cart" bookName="" listName="Cart" isAddedToCart="false">
+                        <svg class="bookIcon">
+                           <use xlink:href="#CART-BOOK-ICON"></use>
+                        </svg>
+                     </li>
+                  </ul>
+               </nav>
+            </section>
+
+         </section>
+      </template>
 
       <!-- Page header -->
       <header isIntersecting="false">
@@ -319,8 +375,8 @@
                      Login
                   </button>
 
-                  <button id="registerButton" class="button PrimaryBtn noIcon" title="register to dark engines library"
-                     type="button" href="./Pages/register.html">
+                  <button id="signupButton" class="button PrimaryBtn noIcon" title="register to dark engines library"
+                     type="button">
                      SignUp
                   </button>
                </li>
@@ -328,226 +384,78 @@
          </nav>
       </header>
 
-      <main id="mainContent">
+      <!-- Main content -->
+      <main id="mainContent" isContentObserving="false">
 
-         <section id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+         <!-- carousel section -->
+         <section id="heroCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
             <ol class="carousel-indicators indicatorsContainer">
                <li>
-                  <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="indicator active"
-                     aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0"
+                     class="indicator | active | carouselControllers" aria-current="true" aria-label="Slide 1"></button>
                </li>
                <li>
-                  <button type="button" class="indicator" data-bs-target="#heroCarousel" data-bs-slide-to="1"
-                     aria-label="Slide 2"></button>
+                  <button type="button" class="indicator | carouselControllers" data-bs-target="#heroCarousel"
+                     data-bs-slide-to="1" aria-label="Slide 2"></button>
                </li>
                <li>
-                  <button type="button" class="indicator" data-bs-target="#heroCarousel" data-bs-slide-to="2"
-                     aria-label="Slide 3"></button>
+                  <button type="button" class="indicator | carouselControllers" data-bs-target="#heroCarousel"
+                     data-bs-slide-to="2" aria-label="Slide 3"></button>
+               </li>
+               <li>
+                  <button type="button" class="indicator | carouselControllers" data-bs-target="#heroCarousel"
+                     data-bs-slide-to="3" aria-label="Slide 4"></button>
                </li>
             </ol>
 
             <section class="carousel-inner">
-               <section class="carousel-item active sectionCarousel">
-                  <section class="upperPart" id="mainTopic" topic="main">
-                     <img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?fit=crop&w=1964&q=100"
-                        class="containerBgIma" alt="Slide One background Image">
 
-                     <article id="SlideOne" class="carousel-caption | carouselArticle">
-                        <h1 class="carouselTitle">Welcome to Dark Engines Library, Where You can Discover, Learn and
-                           Gain
-                           your IT knowledge!. </h1>
-                        <p class="carouselDescription">at dark engines we provide you with all IT, design, software
-                           and/or
-                           AI books for the lowest cost Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        </p>
-                        <button type="button" aria-controls="SlideOne" class="button | PrimaryBtn | GalleryBtn">
-                           Learn more <svg>
-                              <use xlink:href="#HELP-ICON"></use>
-                           </svg>
-                        </button>
-                     </article>
+               <section class="carousel-item active sectionCarousel" id="SlideOne" topic="main" target="#mainTopic">
+                  <img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?fit=crop&w=1964&q=100"
+                     class="containerBgIma" alt="Slide One background Image">
 
-                     <lottie-player class="lottieAnimation d-none d-lg-block"
-                        src="https://assets1.lottiefiles.com/packages/lf20_akio2kni.json" mode="bounce"
-                        background="transparent" speed="0.5" hover autoplay loop></lottie-player>
+                  <article class="carousel-caption | carouselArticle">
+                     <h1 class="carouselTitle">Welcome to Dark Engines Library, Where You can Discover, Learn and
+                        Gain
+                        your IT knowledge!. </h1>
+                     <p class="carouselDescription">at dark engines we provide you with all IT, design, software
+                        and/or
+                        AI books for the lowest cost Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                     </p>
+                     <button id="topicOneBtn" type="button" aria-controls="SlideOne"
+                        class="button | PrimaryBtn | GalleryBtn | ControllersBtns" target="#mainTopic"
+                        isToggled="false">
+                        <span class="buttonLbl" button-label>Learn More</span>
+                        <svg>
+                           <use xlink:href="#HELP-ICON"></use>
+                        </svg>
+                     </button>
+                  </article>
 
-                  </section>
-
-                  <section class="bottomPart" id="main" topic="main">
-                     <section class="aboutTopic allTopics" id="webDevelopmentTopic" searchQuery="webDevelopment"
-                        isToggled="true" hidden>
-                        <a title="go Back to gallery" class="button SecondaryBtn GoBack">
-                           Go back
-                           <svg class="btnSvgIcon">
-                              <use xlink:href="#GO-BACK-ICON"></use>
-                           </svg>
-                        </a>
-                        <h1 class="topicTitleExpanded Title">Web Development</h1>
-
-                        <section class="aboutSectionCard">
-                           <h3 class="articleHeading">What Does Web Development Mean?</h3>
-                           <section class="flex">
-                              <p class="articleDescription">Web development refers in general to the tasks associated
-                                 with developing websites for hosting via intranet or internet. The web development
-                                 process includes web design, web content development, client-side/server-side scripting
-                                 and network security configuration, among other tasks.
-                                 In a broader sense, web development encompasses all the actions, updates, and
-                                 operations required to build, maintain and manage a website to ensure its performance,
-                                 user experience, and speed are optimal.
-                                 It might also, but not necessarily, include all those strategic actions needed to
-                                 ensure its proper ranking on search engine results. Usually, those tasks pertain to a
-                                 different specialization, namely search engine optimization (SEO)
-                                 Web development is also known as website development, while the professionals that
-                                 maintain a website are called web developers or (more commonly) web devs.
-                              </p>
-                              <img src="/Assets/frontCover/bookOne.png" class="articleImage" alt="">
-                           </section>
-                        </section>
-
-                        <section class="aboutSectionCard">
-                           <h3 class="articleHeading">Explanation of Web development work flow?</h3>
-                           <section class="flex">
-                              <p class="articleDescription"> is the coding or programming that enables website
-                                 functionality, per the owner's requirements. It mainly deals with the non-design aspect
-                                 of building websites, which includes coding and writing markup.
-                                 Web development ranges from creating plain text pages to complex web-based
-                                 applications, social network applications and electronic business applications.
-                                 The web development hierarchy is as follows:
-                                 Client-side coding.
-                                 Server-side coding.
-                                 Database technology.
-                                 Most web devs use Hypertext Markup Language (HTML), Cascading Style Sheets (CSS), and
-                                 JavaScript to develop websites.
-                                 HTML defines the basic framework of a website – the foundation upon which everything
-                                 else is built upon. It forms the blocks that define a page’s layout, format, and
-                                 critical components. Although it is theoretically possible to code a website on HTML
-                                 only, it will be just a barebone site with no functions unless it’s enriched with CSS
-                                 and JavaScript. Also, even simple style modifications such as changing the color of a
-                                 button require a lot of coding to be executed using HTML only.
-                                 CSS is used to style the content of a website using a small set of files that are kept
-                                 across the entire site. This way, whenever a change must be applied to say,
-                                 consistently change the color of all the buttons found in every page of the website, a
-                                 web dev needs to edit only a single file in CSS.
-                                 The JavaScript programming language is used to take care of the interactivity of many
-                                 unique website elements. It can be used to create effects that alter the appearance of
-                                 icons and drop-down menus, add animations, games, and other interactive elements.
-                                 Web developers are usually divided into front-end devs, back-end devs, and full-stack
-                                 devs. A front-end dev takes care of all the visual aspects of the website (layout,
-                                 navigation bar, etc.), its interactivity, and binds together all its elements.
-                                 Back-end devs take care of less visible tasks that ensure the website runs smoothly,
-                                 such as managing the website’s hosting services, database, and applications. Back-end
-                                 devs might need to engineer solution to server issues by using additional server-side
-                                 languages such as Python, Ruby, Java, and PHP.
-                                 Full-stack devs are developers able to do both front-end and back-end tasks at the same
-                                 time.
-                              </p>
-                              <img src="/Assets/frontCover/bookOne.png" class="articleImage" alt="">
-                           </section>
-                        </section>
-                        <section class="findBooksRelatedSection">
-
-                           <h4 class="findRelated  topicTitleExpanded bottom">
-                              Find books related to Web Development
-                              <topic class="topicInnerText Title"></topic>
-                           </h4>
-                           <section class="books"></section>
-                        </section>
-
-                        <template class="bookCardsTemplate">
-                           <section class="bookCard">
-                              <img class="frontCover" src="" alt="book cover">
-                              <section class="aboutBook">
-                                 <h3 class="bookTitle"> </h3>
-                                 <p class="bookSubtitle"></p>
-                                 <p class="bookDescription"></p>
-                                 <nav class="aboutBookNav">
-                                    <ul class="aboutBookList">
-                                       <li class="aboutBookItem Price" price="€000.00">€000.00</li>
-                                       <li class="aboutBookItem Link">
-                                          <a title="view book on" target="_blank" href="#" class="linkDirectory Link">
-                                             <svg class="bookIcon">
-                                                <use xlink:href="#LINK-BOOK-ICON"></use>
-                                             </svg>
-                                          </a>
-                                       </li>
-                                       <li class="aboutBookItem ISBN" ISBN="">
-                                          <svg class="bookIcon">
-                                             <use xlink:href="#ISBN-BOOK-ICON"></use>
-                                          </svg>
-                                       </li>
-                                       <li class="aboutBookItem Favorite" bookName="" listName="Favorite"
-                                          isFavorite="false">
-                                          <svg class="bookIcon">
-                                             <use xlink:href="#FAVORITE-BOOK-ICON"></use>
-                                          </svg>
-                                       </li>
-                                       <li class="aboutBookItem Cart" bookName="" listName="Cart" isAddedToCart="false">
-                                          <svg class="bookIcon">
-                                             <use xlink:href="#CART-BOOK-ICON"></use>
-                                          </svg>
-                                       </li>
-                                    </ul>
-                                 </nav>
-                              </section>
-                           </section>
-                        </template>
-
-                        <section class="aboutSectionCard">
-                           <h3 class="articleHeading">Web Developer job description</h3>
-                           <section class="flex">
-                              <p class="articleDescription">
-                                 A Web Developer is a professional who is responsible for the design and construction of
-                                 websites. They ensure that sites meet user expectations by ensuring they look good, run
-                                 smoothly and offer easy access points with no loading issues between pages or error
-                                 messages.
-                                 This Web Developer job description sample template is optimized for advertising for a
-                                 website developer on online job boards or careers pages. It is easy to customize with
-                                 key duties and responsibilities. Feel free to modify this posting to a web designer job
-                                 description, or for your specific needs.
-                                 Web Developer responsibilities include:
-                                 Writing well designed, testable, efficient code by using best software development
-                                 practices
-                                 Creating website layout/user interfaces by using standard HTML/CSS practices
-                                 Integrating data from various back-end services and databases
-                              </p>
-                              <img src="/Assets/frontCover/bookOne.png" class="articleImage" alt="">
-                           </section>
-                        </section>
-
-                        <section class="findRelatedContent">
-                           <h5 class="topicTitleExpanded bottom">
-                              Find more content related to <br>
-                              <keyWards class="secondaryColor">Web Development</keyWards>
-                              <br>
-                              <topic class="topicInnerText"></topic>
-                           </h5>
-
-                           <a title="go to books page" id="getURL" href="/Books.html" class="button PrimaryBtn">
-                              Find More
-                              <svg class="btnSvgIcon">
-                                 <use xlink:href="#SEARCH-BAR-ICON"></use>
-                              </svg>
-                           </a>
-                        </section>
-
-                     </section>
-                  </section>
-
+                  <lottie-player class="lottieAnimation d-none d-lg-block"
+                     src="https://assets1.lottiefiles.com/packages/lf20_akio2kni.json" mode="bounce"
+                     background="transparent" speed="0.5" hover autoplay loop></lottie-player>
 
                </section>
-               <section class="carousel-item  sectionCarousel">
+
+               <section class="carousel-item  sectionCarousel" id="SlideTwo" topic="javaScript"
+                  target="#javaScriptTopic">
 
                   <img src="../Assets/galleryPageAssets/webdevee.jpg" class="containerBgIma"
                      alt="Slide Two background Image">
 
-                  <article id="SlideTwo" class="carousel-caption | carouselArticle">
+                  <article class="carousel-caption | carouselArticle">
                      <h1 class="carouselTitle">Welcome to Dark Engines Library, Where You can Discover, Learn and Gain
                         your IT knowledge!. </h1>
                      <p class="carouselDescription">at dark engines we provide you with all IT, design, software and/or
                         AI books for the lowest cost Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                      </p>
-                     <button type="button" aria-controls="SlideOne" class="button | PrimaryBtn | GalleryBtn">
-                        Learn more <svg>
+
+                     <button type="button" aria-controls="SlideTwo"
+                        class="button | PrimaryBtn | GalleryBtn | ControllersBtns" target="#javaScriptTopic"
+                        isToggled="false">
+                        <span class="buttonLbl" button-label>Learn More</span>
+                        <svg>
                            <use xlink:href="#HELP-ICON"></use>
                         </svg>
                      </button>
@@ -560,19 +468,51 @@
 
                </section>
 
-               <section class="carousel-item  sectionCarousel">
+               <section class="carousel-item  sectionCarousel" id="SlideThree" topic="web development"
+                  target="#webDevTopic">
 
                   <img src="../Assets/galleryPageAssets/webdev.png" class="containerBgIma"
                      alt="Slide Two background Image">
 
-                  <article id="SlideTwo" class="carousel-caption | carouselArticle">
+                  <article class="carousel-caption | carouselArticle">
                      <h1 class="carouselTitle javaScript">JavaScript is one of the most widely-used programming
                         languages in the world </h1>
                      <p class="carouselDescription"> it can be used for both front-end and back-end web
                         development, as well as for developing desktop and mobile applications.
                      </p>
-                     <button type="button" aria-controls="SlideOne" class="button | PrimaryBtn | GalleryBtn">
-                        Learn more <svg>
+                     <button type="button" aria-controls="SlideThree"
+                        class="button | PrimaryBtn | GalleryBtn | ControllersBtns" target="#webDevTopic"
+                        isToggled="false">
+                        <span class="buttonLbl" button-label>Learn More</span>
+                        <svg>
+                           <use xlink:href="#HELP-ICON"></use>
+                        </svg>
+                     </button>
+                  </article>
+
+                  <lottie-player class="lottieAnimation d-none d-lg-block"
+                     src="https://assets10.lottiefiles.com/packages/lf20_w51pcehl.json" background="transparent"
+                     speed="0.5" hover loop autoplay></lottie-player>
+
+
+               </section>
+
+               <section class="carousel-item  sectionCarousel" id="SlideFour" topic="artificial intelligence"
+                  target="#ArtificialIntelligenceTopic">
+
+                  <img src="../Assets/galleryPageAssets/webdev.png" class="containerBgIma"
+                     alt="Slide Two background Image">
+
+                  <article class="carousel-caption | carouselArticle">
+                     <h1 class="carouselTitle javaScript">JavaScript is one of the most widely-used programming
+                        languages in the world </h1>
+                     <p class="carouselDescription"> it can be used for both front-end and back-end web
+                        development, as well as for developing desktop and mobile applications.
+                     </p>
+                     <button type="button" aria-controls="SlideFour"
+                        class="button | PrimaryBtn | GalleryBtn | ControllersBtns" target="#AITopic" isToggled="false">
+                        <span class="buttonLbl" button-label>Learn More</span>
+                        <svg>
                            <use xlink:href="#HELP-ICON"></use>
                         </svg>
                      </button>
@@ -586,25 +526,616 @@
                </section>
             </section>
 
-            <button aria-controls="heroCarousel" class="carousel-control-prev | Controllers" type="button"
-               data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <button aria-controls="heroCarousel" class="carousel-control-prev | Controllers | carouselControllers"
+               type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                <span class="visually-hidden">Previous</span>
             </button>
 
-            <button aria-controls="heroCarousel" class="carousel-control-next | Controllers" type="button"
-               data-bs-target="#heroCarousel" data-bs-slide="next">
+            <button aria-controls="heroCarousel" class="carousel-control-next | Controllers | carouselControllers"
+               type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
                <span class="carousel-control-next-icon" aria-hidden="true"></span>
                <span class="visually-hidden">Next</span>
             </button>
 
          </section>
-         <section>
+         <!-- ? Topics container -->
+         <container class="topicContent">
+
+            <!-- * Topic One "Main"  -->
+            <section class="bottomPart" id="mainTopic" topic="recent" isExpanded="false">
+
+               <article class="topicsHeroSection | flex">
+                  <article class="topicsMaintypography">
+
+                     <h1 class="topicsTitle">Dark Engines library</h1>
+                     <p class="topicsDescription">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
+                        molestiae aspernatur sint ea, optio ut, quae assumenda, dolorum facere beatae nemo veniam?
+                        Possimus, ipsa provident.</p>
+
+                  </article>
+                  <img src="../Assets/DarkEnginesLibraryLogoDark.png" class="topicsLogo Logo"
+                     alt="Dark Engines library logo">
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+                  <img src="https://source.unsplash.com/featured?technology" class="topicsArticleImage"
+                     alt="unsplash random API source images category technology ">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">What does Dark Engines Library provides?</h3>
+                     <p class="topicsArticleDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At,
+                        qui. Id maxime eligendi error enim. Nesciunt commodi aliquam odit provident aperiam magni optio
+                        rerum perspiciatis nisi quo itaque id, soluta sed dolor eveniet! Quam, facilis itaque.
+                        Architecto, nostrum quos fuga, suscipit vel maxime recusandae quaerat, optio ea dolorum debitis
+                        molestias.
+                     </p>
+                  </article>
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why You should learn ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?learning" class="topicsArticleImage"
+                     alt="unsplash random API source images category learning">
+               </article>
+
+               <article class="findBooksRelatedSection">
+                  <h4 class="findRelatedHeading | topicsArticleHeading">
+                     Find any book to start your career in the tech industry
+                  </h4>
+                  <section class="booksContainer" books-Container></section>
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+
+                  <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
+                     alt="unsplash random API source images category reading">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why you should read instead of learning online ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why is it important?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?books" class="topicsArticleImage"
+                     alt="unsplash random API source images category books">
+               </article>
+
+            </section>
+
+            <!-- * Topic Two "Web Development"  -->
+            <section class="bottomPart" id="javaScriptTopic" topic="javaScript" isExpanded="false">
+
+               <article class="topicsHeroSection | flex">
+                  <article class="topicsMaintypography">
+
+                     <h1 class="topicsTitle | javaScript">Java Script</h1>
+                     <p class="topicsDescription">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
+                        molestiae aspernatur sint ea, optio ut, quae assumenda, dolorum facere beatae nemo veniam?
+                        Possimus, ipsa provident.</p>
+
+                  </article>
+                  <img src="../Assets/DarkEnginesLibraryLogoDark.png" class="topicsLogo Logo"
+                     alt="Dark Engines library logo">
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+                  <img src="https://source.unsplash.com/featured?technology" class="topicsArticleImage"
+                     alt="unsplash random API source images category technology">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">What does Dark Engines Library provides?</h3>
+                     <p class="topicsArticleDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At,
+                        qui. Id maxime eligendi error enim. Nesciunt commodi aliquam odit provident aperiam magni optio
+                        rerum perspiciatis nisi quo itaque id, soluta sed dolor eveniet! Quam, facilis itaque.
+                        Architecto, nostrum quos fuga, suscipit vel maxime recusandae quaerat, optio ea dolorum debitis
+                        molestias.
+                     </p>
+                  </article>
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why You should learn ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?learning" class="topicsArticleImage"
+                     alt="unsplash random API source images category learning">
+               </article>
+
+               <article class="findBooksRelatedSection">
+                  <h4 class="findRelatedHeading | topicsArticleHeading">
+                     Find any book to start your career in the tech industry
+                  </h4>
+                  <section class="booksContainer" books-Container></section>
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+
+                  <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
+                     alt="unsplash random API source images category reading ">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why you should read instead of learning online ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why is it important?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?books" class="topicsArticleImage"
+                     alt="unsplash random API source images category Books">
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Web development Jobs and rates </h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?frontend" class="topicsArticleImage"
+                     alt="unsplash random API source images category web development">
+               </article>
+
+            </section>
+
+            <!-- * Topic Three "Web Development"  -->
+            <section class="bottomPart" id="webDevTopic" topic="web" isExpanded="false">
+
+               <article class="topicsHeroSection | flex">
+                  <article class="topicsMaintypography">
+
+                     <h1 class="topicsTitle">Web Development</h1>
+                     <p class="topicsDescription">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
+                        molestiae aspernatur sint ea, optio ut, quae assumenda, dolorum facere beatae nemo veniam?
+                        Possimus, ipsa provident.</p>
+
+                  </article>
+                  <img src="../Assets/DarkEnginesLibraryLogoDark.png" class="topicsLogo Logo"
+                     alt="Dark Engines library logo">
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+                  <img src="https://source.unsplash.com/featured?technology" class="topicsArticleImage"
+                     alt="unsplash random API source images category technology">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">What does Dark Engines Library provides?</h3>
+                     <p class="topicsArticleDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At,
+                        qui. Id maxime eligendi error enim. Nesciunt commodi aliquam odit provident aperiam magni optio
+                        rerum perspiciatis nisi quo itaque id, soluta sed dolor eveniet! Quam, facilis itaque.
+                        Architecto, nostrum quos fuga, suscipit vel maxime recusandae quaerat, optio ea dolorum debitis
+                        molestias.
+                     </p>
+                  </article>
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why You should learn ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?learning" class="topicsArticleImage"
+                     alt="unsplash random API source images category learning">
+               </article>
+
+               <article class="findBooksRelatedSection">
+                  <h4 class="findRelatedHeading | topicsArticleHeading">
+                     Find any book to start your career in the tech industry
+                  </h4>
+                  <section class="booksContainer" books-Container></section>
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+
+                  <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
+                     alt="unsplash random API source images category reading ">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why you should read instead of learning online ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why is it important?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?books" class="topicsArticleImage"
+                     alt="unsplash random API source images category Books">
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Web development Jobs and rates </h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?frontend" class="topicsArticleImage"
+                     alt="unsplash random API source images category web development">
+               </article>
+
+            </section>
+
+            <!-- * Topic Four "Web Development"  -->
+            <section class="bottomPart" id="AITopic" topic="artificial intelligence" isExpanded="false">
+
+               <article class="topicsHeroSection | flex">
+                  <article class="topicsMaintypography">
+
+                     <h1 class="topicsTitle">Web Development</h1>
+                     <p class="topicsDescription">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
+                        molestiae aspernatur sint ea, optio ut, quae assumenda, dolorum facere beatae nemo veniam?
+                        Possimus, ipsa provident.</p>
+
+                  </article>
+                  <img src="../Assets/DarkEnginesLibraryLogoDark.png" class="topicsLogo Logo"
+                     alt="Dark Engines library logo">
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+                  <img src="https://source.unsplash.com/featured?technology" class="topicsArticleImage"
+                     alt="unsplash random API source images category technology">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">What does Dark Engines Library provides?</h3>
+                     <p class="topicsArticleDescription">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At,
+                        qui. Id maxime eligendi error enim. Nesciunt commodi aliquam odit provident aperiam magni optio
+                        rerum perspiciatis nisi quo itaque id, soluta sed dolor eveniet! Quam, facilis itaque.
+                        Architecto, nostrum quos fuga, suscipit vel maxime recusandae quaerat, optio ea dolorum debitis
+                        molestias.
+                     </p>
+                  </article>
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why You should learn ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?learning" class="topicsArticleImage"
+                     alt="unsplash random API source images category learning">
+               </article>
+
+               <article class="findBooksRelatedSection">
+                  <h4 class="findRelatedHeading | topicsArticleHeading">
+                     Find any book to start your career in the tech industry
+                  </h4>
+                  <section class="booksContainer" books-Container></section>
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+
+                  <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
+                     alt="unsplash random API source images category reading ">
+
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why you should read instead of learning online ?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+
+               </article>
+
+               <article class="aboutSectionCard | flex | left">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Why is it important?</h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?books" class="topicsArticleImage"
+                     alt="unsplash random API source images category Books">
+               </article>
+
+               <article class="aboutSectionCard | flex | right">
+                  <article class="articleContainer">
+                     <h3 class="topicsArticleHeading">Web development Jobs and rates </h3>
+                     <p class="topicsArticleDescription">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Facilis deleniti fugit error numquam sed a iusto sunt dolorum voluptate molestiae doloremque,
+                        dicta voluptates, eum aperiam in nostrum accusamus eveniet vitae esse blanditiis alias!
+                        Consectetur placeat non quia nemo cupiditate, expedita suscipit blanditiis dignissimos corrupti
+                        exercitationem! Culpa ut iure tenetur porro.
+                     </p>
+                  </article>
+                  <img src="https://source.unsplash.com/featured?frontend" class="topicsArticleImage"
+                     alt="unsplash random API source images category web development">
+               </article>
+
+            </section>
+
+         </container>
+
+         <!-- Page footer -->
+         <footer class="mainFooter">
+
+            <!-- footer hero section -->
+            <section class="footerHeroSection">
+
+               <article class="upperSideFooterHeroSection | upperFooterArticle">
+                  <h2 class="footerHeroSectionTitle | footerTitle">
+                     Dark <keyWords class="secondaryColor">Engines</keyWords> Library <br>
+                     <keyWords class="primaryColor">Created</keyWords> by <br>
+                     <!-- this keywords tag is to highlight and give a different style words in text -->
+                     <keyWords class="secondaryColor">Developer</keyWords>
+                     <br>
+                     For
+                     <keyWords class="primaryColor">Developers</keyWords>
+                  </h2>
+                  <img class="heroSectionImage | footerHeroImage" src="../Assets/footerHeroImage.png"
+                     alt="hero section image a girl studying in a library ">
+               </article>
+
+               <svg class="floorShape">
+                  <use xlink:href="#floorShape-ID"></use>
+               </svg>
+
+            </section>
+
+            <section class="Footer | backgroundColor"></section>
+
+            <!-- social links list ==> links to social accounts  -->
+            <aside class="socialLinksAside | footerAside">
+               <ul class="linksList">
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg">
+                           <use xlink:href="#INSTAGRAMICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg">
+                           <use xlink:href="#FACEBOOKICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg">
+                           <use xlink:href="#TWITTERICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg">
+                           <use xlink:href="#WHATSAPPICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg">
+                           <use xlink:href="#EMAILICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+               </ul>
+            </aside>
+
+            <!-- Logo footer -->
+            <img id="footerLogo" class="footerLogo | Logo" src="../Assets/DarkEnginesLibraryLogoLight.png"
+               alt="Dark Engines Library logo" />
+
+            <!-- call action buttons links to contact page and to about page -->
+            <section class="callActionButtons | footerActionButtons">
+               <button id="contactButton" class="button PrimaryBtn" title="Contact Page" href="./Pages/contact.html"
+                  type="button">
+                  Contact
+                  <svg class="btnSvgIcon plane">
+                     <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+                  </svg>
+               </button>
+               <button id="aboutButton" class="button SecondaryBtn" title="Contact Page" href="./Pages/about.html"
+                  type="button">
+                  About
+                  <svg class="btnSvgIcon">
+                     <use xlink:href="#CPU-BUTTON-ICON"></use>
+                  </svg>
+               </button>
+            </section>
+
+            <!-- copy right  -->
+            <h6 class="copyRight">
+               Copyright &COPY; 2022-Today Dark Engines Company, Created by
+
+               <a rel="noopener noreferrer" target="_blank" class="author" authorName="John Muller"
+                  href="https://johnmuller.eu/">J.M</a> All rights reserved.<h6>
+         </footer>
 
          </section>
       </main>
-      <!-- Page footer -->
 
+      <!-- Forms -->
+
+      <!-- Register Form -->
+      <form visible="false" class="registerForm | authForm" aria-hidden="true"
+         aria-label="register to dark engines library Form" autocomplete="on" id="registerForm"
+         title="register to dark engines library Form" method="post" enctype="multipart/form-data">
+         <header class="formHeader">
+            <img src="../Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
+            <p class="formTitle">Register</p>
+         </header>
+         <p class="formErrorMessage" id="errorMessage">Lorem ipsum dolor sit amet consecrator adipisicing elit. Eos, ad!
+         </p>
+         <section class="mainFormContent">
+            <section class="inputFieldContainer">
+               <label class="inputFiledLabel | authFormInputFiledLabel" for="firstName"> Full Name</label>
+               <input hasContent="false" type="text" id="fullName" class="inputField" name="fullName"
+                  title="insert your full name" required maxlength="20" minlength="3" aria-required="true">
+            </section>
+            <select autocomplete="sex" class="inputField | genderList" title="gender options" id="gender" name="gender"
+               required>
+               <option value="none" selected>Gender</option>
+               <option value="male">Male</option>
+               <option value="female">Female</option>
+            </select>
+            <section class="inputFieldContainer">
+               <input hasContent="true" autocomplete="bday" type="date" id="dateOfbirth" class="dateOfBirth"
+                  name="dateOfBirth" title="insert your Date of birth" required>
+               <label class="inputFiledLabel | authFormInputFiledLabel" for="dateOfBirth">Date of birth</label>
+            </section>
+            <section class="inputFieldContainer">
+               <label class="inputFiledLabel | authFormInputFiledLabel" for="phoneNumber">Phone Number</label>
+               <input autocomplete="tel" hasContent="false" class="inputFiled | authFormInputFiled" id="phoneNumber"
+                  name="phoneNumber" type="tel" title="phone number" aria-required="true" required>
+            </section>
+            <section class="inputFieldContainer">
+               <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
+               <input autocomplete="email" hasContent="false" class="inputFiled | authFormInputFiled"
+                  pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="emailReg" name="email" type="email"
+                  title="email" aria-required="true">
+            </section>
+            <section class="inputFieldContainer">
+               <label class="inputFiledLabel | authFormInputFiledLabel" for="password">password</label>
+               <input autocomplete="new-password" hasContent="false" class="inputFiled | authFormInputFiled"
+                  id="passwordReg" name="password" type="password" title="password" aria-required="true" required>
+            </section>
+            <section class="formActionButtons">
+               <button class="submitBtn | PrimaryButton" id="submitButtonReg" type="submit" title="Submit">
+                  Submit
+                  <svg>
+                     <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+                  </svg>
+               </button>
+               <button class="formCloseButton | SecondaryBtn" id="closeButtonReg" type="reset" title="cancel">
+                  Cancel
+                  <svg>
+                     <use xlink:href="#CLOSE-BUTTON-ICON"></use>
+                  </svg>
+               </button>
+            </section>
+         </section>
+      </form>
+
+      <!-- Login Form  -->
+      <form class="loginForm | authForm" visible="false" aria-hidden="true"
+         aria-label="login to dark engines library Form" autocomplete="on" aria-autocomplete="on" id="loginForm"
+         title="register to dark engines library Form" method="POST" enctype="application/x-www-form-urlencoded">
+         <header class="formHeader">
+            <img src="../Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
+            <p class="formLoginTitle | formTitle ">Login</p>
+         </header>
+         <p class="formErrorMessage" id="errorMessageLg">Lorem ipsum dolor sit amet adipisicing elit. Eos,
+            ad!
+         </p>
+         <section class="mainFormContent">
+            <section class="mainFormContent">
+               <section class="inputFieldContainer">
+                  <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
+                  <input hasContent="false" class="inputField | authFormInputFiled"
+                     pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="email" name="email" type="email"
+                     title="email" aria-required="true" autocomplete="email" required>
+                  <p class="inputDescription" id="emailDescription" valid="unset">Enter your email.</p>
+               </section>
+               <section class="inputFieldContainer">
+                  <label class="inputFiledLabel | authFormInputFiledLabel" for="password">Password</label>
+                  <input hasContent="false" autocomplete="current-password" class="inputField | authFormInputFiled"
+                     required id="password" name="password" type="password" title="password" aria-required="true"
+                     minlength="12" maxlength="32">
+                  <p class="inputDescription" id="passwordDescription" valid="unset">Password must be between 12 - 32
+                     characters long.
+                  </p>
+               </section>
+               <section class="formActionButtons">
+                  <button class="submitBtn | PrimaryButton" id="submitButton" type="submit" title="Submit">
+                     Submit
+                     <svg>
+                        <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+                     </svg>
+                  </button>
+                  <button class="formCloseButton | SecondaryBtn" id="closeButton" type="reset" title="cancel">
+                     Cancel
+                     <svg>
+                        <use xlink:href="#CLOSE-BUTTON-ICON"></use>
+                     </svg>
+                  </button>
+               </section>
+            </section>
+            <a class="forgetPassword | " id="forgetPassword" href="#">Forget password?</a>
+      </form>
    </body>
 
 </html>

@@ -1,69 +1,101 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pacifico&family=Palanquin+Dark:wght@400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-/* custom props  global variables */
+/* ? Custom props  global variables */
 
 :root {
-  /* Colors */
-  --tertiaryColor: #ec4149;
+  /* ? Colors */
   --primaryColor: #50a3ca;
-  --customBackgroundColorDarkMode: #488d9f;
-  --CustomTertiaryColor: #b5d4b9;
+  --tertiaryColor: #ec4149;
 
-  /* Fonts */
+  /* ? Fonts */
   --primaryFont: "Montserrat Alternates", sans-serif;
   --secondaryFont: "Poppins", sans-serif;
   --tertiaryFont: "Pacifico", cursive;
   --tertiaryFontExtra: "Palanquin Dark", sans-serif;
 
-  /* box shadows */
+  /* ? Box shadows */
   --boxShadowLightBehind: 0 0 2em -1em var(--DarkModeOpacity);
   --boxShadowDarkOut: 0 0 5em 1em var(--DarkModeOpacity);
   --boxShadowDarkMode: 1px 1px 3em -1em #4242428a;
   --textThreeD: 3px 3px 1px var(--primaryColor);
   --linkTextShadow: 0.5px 0.5px 5px #488e9f9d;
 
-  /* Transitions   */
+  /* ? Transitions   */
 
   --transition-5ms-Ease: all 0.5s ease;
   --transition-backgroundColor-Ease: background-color 0.5s ease;
-  --aboveLayer: 9999;
 
-  /* Sizes */
-  --headerHight: min(15vh, 15dvh);
-  --cardHeight: 27.5em;
+  /* ? Layers */
+  --aboveLayer: 9999;
+  --backLayer: -9999;
+
+  /* ? Sizes */
+
+  /* * Containers */
   --userAvatarContainerSize: calc(2vw + 2vh + 10px);
   --navButtonContainerSize: calc(2vw + 2vh + 2rem);
-  --logoWidth: 150px;
-  --switchModeBlockSize: 55px;
-  --asideSvgIcons: 25px;
-  --dialogWidth: max(25vw, 300px);
-  --dialogHeight: max(500px, 50vh);
-  --cardBorderRadius: 0.5rem;
-  --largeCardBorderRadius: 0.75rem;
-  --btnBorderRadius: 0.25rem;
-  --searchBarBorderRadius: calc(1rem + 0.25vw + 0.25vh);
+
+  /* * Radius */
+  --radius-100: 0.25rem;
+  --radius-200: 0.5rem;
+  --radius-300: 0.75rem;
+  --radius-400: 1rem;
+  --radius-dynamic: calc(1rem + 0.25vw + 0.25vh);
+  --radius-rounded: 100em;
+  --radius-circle: 50%;
+
+  /* * Widths */
+
+  /* ** custom */
   --imageMaxWidth: calc(30vw + 20vh + 10% + 2.5rem);
-  --imageMaxHeight: calc(30vh + 20vw + 10% + 2.5rem);
-  --imageBorderRadius: calc(0.5rem + var(--cardBorderRadius));
-  --cardBorderRadiusThin: 0.25rem;
-  --inputBorderRadius: 0.75rem;
-  --padding-500: 1.5em;
-  --margin: 2rem;
-  --spacing-700: 5em;
+  --dialogWidth: max(25vw, 300px);
+  --logoWidth: 150px;
+
+  /* ** Normal */
   --width-700: 90vw;
+
+  /* * Heights */
+  /* ** custom */
+  --headerHight: min(15vh, 15dvh);
+  --cardHeight: 27.5em;
+  --imageMaxHeight: calc(30vh + 20vw + 10% + 2.5rem);
+  --dialogHeight: max(500px, 50vh);
+
+  /* ** Normal */
   --height-700: 200px;
-  --spacing-200: 0.5em;
+
+  /* * Icons */
+  --icon-100: 20px;
+  --icon-200: 25px;
+  --icon-300: 30px;
+  --icon-500: 40px;
+  --icon-800: 55px;
+
+  /* * Paddings */
+  --padding-100: 0.75em;
+  --padding-200: 2em;
+  --padding-700: 6em;
+
+  /* * Gaps and Margins */
+  --spacing-100: 1rem;
+  --spacing-200: 2em;
+  --spacing-400: 3.5em;
+  --spacing-600: 4em;
+  --spacing-700: 5em;
+  --spacing-900: 15vh;
+  --scrollPadding : var(--headerHight);
 
   /* Font sizes */
 
   --heroSectionTitle: calc(1em + 1vw + 1vh + 25% + 1vmax);
   --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
   --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
-  --paragraphFS: 1rem;
+  --paragraphFontSize: calc(0.5rem + 0.5vw + 0.4vh);
   --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
   --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
   --dateFontSize: calc(1.2rem + 12%);
   --descriptionLabelFS: calc(2px + 0.5vmax);
+  --bodyFontSize: 1em;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -72,14 +104,15 @@
     --primaryColorDark: #181414;
     --primaryColorLight: #fffeff;
     --secondaryColor: #707070;
-    --CustomTertiaryColor: #b5d4b9;
     --DarkModeOpacity: #0a0a0ae3;
     --backgroundColor: #1d2325;
+    --cardBackgroundColorOpacity: #18292e71;
     --backgroundColorOpacity: #1d2325b0;
     --primaryCardColor: #23282ea2;
     --labelColor: #aaa9b6;
     --inputBackgroundColor: #2a3133;
     --primaryColorLightGray: #cad3da;
+    --customBackgroundColorDarkMode: #488d9f;
   }
 }
 
@@ -91,6 +124,7 @@
     --secondaryColor: #707070;
     --DarkModeOpacity: #0a0a0ae3;
     --backgroundColor: #d9e9f1;
+    --cardBackgroundColorOpacity: #ccf4fc7a;
     --customBackgroundColorDarkMode: #cbd9df;
     --backgroundColorOpacity: #1d2325b0;
     --primaryCardColor: #e2efffa2;
@@ -111,7 +145,7 @@
     --heroSectionTitle: calc(0.5em + 1vw + 1vh + 1vmax);
     --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
     --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
-    --paragraphFS: 1rem;
+    --paragraphFontSize: 1rem;
     --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
     --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
     --dateFontSize: calc(1.2rem + 12%);
@@ -128,7 +162,7 @@
     --heroSectionTitle: calc(1vw + 1vh + 25% + 1vmax);
     --headingFS: calc(2vmax + 0.75rem + 0.75vw + 0.5vh);
     --subHeadingFS: calc(50% + 0.25vmax + 0.25vh + 0.25vw + 0.25em);
-    --paragraphFS: 1rem;
+    --paragraphFontSize: 1rem;
     --btnFontSize: calc(1rem + 20% + 0.5vw + 0.5vh);
     --navFontSize: calc(0.1rem + 30% + 0.5vw + 0.5vh);
     --dateFontSize: calc(1.2rem + 12%);
@@ -158,6 +192,16 @@
 
 .secondaryColor {
   color: var(--tertiaryColor);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.grid {
+  display: grid;
+  align-items: center;
 }
 
 .globalData {
@@ -234,14 +278,14 @@ h2,
 h3,
 h4 {
   /* margin: 0 0 0.25rem 0; */
-  font-size: var(--titleFontSize);
+  font-size: var(--headingFS);
   color: var(--primaryColorLight);
   font-family: var(--primaryFont);
   font-weight: 700;
 }
 
 p {
-  font-size: var(--paragraphFS);
+  font-size: var(--paragraphFontSize);
   font-weight: 400;
   font-family: var(--secondaryFont);
   color: var(--primaryColorLightGray);
@@ -250,7 +294,6 @@ p {
 label {
   margin: 0;
   padding: 0;
-  color: var(--primaryColorLight);
   font-weight: 500;
   color: var(--primaryColorLightGray);
   font-family: var(--secondaryFont);
@@ -262,10 +305,10 @@ a {
   cursor: pointer;
   display: inline-block;
   font-family: var(--primaryFont);
-  font-size: var(--navFS);
+  font-size: var(--navFontSize);
   letter-spacing: 1px;
   color: var(--primaryColorLight);
-  font-weight: var(--semiBold);
+  font-weight: 500;
 }
 
 /* buttons */
@@ -278,7 +321,7 @@ button {
   font-size: 1.25rem;
   font-weight: 600;
   font-family: var(--secondaryFont);
-  border-radius: var(--btnBorderRadius);
+  border-radius: var(--radius-100);
   width: 150px;
   display: flex;
   align-items: center;
@@ -292,6 +335,10 @@ button {
   color: var(--faceColor);
   overflow: hidden;
   border: 2.5px solid var(--backColor);
+}
+
+.buttonLbl {
+  color: var(--faceColor);
 }
 
 button:hover {
@@ -314,7 +361,7 @@ button.SecondaryBtn {
   --backColor: transparent;
   --faceColor: var(--tertiaryColor);
   border-color: var(--faceColor);
-  border-radius: var(--btnBorderRadius);
+  border-radius: var(--radius-100);
 }
 
 button:hover.SecondaryBtn {
@@ -328,6 +375,41 @@ button.noIcon {
   border: unset;
   font-weight: bolder;
 }
+
+.goUpButton {
+  position: fixed;
+  z-index: var(--aboveLayer);
+  width: var(--icon-500);
+  height: var(--icon-500);
+  bottom: 10%;
+  right: 0;
+  border-radius: var(--radius-circle) 0 0 var(--radius-circle);
+  background-color: var(--primaryColor);
+  fill: var(--primaryColorLight);
+  display: grid;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out, transform 0.7s ease-out;
+  transform: translateX(-110%);
+}
+
+.goUpButton[go-top-button="true"]:hover {
+  background-color: var(--tertiaryColor);
+  transform: scale(1.5) translateX(-20%);
+  border-radius: var(--radius-circle);
+}
+
+.goUpButton[go-top-button="true"] {
+  transform: translateX(0);
+  opacity: 0.7;
+}
+.sm-svg {
+  padding-left: 0.2em;
+  max-width: var(--icon-100);
+  max-height: var(--icon-100);
+}
 input,
 textarea,
 select {
@@ -337,7 +419,7 @@ select {
   background-color: var(--inputBackgroundColor);
   font-weight: normal;
   resize: none;
-  border-radius: var(--cardBorderRadiusThin);
+  border-radius: var(--radius-200);
   transition: all 0.5s ease;
 }
 
@@ -414,7 +496,6 @@ abbr:focus-within::after {
   padding: 1.5em;
   cursor: pointer;
   background-color: var(--backgroundColorOpacity);
-  color: var(--secondaryColor);
   border-radius: 0.5rem;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
@@ -446,7 +527,7 @@ body {
   line-height: 1.5;
   background: var(--backgroundColor);
   transition: all 0.2s ease;
-  font-size: var(--bodyFS);
+  font-size: var(--bodyFontSize);
   font-family: var(--secondaryFont);
   font-weight: 400;
   position: relative;
@@ -459,7 +540,6 @@ body[isObserving="false"] {
   height: 100vh !important;
   max-width: 100vh !important;
   overflow: hidden !important;
-  overflow-y: hidden !important;
 }
 
 /* Header */
@@ -510,7 +590,6 @@ header:hover[isInteracting="true"] {
   height: 3.5rem;
   background-color: transparent;
   border: none;
-  display: grid;
   place-items: center;
   place-self: center;
   align-content: center;
@@ -529,7 +608,7 @@ header:hover[isInteracting="true"] {
 .line {
   width: 100%;
   height: 0.25rem;
-  background-color: var(--_lineColor, --primaryColorLight);
+  /*background-color: var(--_lineColor, --primaryColorLight);*/
   z-index: 2;
   border-radius: 2.5rem;
   pointer-events: none;
@@ -667,8 +746,8 @@ header:hover[isInteracting="true"] {
 }
 
 .themeIcon {
-  max-width: var(--switchModeBlockSize);
-  max-height: var(--switchModeBlockSize);
+  max-width: var(--icon-800);
+  max-height: var(--icon-800);
   cursor: pointer;
   transition: all 0.5s ease;
 }
@@ -718,9 +797,9 @@ dropDownMenu {
   align-items: center;
   align-content: space-around;
   padding: 1em 0;
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   transform: scale(0) translate(-35%, -100%);
-  transform-origin: top top;
+  transform-origin: top ;
   opacity: 0;
   transition: var(--transition-5ms-Ease);
 }
@@ -753,7 +832,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   width: 100%;
   height: 100%;
   padding-left: 1.5rem;
-  border-radius: var(--searchBarBorderRadius);
+  border-radius: var(--radius-dynamic);
 }
 
 .searchSubmitButton {
@@ -813,7 +892,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   justify-content: center;
   background-color: var(--primaryCardColor);
   color: var(--primaryColorLight);
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   animation: slideUp 0.5s ease-in both;
   z-index: var(--aboveLayer);
   /* min-width: min(400px, 40vw); */
@@ -838,7 +917,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 .customAlertLink {
   --_currentColor: var(--primaryColor);
   position: relative;
-  font-size: var(--paragraphFS);
+  font-size: var(--paragraphFontSize);
   color: var(--_currentColor);
   font-weight: 600;
   transform-origin: left center;
@@ -916,7 +995,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   transform: translate(-50%, -50%);
   background-color: var(--primaryColorDark);
   color: var(--primaryColorLight);
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   align-content: space-around;
   overflow: hidden;
   transition: all 0.5s ease-in-out;
@@ -1017,18 +1096,18 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   transform: translateY(50%);
 }
 
-.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible)
-  .inputField {
+.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible),
+.inputField {
   border: 1px solid var(--primaryColor);
 }
 
-.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible)
-  .authFormInputFiledLabel {
+.inputFieldContainer:has(input:focus, input:focus-within, input:focus-visible),
+.authFormInputFiledLabel {
   color: var(--primaryColor);
   transform: translateY(-50%) scale(1.05);
 }
-.inputFieldContainer:has(input[hasContent="true"], .inputField:-webkit-autofill)
-  .authFormInputFiledLabel {
+.inputFieldContainer:has(input[hasContent="true"], .inputField:-webkit-autofill),
+.authFormInputFiledLabel {
   transform: translateY(-50%) scale(1.05);
 }
 
@@ -1064,7 +1143,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   position: absolute;
   text-align: right;
   bottom: -3em;
-  right: 0em;
+  right: 0;
   font-size: 0.75rem;
   color: var(--primaryColor);
 }
@@ -1127,7 +1206,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   justify-content: space-around;
   align-content: center;
   place-self: center;
-  padding: 0em 2em;
+  padding: 0 2em;
   gap: 2rem;
 }
 
@@ -1168,9 +1247,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 }
 
 .footerLogo {
-  -ms-grid-column: 2 / span 3;
   grid-column: 2 / span 3;
-  -ms-grid-row: 2;
   grid-row: 2 / span 3;
   height: 50%;
   width: 100%;
@@ -1203,8 +1280,8 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 .footerLinksSvg {
   pointer-events: all;
   fill: var(--primaryColor);
-  max-width: var(--asideSvgIcons);
-  max-height: var(--asideSvgIcons);
+  max-width: var(--icon-200);
+  max-height: var(--icon-200);
   transform: scale(1) rotate(-90deg);
   transition: var(--transition-5ms-Ease);
 }
@@ -1219,12 +1296,12 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   grid-row: 3;
   width: 100%;
   text-align: center;
-  font-size: var(--paragraphFS);
+  font-size: var(--paragraphFontSize);
   color: var(--primaryColorLight);
 }
 
 .author {
-  font-size: calc(var(--paragraphFS) + 0.25rem);
+  font-size: calc(var(--paragraphFontSize) + 0.25rem);
   font-weight: bolder;
   color: var(--primaryColor);
   position: relative;
@@ -1240,7 +1317,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   font-size: 1rem;
   background-color: var(--primaryColor);
   color: var(--primaryColorLight);
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   transform: translateY(100%) scale(0);
   opacity: 0;
   transition: var(--transition-5ms-Ease);

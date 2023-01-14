@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: left;
   background-color: var(--inputBackgroundColor);
-  border-radius: var(--searchBarBorderRadius);
-  padding: var(--padding-500);
+  border-radius: var(--radius-dynamic);
+  padding: var(--padding-200);
 }
 
 .searchResultIcon {
@@ -43,7 +43,7 @@
   height: var(--cardHeight);
   overflow: hidden;
   cursor: pointer;
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   box-shadow: var(--boxShadowLightBehind);
   background-color: var(--primaryColorDark);
   background-position: center;
@@ -133,7 +133,7 @@
 }
 
 .aboutBookItem:not(.Price, .Favorite, .Cart, .Link)::after {
-  content: attr(var(--itemAttribute));
+  /*content: attr(var(--itemAttribute));*/
   position: absolute;
   left: -90%;
   top: -100%;
@@ -143,7 +143,7 @@
   height: 100%;
   background-color: var(--primaryCardColor);
   color: var(--tertiaryColor);
-  border-radius: var(--cardBorderRadius);
+  border-radius: var(--radius-200);
   display: none;
 }
 

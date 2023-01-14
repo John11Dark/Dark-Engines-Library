@@ -5,8 +5,7 @@ function validateSingleInput(input, type, title) {
     case "string":
       if (
         !input.value.match(/^[a-zA-Z ]*$/) !== true &&
-        input.value !== "" &&
-        input != null
+          input.value !== ""
       ) {
         input.setAttribute("valid", "true");
         return true;
@@ -20,8 +19,7 @@ function validateSingleInput(input, type, title) {
       if (
         !input.value.match(/^[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}$/) !==
           true &&
-        input.value !== "" &&
-        input != null
+          input.value !== ""
       ) {
         input.setAttribute("valid", "true");
         return true;
@@ -34,8 +32,7 @@ function validateSingleInput(input, type, title) {
     case "integer":
       if (
         !input.value.match(/^[0-9]{8}$/) !== true &&
-        input.value !== "" &&
-        input != null
+          input.value !== ""
       ) {
         input.setAttribute("valid", "true");
         return true;
@@ -69,8 +66,7 @@ function validateSingleInput(input, type, title) {
     case "badWords":
       if (
         !input.value.match(/^[a-zA-Z ]*$/) !== true &&
-        input.value !== "" &&
-        input != null
+          input.value !== ""
       ) {
         input.setAttribute("valid", "true");
         return true;
@@ -93,16 +89,10 @@ function validateForm(form) {
   const emailAddress = form.querySelector("#Email");
   const message = form.querySelector("#messageBody");
 
-  if (
-    validateSingleInput(fullName, "string", "Full Name") &&
-    validateSingleInput(phoneNumber, "integer", "Phone Number") &&
-    validateSingleInput(emailAddress, "email", "Email") &&
-    validateSingleInput(message, "string", "Comment")
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  return validateSingleInput(fullName, "string", "Full Name") &&
+      validateSingleInput(phoneNumber, "integer", "Phone Number") &&
+      validateSingleInput(emailAddress, "email", "Email") &&
+      validateSingleInput(message, "string", "Comment");
 }
 
 export default { validateForm, validateSingleInput };

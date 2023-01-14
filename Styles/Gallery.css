@@ -1,6 +1,3 @@
-:root {
-  --containerHight: 100dvh;
-}
 header {
   --headerHight: 12vh;
   background-color: transparent !important;
@@ -11,12 +8,20 @@ header {
 body {
   padding: 0;
 }
+
 main {
-  height: var(--containerHight);
+  height: 100dvh;
+  overflow: hidden;
 }
 
+main[isContentObserving="true"] {
+  min-height: 100dvh;
+  overflow-y: visible;
+}
+
+/* Carousel */
 .sectionCarousel {
-  height: var(--containerHight);
+  height: 100dvh;
   width: 100vw;
 }
 
@@ -75,6 +80,7 @@ main {
   opacity: 0.6;
   transform: scale(1);
 }
+
 .GalleryBtn > svg {
   max-width: 25px;
   max-height: 20px;
@@ -95,6 +101,16 @@ main {
   border-radius: 2.5em !important;
   border: unset !important;
 }
+
+.Controllers {
+  width: min(10vw, 120px) !important;
+}
+
+.carouselControllers:disabled {
+  background-color: red;
+  display: none !important;
+}
+
 .lottieAnimation {
   position: absolute;
   top: 20%;
@@ -104,15 +120,124 @@ main {
   height: min(600px, 65dvh);
 }
 
-.Controllers {
-  width: min(10vw, 120px) !important;
+/* Main topics */
+.bottomPart {
+  min-height: 100dvh;
+  width: min(99vw, 100%);
+  padding: var(--padding-200) var(--padding-700);
 }
 
-.javaScript {
-  color: #eea216;
+.bottomPart[isExpanded="false"] {
+  display: none;
 }
 
-@media (max-width: 1200px) {
+/* sub Hero section */
+.topicsHeroSection {
+  height: 30dvh;
+}
+
+.topicsTitle {
+  font-size: var(--headingFS);
+}
+
+.topicsLogo {
+  max-width: max(30%, 150px);
+  max-height: max(30%, 150px);
+  margin-right: 5em;
+}
+
+.topicsDescription {
+  max-width: 70%;
+  font-size: var(--subHeadingFS);
+}
+
+.articleContainer {
+  padding: var(--padding-100);
+  gap: var(--spacing-200);
+}
+
+/* content container */
+.aboutSectionCard {
+  background-color: var(--cardBackgroundColorOpacity);
+  border-radius: var(--radius-200);
+  margin: var(--spacing-400) auto;
+  gap: var(--spacing-200);
+  position: relative;
+}
+
+.aboutSectionCard::before {
+  content: "";
+  position: absolute;
+  background-color: var(--primaryColor);
+  top: 0;
+  width: 10px;
+  height: 100%;
+}
+
+.right::before {
+  right: 0;
+  left: unset;
+  border-radius: 0 var(--radius-200) var(--radius-200) 0;
+}
+
+.left {
+  padding-left: var(--padding-200);
+}
+.left::before {
+  right: unset;
+  left: 0;
+  border-radius: var(--radius-200) 0 0 var(--radius-200);
+}
+
+.topicsArticleImage {
+  max-width: max(200px, 40%);
+  max-height: max(200px, 100%);
+  aspect-ratio: 16 / 10;
+  filter: brightness(0.7);
+  opacity: 0.9;
+}
+
+.right .topicsArticleImage {
+  border-radius: var(--radius-200) var(--radius-100) var(--radius-100)
+    var(--radius-200);
+}
+
+.left .topicsArticleImage {
+  border-radius: var(--radius-100) var(--radius-200) var(--radius-200)
+    var(--radius-100);
+}
+
+.topicsArticleHeading {
+  font-size: var(--subHeadingFS);
+  color: var(--primaryColor);
+}
+
+.topicsArticleDescription {
+  max-width: 80%;
+  font-size: var(--paragraphFontSize);
+}
+
+.findBooksRelatedSection {
+  margin: var(--spacing-900) auto;
+  position: relative;
+}
+
+.findRelatedHeading {
+  font-size: var(--headingFS);
+  color: var(--primaryColorLightGray);
+}
+
+main[isContentObserving="false"] .mainFooter {
+  display: none;
+}
+
+.topicsActionButtons {
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+@media (max-width: 90em) {
   :root {
     --heroSectionTitle: calc(0.25em + 1vw + 1vh + 1vmax);
   }
@@ -142,4 +267,13 @@ main {
     gap: 0.75em 0;
     margin: 0 auto;
   }
+  .bottomPart {
+    padding: 2em 1em;
+  }
+}
+
+/*?  Custom */
+
+.javaScript {
+  color: #eea216;
 }

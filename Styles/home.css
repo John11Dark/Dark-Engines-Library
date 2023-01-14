@@ -7,7 +7,7 @@ header[searchBar="true"] {
 .searchBarForm {
   width: 275px;
   height: 45px;
-  border-radius: var(--searchBarBorderRadius);
+  border-radius: var(--radius-dynamic);
   overflow: hidden;
   position: relative;
   background-color: transparent;

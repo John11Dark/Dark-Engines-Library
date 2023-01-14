@@ -12,7 +12,7 @@
 @keyframes slideOut {
   0% {
     opacity: 1;
-    transform: translate(10, -20%);
+    transform: translate(10%, -20%);
   }
   100% {
     opacity: 0;
