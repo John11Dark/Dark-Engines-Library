@@ -243,13 +243,12 @@
 
     <body isObserving="true">
 
-        <!-- Skip navigation bar -->
+        <!-- ? Skip navigation bar -->
         <button tabindex="1" aria-hidden="false" aria-label="skip navigation bar button" title="skip navigation bar"
             href="#mainContent" id="skipNavLink" class="SkipNav" type="button">
             skip navigation bar
         </button>
-
-        <!--   Notification system  -->
+        <!--   ? Notification system  -->
         <section class="notificationCenter">
             <!-- custom alert content  -->
             <template class="alertCard">
@@ -262,19 +261,45 @@
                 </section>
             </template>
         </section>
-
-        <!-- Page header -->
-        <header isIntersecting="false" searchBar="false">
-
-            <img role="button" tabindex="2" title="Go to Home Welcome" aria-label="Clickable logo image" mode="Dark"
-                id="mainLogo" class="mainLogo Logo" aria-hidden="true" src="../Assets/DarkEnginesLibraryLogoLight.png"
+        <!-- ? Page header -->
+        <header isIntersecting="false">
+            <img role="button" tabindex="2" title="Go to Welcome" aria-label="Clickable logo image" id="mainLogo"
+                class="mainLogo | Logo | clickable" aria-hidden="true" src="../Assets/DarkEnginesLibraryLogoLight.png"
                 alt="Dark Engines Library logo" />
-
-            <nav isSearchVisible="false" class="mainNav" aria-expanded="false" isExpanded="false" id="mainMenu">
-
+            <button aria-label="main menu button" aria-controls="mainMenu" class="navButton | clickable" id="navButton"
+                isToggled="false" title="open main menu" type="button">
+                <svg class="hamburger" viewBox="-10 -10 120 120" width="250">
+                    <path stroke-width=10 stroke-linecap="round" stroke-linejoin="round" class="line"
+                        d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70">
+                    </path>
+                </svg>
+            </button>
+            <nav isSearchVisible="false" class="mainNavigationBar" aria-expanded="false" isExpanded="false"
+                id="mainMenu">
+                <ul class="links">
+                    <li class="linkParent">
+                        <a tabindex="3" active="true" class="link" title="Dark Engines Library Home page"
+                            href="../Pages/home.html">Home</a>
+                    </li>
+                    <li class="linkParent">
+                        <a tabindex="4" active="false" class="link" title="Dark Engines Library Books page"
+                            href="../Pages/Books.html">Books</a>
+                    </li>
+                    <li class="linkParent">
+                        <a tabindex="5" active="false" class="link" title="Dark Engines Library Gallery page"
+                            href="../Pages/Gallery.html">Gallery</a>
+                    </li>
+                    <li class="linkParent">
+                        <a tabindex="6" active="false" class="link" title="Dark Engines Library Contact page"
+                            href="../Pages/Contact.html">Contact</a>
+                    </li>
+                    <li class="linkParent">
+                        <a tabindex="7" active="false" class="link" title="Dark Engines Library About page"
+                            href="../Pages/About.html">About</a>
+                    </li>
+                </ul>
                 <form id="primarySearchBar" enctype="text/plain" spellcheck="true" title="search bar form"
                     class="searchBarForm | primarySearchBarForm" method="get" lang="en">
-
                     <input formmethod="get" formenctype="text/plain" autocomplete="on" form="primarySearchBar"
                         spellcheck="true" title="search form books" tabindex="3" type="search" class="searchBarInput"
                         name="search" id="searchBarPrimary" placeholder="New Books?">
@@ -284,36 +309,7 @@
                         </svg>
                     </button>
                 </form>
-
-                <ul class="links">
-
-                    <li class="linkParent">
-                        <a tabindex="3" active="false" class="link" title="Dark Engines Library Home page"
-                            href="../Pages/home.html">Home</a>
-                    </li>
-
-                    <li class="linkParent">
-                        <a tabindex="4" active="true" class="link" title="Dark Engines Library Books page"
-                            href="../Pages/Books.html">Books</a>
-                    </li>
-
-                    <li class="linkParent">
-                        <a tabindex="5" active="false" class="link" title="Dark Engines Library Gallery page"
-                            href="../Pages/Gallery.html">Gallery</a>
-                    </li>
-
-                    <li class="linkParent">
-                        <a tabindex="6" active="false" class="link" title="Dark Engines Library Contact page"
-                            href="../Pages/Contact.html">Contact</a>
-                    </li>
-
-                    <li class="linkParent">
-                        <a tabindex="7" active="false" class="link" title="Dark Engines Library About page"
-                            href="../Pages/About.html">About</a>
-                    </li>
-                </ul>
             </nav>
-
             <dropDownMenu aria-expanded="false" class="dropDown">
                 <img title="John Muller" id="userAvatar" class="userAvatar" src="../Assets/userAvatar.webp"
                     alt="user image ">
@@ -366,35 +362,34 @@
                     </li>
                 </ul>
             </dropDownMenu>
-
-            <section aria-label="main menu button" aria-controls="mainMenu" class="navButton" id="navButton"
-                isToggled="false" title="open main menu" type="button">
-                <div class="line LineNumOne"></div>
-                <div class="line LineNumTwo"></div>
-                <div class="line LineNumThree"></div>
-            </section>
         </header>
 
-        <!-- main content  -->
+        <!-- ? Main content  -->
         <main id="mainContent">
+            <section id="heroSection" class="heroSection">
 
-            <section id="heroSection" class="heroSection | HomeHeroSection">
                 <article class="heroSectionArticle">
-                    <h1 class="heroSectionTitle | HomeHeroSectionTtile">
-                        Hey!,
-                        <keyWords class="primaryColor" userName="User Name"></keyWords>
-                        <br>
-                        <keyWords class="primaryColor">Discover</keyWords> the largest <keyWords class="primaryColor">IT
-                        </keyWords>
-                        Library for <keyWords class="primaryColor">Free</keyWords>
-                    </h1>
-                    <h1 class="galleryHeroSectionTitle Head">
+                    <section class="typographer">
 
-                    </h1>
-                    <p class="descriptionParagraph">Let us take care of your IT knowledge</p>
+                        <h1 class="HeroSection | heroSectionTitle">
+                            Hey!,
+                            <keyWords class="primaryColor" userName="User Name"></keyWords>
+                            <br>
+                            <keyWords class="primaryColor">Discover</keyWords> the largest <keyWords
+                                class="primaryColor">IT
+                            </keyWords>
+                            Library for <keyWords class="primaryColor">Free</keyWords>
+                        </h1>
+                        <p class="HeroSection | descriptionParagraph">
+                            Let us take care of your IT knowledge
+                        </p>
+                    </section>
+
                 </article>
 
-                <img class="heroSectionImage" src="../Assets/HomeHeroSectionImage.png" alt="books and people image">
+                <img class="heroSectionImage | flip" src="../Assets/HomeHeroSectionImage.png"
+                    alt="Student with laptop sitting on huge books in library" />
+
             </section>
 
             <section class="mainContentSection">
@@ -694,30 +689,28 @@
             </section>
 
         </main>
-        <!-- Page footer -->
+        <!-- ? Page footer -->
         <footer class="mainFooter">
-
             <!-- footer hero section -->
             <section class="Footer | HeroSection">
-
                 <h2 class="Footer |  hs-title">
-                    Dark <keyWords class="secondaryColor">Engines</keyWords> Library
-                    <keyWords class="primaryColor">Created</keyWords> by
-                    <keyWords class="primaryColor">Developer</keyWords> For <keyWords class="secondaryColor">Developers
+                    Dark
+                    <keyWords class="secondaryColor">Engines</keyWords>
+                    Library
+                    <keyWords class="primaryColor">Created</keyWords>
+                    by
+                    <keyWords class="primaryColor">Developer</keyWords>
+                    For
+                    <keyWords class="secondaryColor">Developers
                     </keyWords>
                 </h2>
                 <img class="Footer | hs-image" src="../Assets/footerHeroImage.png"
                     alt="hero section image a girl studying in a library ">
-
                 <svg class="floorShape">
                     <use xlink:href="#floorShape-ID"></use>
                 </svg>
-
             </section>
-
             <section class="Footer | mainSection">
-
-                <!-- social links list ==> links to social accounts  -->
                 <aside class="Footer | socialLinksAside">
                     <ul class="linksList">
                         <li class="linkParent">
@@ -757,11 +750,9 @@
                         </li>
                     </ul>
                 </aside>
-
                 <!-- Logo footer -->
                 <img id="footerLogo" class="Footer | Logo" src="../Assets/DarkEnginesLibraryLogoLight.png"
                     alt="Dark Engines Library logo" />
-
                 <!-- call action buttons links to contact page and to about page -->
                 <section class="Footer | ActionButtons">
                     <button id="contactButton" class="button PrimaryBtn" title="Contact Page"
@@ -779,16 +770,13 @@
                         </svg>
                     </button>
                 </section>
-
                 <!-- copy right  -->
                 <h6 class="copyRight">
                     Copyright &COPY; 2022-Today Dark Engines Company, Created by
-
                     <a rel="noopener noreferrer" target="_blank" class="author" authorName="John Muller"
                         href="https://johnmuller.eu/">J.M</a> All rights reserved.
                 </h6>
             </section>
-
         </footer>
 
     </body>

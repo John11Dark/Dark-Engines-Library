@@ -27,8 +27,8 @@
   display: grid;
   width: 90vw;
   min-height: 100vh;
-  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(25em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(22em, 1fr));
   margin: 3em auto;
   gap: 2rem 1rem;
   place-content: center;

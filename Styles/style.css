@@ -263,7 +263,9 @@
   display: grid;
   align-items: center;
 }
-
+.flip {
+  transform: scaleX(-1);
+}
 .globalData {
   position: absolute;
   transform: translate(-25555555555555%, -2555555555555%);
@@ -964,6 +966,8 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
   justify-content: left;
   max-width: 40%;
   padding-left: 1em;
+  position: relative;
+  height: 55vh;
 }
 
 .callActionButtons {
@@ -980,6 +984,13 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
 .heroSectionImage {
   max-width: 75%;
   max-height: 75%;
+  object-fit: contain;
+}
+
+.AnimatedLottie {
+  transform: scaleX(-1) scale(0.9) translateY(5%);
+  max-width: 70%;
+  max-height: 70%;
   object-fit: contain;
 }
 
@@ -1356,6 +1367,7 @@ dropDownMenu[aria-expanded="true"] .dropDownList {
     background-color: var(--backgroundColor);
     display: flex;
     justify-content: space-around;
+    transform-origin: right left;
   }
 
   /* * Menu button */

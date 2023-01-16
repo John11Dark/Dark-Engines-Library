@@ -1,8 +1,3 @@
-header[searchBar="true"] {
-  justify-content: center;
-  gap: 10%;
-}
-
 /* search bar */
 .searchBarForm {
   width: 275px;
@@ -17,42 +12,22 @@ header[searchBar="true"] {
   display: none;
 }
 
-header[isInteracting="true"] .mainNav {
-  width: 100%;
+header[isInteracting="false"] .mainNavigationBar {
+  width: 60%;
+  justify-self: right;
+  margin-right: 5em;
 }
 
 header[isInteracting="true"] .primarySearchBarForm {
   display: block;
 }
 
-.heroSection {
-  display: grid;
-  position: relative;
-  height: 100vh;
-}
-
-.heroSection.heroSectionImage {
-  width: 100vw;
-  inset: 0;
-}
-
-.heroSectionTitle {
-  position: absolute;
-  text-align: left;
-  z-index: 2;
-  letter-spacing: 2px;
-  font-size: var(--heroSectionTitle);
-  top: 30%;
-  transform: translate(10%, -30%);
-}
-
 .secondarySearchBar {
-  width: 45%;
-  height: 75px;
   position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translate(-1%, -40%);
+  width: 100%;
+  height: 75px;
+  bottom: 0;
+  left: 2%;
   font-size: 1.2em;
 }
 

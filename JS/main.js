@@ -319,7 +319,7 @@ if (signupButton != null) {
     e.preventDefault();
     const emailFiled = registerForm.querySelector("#emailReg");
     const fullName = registerForm.querySelector("#fullName");
-    const phoneNumber = registerForm.querySelector("#phoneNumber");
+    const phoneNumber = registerForm.querySelector("#phoneNumberSignup");
     const passwordFiled = registerForm.querySelector("#passwordReg");
     const dateOfBirth = registerForm.querySelector("#dateOfBirth");
     const gender = registerForm.querySelector("#gender");
