@@ -16,7 +16,7 @@ const userAvatar = document.querySelector(".userAvatar");
 const userAvatarURL = "/Assets/userAvatar.png";
 
 const header = document.querySelector("header");
-const menu = document.querySelector(".mainNav");
+const menu = document.querySelector(".mainNavigationBar");
 const dropDownMenu = document.querySelector("dropDownMenu");
 const logo = document.querySelector(".Logo");
 const logos = document.querySelectorAll(".Logo");
@@ -97,6 +97,7 @@ function setTheme(theme) {
     root.style.setProperty("--primaryColorLight", "#181414");
     root.style.setProperty("--backgroundColor", "#d9e9f1");
     root.style.setProperty("--cardBackgroundColorOpacity", "#ccf4fc7a");
+    root.style.setProperty("--shadow-color-100", "#9ea7b686");
     root.style.setProperty("--primaryColorLightGray", "#a4adb4");
 
     root.style.setProperty("--customBackgroundColorDarkMode", "#cbd9df");
@@ -114,7 +115,7 @@ function setTheme(theme) {
     root.style.setProperty("--backgroundColor", "#1d2325");
     root.style.setProperty("--cardBackgroundColorOpacity", "#18292e71");
     root.style.setProperty("--primaryColorLightGray", "#cad3da");
-
+    root.style.setProperty("--shadow-color-100", "#1825317a");
     root.style.setProperty("--customBackgroundColorDarkMode", "#488d9f");
     document.style = `color-scheme: dark light; transition: all 1s ease-in-out;`;
     logos.forEach((logo) => {
@@ -206,15 +207,12 @@ Auth.generateUniqueId();
 //Auth.restrictIndexPage("token");
 
 // * --> setup user content
-if (
-  userAvatar != null &&
-    usernameLabels.length !== 0
-) {
+if (userAvatar != null && usernameLabels.length !== 0) {
   setupUser(userName, userAvatarURL);
 }
 // ? * -->  section navigation smooth scroll
 root.style.setProperty(
-  "----scrollPadding",
+  "----padding-scroll",
   Math.round(navigationHeight - 1) + "px"
 );
 

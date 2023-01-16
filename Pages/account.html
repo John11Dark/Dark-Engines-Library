@@ -9,6 +9,58 @@
     </head>
 
     <body>
+        <!-- Page header -->
+        <header isIntersecting="false">
+
+            <img role="button" tabindex="2" title="Go to Welcome" aria-label="Clickable logo image" id="mainLogo"
+                class="mainLogo | Logo | clickable" aria-hidden="true" src="../Assets/DarkEnginesLibraryLogoLight.png"
+                alt="Dark Engines Library logo" />
+
+
+            <button aria-label="main menu button" aria-controls="mainMenu" class="navButton | clickable" id="navButton"
+                isToggled="false" title="open main menu" type="button">
+                <svg class="hamburger" viewBox="-10 -10 120 120" width="250">
+                    <path stroke-width=10 stroke-linecap="round" stroke-linejoin="round" class="line"
+                        d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70">
+                    </path>
+                </svg>
+            </button>
+
+
+
+            <nav class="mainNavigationBar" aria-expanded="false" isExpanded="true" id="mainMenu">
+                <ul class="links">
+
+                    <li tabindex="3" class="linkParent">
+                        <a active="false" class="link" title="Dark Engines Library home page"
+                            href="../Pages/home.html">Home</a>
+                    </li>
+
+                    <li tabindex="4" class="linkParent">
+                        <a active="false" class="link" title="Dark Engines Library books page"
+                            href="../Pages/Books.html">Books</a>
+                    </li>
+                    <li tabindex="5" class="linkParent">
+                        <a active="true" class="link" title="Dark Engines Library Gallery page"
+                            href="../Pages/Gallery.html">Gallery</a>
+                    </li>
+                    <li tabindex="6" class="linkParent">
+                        <a active="false" class="link" title="Dark Engines Library Contact page"
+                            href="../Pages/Contact.html">Contact</a>
+                    </li>
+                    <li tabindex="7" class="linkParent">
+                        <a active="false" class="link" title="Dark Engines Library About page"
+                            href="../Pages/About.html">About</a>
+                    </li>
+                    <li tabindex="8" class="switchMode" currentMode="dark">
+                        <svg class="themeIcon" theme="dark">
+                            <use id="themeIconLink" xlink:href="#DARK-MODE-ICON"></use>
+                        </svg>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
         <main>
             <section id="Profile">
                 <h1>Profile</h1>
@@ -20,6 +72,103 @@
                 <h1>Settings</h1>
             </section>
         </main>
+
+        <!-- Page footer -->
+        <footer class="mainFooter">
+
+            <!-- footer hero section -->
+            <section class="Footer | HeroSection">
+
+                <h2 class="Footer |  hs-title">
+                    Dark <keyWords class="secondaryColor">Engines</keyWords> Library
+                    <keyWords class="primaryColor">Created</keyWords> by
+                    <keyWords class="primaryColor">Developer</keyWords> For <keyWords class="secondaryColor">Developers
+                    </keyWords>
+                </h2>
+                <img class="Footer | hs-image" src="../Assets/footerHeroImage.png"
+                    alt="hero section image a girl studying in a library ">
+
+                <svg class="floorShape">
+                    <use xlink:href="#floorShape-ID"></use>
+                </svg>
+
+            </section>
+
+            <section class="Footer | mainSection">
+
+                <!-- social links list ==> links to social accounts  -->
+                <aside class="Footer | socialLinksAside">
+                    <ul class="linksList">
+                        <li class="linkParent">
+                            <a class="socialLins | footerLinks" title="Find us on" href="#">
+                                <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                                    <use xlink:href="#INSTAGRAMICON"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="linkParent">
+                            <a class="socialLins | footerLinks" title="Find us on" href="#">
+                                <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                                    <use xlink:href="#FACEBOOKICON"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="linkParent">
+                            <a class="socialLins | footerLinks" title="Find us on" href="#">
+                                <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                                    <use xlink:href="#TWITTERICON"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="linkParent">
+                            <a class="socialLins | footerLinks" title="Find us on" href="#">
+                                <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                                    <use xlink:href="#WHATSAPPICON"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="linkParent">
+                            <a class="socialLins | footerLinks" title="Find us on" href="#">
+                                <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                                    <use xlink:href="#EMAILICON"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Logo footer -->
+                <img id="footerLogo" class="Footer | Logo" src="../Assets/DarkEnginesLibraryLogoLight.png"
+                    alt="Dark Engines Library logo" />
+
+                <!-- call action buttons links to contact page and to about page -->
+                <section class="Footer | ActionButtons">
+                    <button id="contactButton" class="button PrimaryBtn" title="Contact Page"
+                        href="./Pages/contact.html" type="button">
+                        Contact
+                        <svg class="btnSvgIcon plane">
+                            <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+                        </svg>
+                    </button>
+                    <button id="aboutButton" class="button SecondaryBtn" title="Contact Page" href="./Pages/about.html"
+                        type="button">
+                        About
+                        <svg class="btnSvgIcon">
+                            <use xlink:href="#CPU-BUTTON-ICON"></use>
+                        </svg>
+                    </button>
+                </section>
+
+                <!-- copy right  -->
+                <h6 class="copyRight">
+                    Copyright &COPY; 2022-Today Dark Engines Company, Created by
+
+                    <a rel="noopener noreferrer" target="_blank" class="author" authorName="John Muller"
+                        href="https://johnmuller.eu/">J.M</a> All rights reserved.
+                </h6>
+            </section>
+
+        </footer>
     </body>
 
 </html>

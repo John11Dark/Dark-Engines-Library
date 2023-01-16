@@ -1,105 +1,80 @@
-footer {
-  grid-template-columns: 35% 50% !important;
-  grid-template-rows: 55% 45%;
-  overflow: hidden;
-  margin-top: 15vh !important;
+:root {
+  /* ? Sizes */
 }
-.footerHeroSection {
-  grid-row: 1;
-  grid-column: 1 / span 2;
+body {
+  max-height: 100dvh;
   width: 100vw;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  padding: 0;
 }
 
-.heroSectionImage {
-  object-fit: contain;
-  height: 90%;
-  width: 90%;
-  transform: translateY(-15%);
+.mainFooter.Contact {
+  height: 100dvh;
+  width: 100vw;
+  grid-template-rows: 50% 50%;
 }
 
-.backgroundColor {
-  height: 55% !important;
+.Footer.HeroSection {
+  height: 100%;
 }
 .floorShape {
-  bottom: 5.5em;
+  bottom: -3em;
 }
-/* footer's hero section */
-
-/* the inner footer that controls the Form and logo  */
-.innerFooter {
-  grid-column: 1 / span 2;
-  grid-row: 2;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
+.Footer.hs-image {
+  max-height: var(--size-500);
+  max-width: var(--size-500);
+  z-index: 2;
+  transform: translateY(0);
+}
+.Footer.mainSection {
   height: 100%;
-  width: 100%;
-  padding: 2em;
-  position: relative;
-  margin-top: 1em;
+  grid-template-rows: 100%;
+  grid-template-columns: 45% 45%;
 }
-
-.divider {
-  position: relative;
-  width: 40%;
-  height: 90%;
+.Divider {
+  grid-column: 1;
   display: grid;
-  align-items: flex-start;
-  align-content: flex-start;
-  justify-content: center;
-  gap: 1em;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+  min-height: 100%;
+  min-width: 100%;
+  gap: 2em;
 }
 
-.contactFooterLogo {
-  width: 80%;
-  height: 100%;
-  object-fit: contain;
+.Footer.Logo {
+  grid-column: unset;
+  grid-row: unset;
 }
-
 .socialLinksAside {
-  display: flex !important;
+  grid-column: unset !important;
+  grid-row: unset !important;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  transform: translate(0);
+  height: 100px;
+}
+.contactForm {
+  grid-column: 2;
+  height: 90%;
+  width: 100%;
+  margin-top: var(--spacing-200);
+  position: relative;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-template-rows: 1fr 1fr 2fr;
+  gap: var(--spacing-100) 2.5%;
+  align-items: center;
   justify-content: center;
-  gap: 2.5rem;
-  height: unset !important;
-  width: 90% !important;
-  transform: translateX(-20%) !important;
-  margin: 1em auto;
-}
-.socialIconsSVGs {
-  pointer-events: all;
-  max-width: 35px !important;
-  max-height: 35px !important;
-  transition: all 0.5s ease;
-  transform: scale(1) rotate(0deg) !important;
-  fill: var(--primaryColorLight);
-}
-
-.socialIconsSVGs:hover {
-  transform: scale(1.3) !important;
-  fill: var(--tertiaryColor);
+  align-content: center;
+  padding: 0.5rem;
 }
 
 .textAreaLabel {
   position: relative;
 }
-.contactForm {
-  position: relative;
-  display: grid;
-  grid-template-columns: 48% 48%;
-  grid-template-rows: 1fr 1fr 2fr;
-  gap: 0.75rem 2.5%;
-  width: max(40%, 40vw);
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  transform: translate(10%, 2.5%);
-  padding: 0.5rem;
-  height: 80%;
-}
-
 .FieldBox {
   display: grid;
   align-items: center;
@@ -136,7 +111,7 @@ footer {
   padding: 1em;
   font-size: var(--paragraphFontSize);
   border-radius: var(--radius-200);
-  box-shadow: var(--boxShadowLightBehind);
+  box-shadow: var(--box-shadow-500);
   background-color: var(--backgroundColor);
   color: var(--labelColor);
 }
@@ -227,11 +202,7 @@ footer {
     height: 80%;
     transform: translate(0, 2.5%);
   }
-  .divider {
-    width: 40%;
-    height: 70%;
-    transform: translate(5%, 5%);
-  }
+
   .socialLinksAside {
     transform: translateY(-10%);
   }
@@ -251,18 +222,9 @@ footer {
     height: 80%;
     transform: translate(0, 2.5%);
   }
-  .divider {
-    width: 40%;
-    height: 70%;
-    transform: translate(5%, 5%);
-  }
+
   .socialIconsSVGs {
     max-width: 25px !important;
     max-height: 25px !important;
   }
-}
-
-.copyRight {
-  font-size: 15px;
-  margin-top: 4em;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
   <head>
     <meta charset="UTF-8" />
@@ -64,27 +64,25 @@
   </head>
 
   <body isObserving="true">
-
-
     <!-- Skip header and navigation bar -->
     <button tabindex="1" aria-hidden="false" aria-label="skip navigation bar button" title="skip navigation bar"
       href="#mainContent" id="skipNavLink" class="SkipNav" type="button">
       skip navigation bar
     </button>
-
-
-    <!-- page header and navigation bar -->
-    <header>
-      <img tabindex="2" title="Go to welcome page" aria-label="Clickable logo image" id="mainLogo"
-           class="mainLogo Logo" aria-hidden="true" src="./Assets/DarkEnginesLibraryLogoLight.png"
-           alt="Dark Engines Library logo" />
-      <section aria-label="main menu button" aria-controls="mainMenu" class="navButton" id="navButton" isToggled="false"
-        title="open main menu">
-        <section class="line LineNumOne"></section>
-        <section class="line LineNumTwo"></section>
-        <section class="line LineNumThree"></section>
-      </section>
-      <nav class="mainNav" aria-expanded="false" isExpanded="false" id="mainMenu">
+    <!-- Page header -->
+    <header isIntersecting="false">
+      <img role="button" tabindex="2" title="Go to Welcome" aria-label="Clickable logo image" id="mainLogo"
+        class="mainLogo | Logo | clickable" aria-hidden="true" src="./Assets/DarkEnginesLibraryLogoLight.png"
+        alt="Dark Engines Library logo" />
+      <button aria-label="main menu button" aria-controls="mainMenu" class="navButton | clickable" id="navButton"
+        isToggled="false" title="open main menu" type="button">
+        <svg class="hamburger" viewBox="-10 -10 120 120" width="250">
+          <path stroke-width=10 stroke-linecap="round" stroke-linejoin="round" class="line"
+            d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70">
+          </path>
+        </svg>
+      </button>
+      <nav class="mainNavigationBar" aria-expanded="false" isExpanded="true" id="mainMenu">
         <ul class="links">
           <li tabindex="3" class="linkParent">
             <a active="false" isAuthenticated="false" class="link" title="Dark Engines Library Gallery page"
@@ -111,9 +109,10 @@
             </svg>
           </li>
         </ul>
+        </section>
       </nav>
     </header>
-
+    <!-- page header and navigation bar -->
     <!-- custom alert content  -->
     <section class="notificationCenter">
       <template class="alertCard">
@@ -126,19 +125,16 @@
         </section>
       </template>
     </section>
-
     <!-- main content  -->
     <main id="mainContent">
       <section id="heroSection" class="heroSection">
         <article class="heroSectionArticle">
           <section class="typographer">
-
             <h1 class="HeroSection | heroSectionTitle">
               Welcome to Dark <br />
               <keyWords class="primaryColor">Engines</keyWords>
               Library
             </h1>
-
             <p class="HeroSection | descriptionParagraph">
               a library that provides
               <wordsLoop attr="booksLoop"
@@ -149,7 +145,6 @@
               software engineering students
             </p>
           </section>
-
           <section class="callActionButtons HeroSection">
             <button id="loginButton" class="button PrimaryBtn" title="Login to dark engines library" type="button">
               Login
@@ -165,16 +160,12 @@
               </svg>
             </button>
           </section>
-
         </article>
-
         <img class="heroSectionImage" src="./Assets/Index-Page-Hero-image.png"
           alt="Student with laptop sitting on huge books in library" />
       </section>
     </main>
-
     <!-- Forms -->
-
     <!-- Register Form -->
     <form visible="false" class="registerForm | authForm" aria-hidden="true"
       aria-label="register to dark engines library Form" autocomplete="on" id="registerForm"
@@ -199,7 +190,7 @@
         </select>
         <section class="inputFieldContainer">
           <input hasContent="true" autocomplete="bday" type="date" id="dateOfBirth" class="dateOfBirth"
-                 name="dateOfBirth" title="insert your Date of birth" required>
+            name="dateOfBirth" title="insert your Date of birth" required>
           <label class="inputFiledLabel | authFormInputFiledLabel" for="dateOfBirth">Date of birth</label>
         </section>
         <section class="inputFieldContainer">
@@ -234,10 +225,9 @@
         </section>
       </section>
     </form>
-
     <!-- Login Form  -->
     <form class="loginForm | authForm" visible="false" aria-hidden="true"
-      aria-label="login to dark engines library Form" autocomplete="on"  id="loginForm"
+      aria-label="login to dark engines library Form" autocomplete="on" id="loginForm"
       title="register to dark engines library Form" method="POST" enctype="application/x-www-form-urlencoded">
       <header class="formHeader">
         <img src="./Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
@@ -250,15 +240,15 @@
         <section class="inputFieldContainer">
           <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
           <input hasContent="false" class="inputField | authFormInputFiled"
-                 pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="email" name="email" type="email" title="email"
-                 aria-required="true" autocomplete="email" required>
+            pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="email" name="email" type="email" title="email"
+            aria-required="true" autocomplete="email" required>
           <p class="inputDescription" id="emailDescription" valid="unset">Enter your email.</p>
         </section>
         <section class="inputFieldContainer">
           <label class="inputFiledLabel | authFormInputFiledLabel" for="password">Password</label>
           <input hasContent="false" autocomplete="current-password" class="inputField | authFormInputFiled" required
-                 id="password" name="password" type="password" title="password" aria-required="true" minlength="12"
-                 maxlength="32">
+            id="password" name="password" type="password" title="password" aria-required="true" minlength="12"
+            maxlength="32">
           <p class="inputDescription" id="passwordDescription" valid="unset">Password must be between 12 - 32
             characters long.
           </p>
@@ -280,7 +270,6 @@
       </section>
       <a class="forgetPassword | " id="forgetPassword" href="#">Forget password?</a>
     </form>
-
   </body>
 
 </html>

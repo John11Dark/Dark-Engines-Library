@@ -160,9 +160,10 @@ main[isContentObserving="true"] {
 .aboutSectionCard {
   background-color: var(--cardBackgroundColorOpacity);
   border-radius: var(--radius-200);
-  margin: var(--spacing-400) auto;
+  margin: var(--spacing-dynamic) auto !important;
   gap: var(--spacing-200);
   position: relative;
+  box-shadow: var(--box-shadow-200);
 }
 
 .aboutSectionCard::before {
@@ -238,9 +239,6 @@ main[isContentObserving="false"] .mainFooter {
 }
 
 @media (max-width: 90em) {
-  :root {
-    --heroSectionTitle: calc(0.25em + 1vw + 1vh + 1vmax);
-  }
   .lottieAnimation {
     width: max(30vw, 300px);
     height: min(350px, 50dvh);

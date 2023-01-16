@@ -67,8 +67,8 @@
          <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="floorShape-ID" viewBox="0 0 1920 220" preserveAspectRatio="xMinYMin meet">
                <path
-                  d="M1964.825,2464.944c271.735,19.138,162.875,182.442-287.371,153.959-221.944-14.036-387.189-10.09-564.713,12.585-504.538,64.451-607.475-89.546-787.921-65.121-164.613,22.3-249.781-70.073-11.332-99.338,97.291-11.952,228.578-37.829,742.316-37.829S1829.195,2455.412,1964.825,2464.944Z"
-                  transform="translate(-0 -2428)" fill="#9ddcfa" />
+                  d="M1940.536,2464.944c268.066,19.138,160.676,182.442-283.491,153.959-218.948-14.036-381.961-10.09-557.088,12.585-497.726,64.451-599.273-89.546-777.282-65.121-162.39,22.3-246.409-70.073-11.179-99.338,95.977-11.952,225.492-37.829,732.293-37.829S1806.737,2455.412,1940.536,2464.944Z"
+                  transform="translate(-165.89 -2425)" />
             </symbol>
          </svg>
 
@@ -470,21 +470,16 @@
       <footer class="mainFooter">
 
          <!-- footer hero section -->
-         <section class="footerHeroSection">
+         <section class="Footer | HeroSection">
 
-            <article class="upperSideFooterHeroSection | upperFooterArticle">
-               <h2 class="footerHeroSectionTitle | footerTitle">
-                  Dark <keyWords class="secondaryColor">Engines</keyWords> Library <br>
-                  <keyWords class="primaryColor">Created</keyWords> by <br>
-                  <!-- this keywords tag is to highlight and give a different style words in text -->
-                  <keyWords class="secondaryColor">Developer</keyWords>
-                  <br>
-                  For
-                  <keyWords class="primaryColor">Developers</keyWords>
-               </h2>
-               <img class="heroSectionImage | footerHeroImage" src="../Assets/footerHeroImage.png"
-                  alt="hero section image a girl studying in a library ">
-            </article>
+            <h2 class="Footer |  hs-title">
+               Dark <keyWords class="secondaryColor">Engines</keyWords> Library
+               <keyWords class="primaryColor">Created</keyWords> by
+               <keyWords class="primaryColor">Developer</keyWords> For <keyWords class="secondaryColor">Developers
+               </keyWords>
+            </h2>
+            <img class="Footer | hs-image" src="../Assets/footerHeroImage.png"
+               alt="hero section image a girl studying in a library ">
 
             <svg class="floorShape">
                <use xlink:href="#floorShape-ID"></use>
@@ -492,77 +487,79 @@
 
          </section>
 
-         <section class="Footer | backgroundColor"></section>
+         <section class="Footer | mainSection">
 
-         <!-- social links list ==> links to social accounts  -->
-         <aside class="socialLinksAside | footerAside">
-            <ul class="linksList">
-               <li class="linkParent">
-                  <a class="socialLins | footerLinks" title="Find us on" href="#">
-                     <svg class="socialIconsSVGs | footerLinksSvg">
-                        <use xlink:href="#INSTAGRAMICON"></use>
-                     </svg>
-                  </a>
-               </li>
-               <li class="linkParent">
-                  <a class="socialLins | footerLinks" title="Find us on" href="#">
-                     <svg class="socialIconsSVGs | footerLinksSvg">
-                        <use xlink:href="#FACEBOOKICON"></use>
-                     </svg>
-                  </a>
-               </li>
-               <li class="linkParent">
-                  <a class="socialLins | footerLinks" title="Find us on" href="#">
-                     <svg class="socialIconsSVGs | footerLinksSvg">
-                        <use xlink:href="#TWITTERICON"></use>
-                     </svg>
-                  </a>
-               </li>
-               <li class="linkParent">
-                  <a class="socialLins | footerLinks" title="Find us on" href="#">
-                     <svg class="socialIconsSVGs | footerLinksSvg">
-                        <use xlink:href="#WHATSAPPICON"></use>
-                     </svg>
-                  </a>
-               </li>
-               <li class="linkParent">
-                  <a class="socialLins | footerLinks" title="Find us on" href="#">
-                     <svg class="socialIconsSVGs | footerLinksSvg">
-                        <use xlink:href="#EMAILICON"></use>
-                     </svg>
-                  </a>
-               </li>
-            </ul>
-         </aside>
+            <aside class="Footer | socialLinksAside">
+               <ul class="linksList">
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                           <use xlink:href="#INSTAGRAMICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                           <use xlink:href="#FACEBOOKICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                           <use xlink:href="#TWITTERICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                           <use xlink:href="#WHATSAPPICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+                  <li class="linkParent">
+                     <a class="socialLins | footerLinks" title="Find us on" href="#">
+                        <svg class="socialIconsSVGs | footerLinksSvg | md-svg clickable">
+                           <use xlink:href="#EMAILICON"></use>
+                        </svg>
+                     </a>
+                  </li>
+               </ul>
+            </aside>
 
-         <!-- Logo footer -->
-         <img id="footerLogo" class="footerLogo | Logo" src="../Assets/DarkEnginesLibraryLogoLight.png"
-            alt="Dark Engines Library logo" />
+            <!-- Logo footer -->
+            <img id="footerLogo" class="Footer | Logo" src="../Assets/DarkEnginesLibraryLogoLight.png"
+               alt="Dark Engines Library logo" />
 
-         <!-- call action buttons links to contact page and to about page -->
-         <section class="callActionButtons | footerActionButtons">
-            <button id="contactButton" class="button PrimaryBtn" title="Contact Page" href="./Pages/contact.html"
-               type="button">
-               Contact
-               <svg class="btnSvgIcon plane">
-                  <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
-               </svg>
-            </button>
-            <button id="aboutButton" class="button SecondaryBtn" title="Contact Page" href="./Pages/about.html"
-               type="button">
-               About
-               <svg class="btnSvgIcon">
-                  <use xlink:href="#CPU-BUTTON-ICON"></use>
-               </svg>
-            </button>
+            <!-- call action buttons links to contact page and to about page -->
+            <section class="Footer | ActionButtons">
+               <button id="contactButton" class="button PrimaryBtn" title="Contact Page" href="./Pages/contact.html"
+                  type="button">
+                  Contact
+                  <svg class="btnSvgIcon plane">
+                     <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+                  </svg>
+               </button>
+               <button id="aboutButton" class="button SecondaryBtn" title="Contact Page" href="./Pages/about.html"
+                  type="button">
+                  About
+                  <svg class="btnSvgIcon">
+                     <use xlink:href="#CPU-BUTTON-ICON"></use>
+                  </svg>
+               </button>
+            </section>
+
+            <!-- copy right  -->
+            <h6 class="copyRight">
+               Copyright &COPY; 2022-Today Dark Engines Company, Created by
+
+               <a rel="noopener noreferrer" target="_blank" class="author" authorName="John Muller"
+                  href="https://johnmuller.eu/">J.M</a> All rights reserved.
+            </h6>
          </section>
 
-         <!-- copy right  -->
-         <h6 class="copyRight">
-            Copyright &COPY; 2022-Today Dark Engines Company, Created by
-
-            <a rel="noopener noreferrer" target="_blank" class="author" authorName="John Muller"
-               href="https://johnmuller.eu/">J.M</a> All rights reserved.<h6>
       </footer>
 
    </body>

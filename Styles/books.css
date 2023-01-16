@@ -44,7 +44,7 @@
   overflow: hidden;
   cursor: pointer;
   border-radius: var(--radius-200);
-  box-shadow: var(--boxShadowLightBehind);
+  box-shadow: var(--box-shadow-200);
   background-color: var(--primaryColorDark);
   background-position: center;
   background-size: cover;
@@ -161,11 +161,11 @@
 
 .Link .bookIcon {
   padding-top: 0.2rem;
-  fill: var(--primaryColor);
+  fill: var(--tertiaryColor);
 }
 
 .Cart {
-  fill: var(--tertiaryColor);
+  fill: var(--primaryColor);
 }
 
 .ISBN {
