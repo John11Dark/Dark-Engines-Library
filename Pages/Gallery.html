@@ -11,7 +11,7 @@
       <meta name="author" content="John Muller" link="https://johnmuller.eu/" />
       <meta name="keywords"
          content="John Muller, John, JohnDark, Muller, junior developer guide , graphic design, IT Books, Dark Engines Library, learn development, IT knowledge, AI, C# , Development books" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="color-scheme" content="dark light" />
       <!-- Icon -->
       <link media="(prefers-color-scheme: dark)" id="themeIcon" rel="shortcut icon"
@@ -314,7 +314,7 @@
                </path>
             </svg>
          </button>
-         <nav class="mainNavigationBar" aria-expanded="false" isExpanded="true" id="mainMenu">
+         <nav class="mainNavigationBar" aria-expanded="false" isExpanded="false" id="mainMenu">
             <ul class="links">
                <li tabindex="3" class="linkParent">
                   <a active="false" isAuthenticated="false" class="link" title="Dark Engines Library home page"
@@ -400,7 +400,7 @@
                   </article>
                   <lottie-player class="lottieAnimation d-none d-lg-block"
                      src="https://assets1.lottiefiles.com/packages/lf20_akio2kni.json" mode="bounce"
-                     background="transparent" speed="0.5" hover autoplay loop></lottie-player>
+                     background="transparent" speed="0.5" autoplay loop></lottie-player>
                </section>
                <section class="carousel-item  sectionCarousel" id="SlideTwo" topic="javaScript"
                   target="#javaScriptTopic">
@@ -424,7 +424,7 @@
                   </article>
                   <lottie-player class="lottieAnimation d-none d-lg-block"
                      src="https://assets1.lottiefiles.com/packages/lf20_akio2kni.json" mode="bounce"
-                     background="transparent" speed="0.5" hover autoplay loop></lottie-player>
+                     background="transparent" speed="0.5" autoplay loop></lottie-player>
                </section>
                <section class="carousel-item  sectionCarousel" id="SlideThree" topic="web development"
                   target="#webDevTopic">
@@ -448,7 +448,7 @@
                   </article>
                   <lottie-player class="lottieAnimation d-none d-lg-block"
                      src="https://assets10.lottiefiles.com/packages/lf20_w51pcehl.json" background="transparent"
-                     speed="0.5" hover loop autoplay></lottie-player>
+                     speed="0.5" loop autoplay></lottie-player>
                </section>
                <section class="carousel-item  sectionCarousel" id="SlideFour" topic="artificial intelligence"
                   target="#ArtificialIntelligenceTopic">
@@ -471,7 +471,7 @@
                   </article>
                   <lottie-player class="lottieAnimation d-none d-lg-block"
                      src="https://assets10.lottiefiles.com/packages/lf20_w51pcehl.json" background="transparent"
-                     speed="0.5" hover loop autoplay></lottie-player>
+                     speed="0.5" loop autoplay></lottie-player>
                </section>
             </section>
             <button aria-controls="heroCarousel" class="carousel-control-prev | Controllers | carouselControllers"
@@ -530,7 +530,7 @@
                   <h4 class="findRelatedHeading | topicsArticleHeading">
                      Find any book to start your career in the tech industry
                   </h4>
-                  <section class="booksContainer" books-Container></section>
+                  <section class="booksContainer" books-container></section>
                </article>
                <article class="aboutSectionCard | flex | right">
                   <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
@@ -602,7 +602,7 @@
                   <h4 class="findRelatedHeading | topicsArticleHeading">
                      Find any book to start your career in the tech industry
                   </h4>
-                  <section class="booksContainer" books-Container></section>
+                  <section class="booksContainer | snaps-inline | inline-scroller" books-container></section>
                </article>
                <article class="aboutSectionCard | flex | right">
                   <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
@@ -687,7 +687,7 @@
                   <h4 class="findRelatedHeading | topicsArticleHeading">
                      Find any book to start your career in the tech industry
                   </h4>
-                  <section class="booksContainer" books-Container></section>
+                  <section class="booksContainer" books-container></section>
                </article>
                <article class="aboutSectionCard | flex | right">
                   <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
@@ -772,7 +772,7 @@
                   <h4 class="findRelatedHeading | topicsArticleHeading">
                      Find any book to start your career in the tech industry
                   </h4>
-                  <section class="booksContainer" books-Container></section>
+                  <section class="booksContainer" books-container></section>
                </article>
                <article class="aboutSectionCard | flex | right">
                   <img src="https://source.unsplash.com/featured?reading" class="topicsArticleImage"
@@ -907,6 +907,7 @@
          </container>
          </section>
       </main>
+
       <!-- Forms -->
       <!-- Register Form -->
       <form visible="false" class="registerForm | authForm" aria-hidden="true"
@@ -1013,6 +1014,11 @@
             </section>
             <a class="forgetPassword | " id="forgetPassword" href="#">Forget password?</a>
       </form>
+
+      <p class="orientation-message" aria-hidden="true" aria-label="Sorry, landscape orientation is not supported"
+         role="alert">
+         Currently, landscape orientation is not supported on this website.
+      </p>
    </body>
 
 </html>
