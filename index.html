@@ -82,7 +82,7 @@
           </path>
         </svg>
       </button>
-      <nav class="mainNavigationBar" aria-expanded="false" isExpanded="true" id="mainMenu">
+      <nav class="mainNavigationBar" aria-expanded="false" isExpanded="false" id="mainMenu">
         <ul class="links">
           <li tabindex="3" class="linkParent">
             <a active="false" isAuthenticated="false" class="link" title="Dark Engines Library Gallery page"
@@ -169,110 +169,119 @@
 
     <!-- ? Forms -->
     <!-- ** Register Form -->
-    <form visible="false" class="registerForm | authForm" aria-hidden="true"
-      aria-label="register to dark engines library Form" autocomplete="on" id="registerForm"
-      title="register to dark engines library Form" method="post" enctype="multipart/form-data">
-      <header class="formHeader">
-        <img src="./Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
-        <p class="formTitle">Register</p>
-      </header>
-      <p class="formErrorMessage" id="errorMessage">
-      </p>
-      <section class="mainFormContent">
-        <section class="inputFieldContainer">
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="fullName"> Full Name</label>
-          <input hasContent="false" type="text" id="fullName" class="inputField" name="fullName"
-            title="insert your full name" required maxlength="20" minlength="3" aria-required="true">
-        </section>
-        <select autocomplete="sex" class="inputField | genderList" title="gender options" id="gender" name="gender"
-          required>
-          <option value="none" selected>Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-        <section class="inputFieldContainer">
-          <input hasContent="true" autocomplete="bday" type="date" id="dateOfBirth" class="dateOfBirth"
-            name="dateOfBirth" title="insert your Date of birth" required>
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="dateOfBirth">Date of birth</label>
-        </section>
-        <section class="inputFieldContainer">
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="phoneNumber">Phone Number</label>
-          <input autocomplete="tel" hasContent="false" class="inputFiled | authFormInputFiled" id="phoneNumber"
-            name="phoneNumber" type="tel" title="phone number" aria-required="true" required>
-        </section>
-        <section class="inputFieldContainer">
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
-          <input autocomplete="email" hasContent="false" class="inputFiled | authFormInputFiled"
-            pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="emailReg" name="email" type="email" title="email"
-            aria-required="true">
-        </section>
-        <section class="inputFieldContainer">
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="password">password</label>
-          <input autocomplete="new-password" hasContent="false" class="inputFiled | authFormInputFiled" id="passwordReg"
-            name="password" type="password" title="password" aria-required="true" required>
-        </section>
-        <section class="formActionButtons">
-          <button class="submitBtn | PrimaryButton" id="submitButtonReg" type="submit" title="Submit">
-            Submit
-            <svg>
-              <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
-            </svg>
-          </button>
-          <button class="formCloseButton | SecondaryBtn" id="closeButtonReg" type="reset" title="cancel">
-            Cancel
-            <svg>
-              <use xlink:href="#CLOSE-BUTTON-ICON"></use>
-            </svg>
-          </button>
-        </section>
-      </section>
-    </form>
+    <section id="authContainer" class="authFormContainer" childVisible="false">
 
-    <!-- ** Login Form  -->
-    <form class="loginForm | authForm" visible="false" aria-hidden="true"
-      aria-label="login to dark engines library Form" autocomplete="on" id="loginForm"
-      title="register to dark engines library Form" method="POST" enctype="application/x-www-form-urlencoded">
-      <header class="formHeader">
-        <img src="./Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
-        <p class="formLoginTitle | formTitle ">Login</p>
-      </header>
-      <p class="formErrorMessage" id="errorMessageLg">Lorem ipsum dolor sit amet . Eos,
-        ad!
-      </p>
-      <section class="mainFormContent">
-        <section class="inputFieldContainer">
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
-          <input hasContent="false" class="inputField | authFormInputFiled"
-            pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="email" name="email" type="email" title="email"
-            aria-required="true" autocomplete="email" required>
-          <p class="inputDescription" id="emailDescription" valid="unset">Enter your email.</p>
+      <form visible="false" class="registerForm | authForm" aria-hidden="true"
+        aria-label="register to dark engines library Form" autocomplete="on" id="registerForm"
+        title="register to dark engines library Form" method="post" enctype="multipart/form-data">
+        <header class="formHeader">
+          <img src="./Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
+          <p class="formTitle">Register</p>
+        </header>
+        <p class="formErrorMessage" id="errorMessage">
+        </p>
+        <section class="mainFormContent">
+          <section class="inputFieldContainer">
+            <label class="inputFiledLabel | authFormInputFiledLabel" for="fullName"> Full Name</label>
+            <input hasContent="false" type="text" id="fullName" class="inputField" name="fullName"
+              title="insert your full name" required maxlength="20" minlength="3" aria-required="true">
+          </section>
+          <select autocomplete="sex" class="inputField | genderList" title="gender options" id="gender" name="gender"
+            required>
+            <option value="none" selected>Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <section class="inputFieldContainer">
+            <input hasContent="true" important="true" autocomplete="bday" type="date" id="dateOfBirth"
+              class="dateOfBirth" name="dateOfBirth" title="insert your Date of birth" required>
+            <label class="inputFiledLabel | authFormInputFiledLabel" for="dateOfBirth">Date of birth</label>
+          </section>
+          <section class="inputFieldContainer">
+            <label class="inputFiledLabel | authFormInputFiledLabel" for="phoneNumber">Phone Number</label>
+            <input autocomplete="tel" hasContent="false" class="inputFiled | authFormInputFiled" id="phoneNumber"
+              name="phoneNumber" type="tel" title="phone number" aria-required="true" required>
+          </section>
+          <section class="inputFieldContainer">
+            <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
+            <input autocomplete="email" hasContent="false" class="inputFiled | authFormInputFiled"
+              pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="emailReg" name="email" type="email"
+              title="email" aria-required="true">
+          </section>
+          <section class="inputFieldContainer">
+            <label class="inputFiledLabel | authFormInputFiledLabel" for="password">password</label>
+            <input autocomplete="new-password" hasContent="false" class="inputFiled | authFormInputFiled"
+              id="passwordReg" name="password" type="password" title="password" aria-required="true" required>
+          </section>
+          <section class="formActionButtons">
+            <button class="submitBtn | PrimaryButton" id="submitButtonReg" type="submit" title="Submit">
+              Submit
+              <svg>
+                <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+              </svg>
+            </button>
+            <button class="formCloseButton | SecondaryBtn" id="closeButtonReg" type="reset" title="cancel">
+              Cancel
+              <svg>
+                <use xlink:href="#CLOSE-BUTTON-ICON"></use>
+              </svg>
+            </button>
+          </section>
         </section>
-        <section class="inputFieldContainer">
-          <label class="inputFiledLabel | authFormInputFiledLabel" for="password">Password</label>
-          <input hasContent="false" autocomplete="current-password" class="inputField | authFormInputFiled" required
-            id="password" name="password" type="password" title="password" aria-required="true" minlength="12"
-            maxlength="32">
-          <p class="inputDescription" id="passwordDescription" valid="unset">Password must be between 12 - 32
-            characters long.
-          </p>
+      </form>
+
+      <!-- ** Login Form  -->
+      <form class="loginForm | authForm" visible="false" aria-hidden="true"
+        aria-label="login to dark engines library Form" autocomplete="on" id="loginForm"
+        title="register to dark engines library Form" method="POST" enctype="application/x-www-form-urlencoded">
+        <header class="formHeader">
+          <img src="./Assets/DarkEnginesLibraryLogoDark.png" alt="Dark Engines Library Logo" class="formLogo Logo">
+          <p class="formLoginTitle | formTitle ">Login</p>
+        </header>
+        <p class="formErrorMessage" id="errorMessageLg">Lorem ipsum dolor sit amet . Eos,
+          ad!
+        </p>
+        <section class="mainFormContent">
+          <section class="inputFieldContainer">
+            <label class="inputFiledLabel | authFormInputFiledLabel" for="email">Email</label>
+            <input hasContent="false" class="inputField | authFormInputFiled"
+              pattern="[A-Za-z-0-9._+-]+@[A-Za-z-0-9.-]+\.[a-z]{2,}" id="email" name="email" type="email" title="email"
+              aria-required="true" autocomplete="email" required>
+            <p class="inputDescription" id="emailDescription" valid="unset">Enter your email.</p>
+          </section>
+          <section class="inputFieldContainer">
+            <label class="inputFiledLabel | authFormInputFiledLabel" for="password">Password</label>
+            <input hasContent="false" autocomplete="current-password" class="inputField | authFormInputFiled" required
+              id="password" name="password" type="password" title="password" aria-required="true" minlength="12"
+              maxlength="32">
+            <p class="inputDescription" id="passwordDescription" valid="unset">Password must be between 12 - 32
+              characters long.
+            </p>
+          </section>
+          <section class="formActionButtons">
+            <button class="submitBtn | PrimaryButton" id="submitButton" type="submit" title="Submit">
+              Submit
+              <svg>
+                <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
+              </svg>
+            </button>
+            <button class="formCloseButton | SecondaryBtn" id="closeButton" type="reset" title="cancel">
+              Cancel
+              <svg>
+                <use xlink:href="#CLOSE-BUTTON-ICON"></use>
+              </svg>
+            </button>
+          </section>
         </section>
-        <section class="formActionButtons">
-          <button class="submitBtn | PrimaryButton" id="submitButton" type="submit" title="Submit">
-            Submit
-            <svg>
-              <use xlink:href="#MESSAGE-BUTTON-ICON"></use>
-            </svg>
-          </button>
-          <button class="formCloseButton | SecondaryBtn" id="closeButton" type="reset" title="cancel">
-            Cancel
-            <svg>
-              <use xlink:href="#CLOSE-BUTTON-ICON"></use>
-            </svg>
-          </button>
-        </section>
-      </section>
-      <a class="forgetPassword | " id="forgetPassword" href="#">Forget password?</a>
-    </form>
+        <a class="forgetPassword | " id="forgetPassword" href="#">Forget password?</a>
+      </form>
+
+    </section>
+
+    <p class="orientation-message" aria-hidden="true" aria-label="Sorry, landscape orientation is not supported"
+      role="alert">
+      Currently, landscape orientation is not supported on this website.
+    </p>
   </body>
 
 </html>

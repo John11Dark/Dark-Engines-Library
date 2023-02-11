@@ -41,7 +41,7 @@ contentControllers.forEach((button) => {
     const section = document.querySelector(button.getAttribute("target"));
     //  * --> books template DOM
     const bookTemplate = document.querySelector("#template");
-    const booksContainer = section.querySelector("[books-Container]");
+    const booksContainer = section.querySelector("[books-container]");
     const sectionTopic = section.getAttribute("topic");
     const buttonLabel = button.querySelector("[button-label]");
     if (btnStatus === "false") {

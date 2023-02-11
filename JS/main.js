@@ -74,14 +74,18 @@ function formVisibility(form, anotherForm) {
   form.reset();
   const visible = form.getAttribute("visible");
   if (visible === "false") {
+    document.body.setAttribute("isObserving", false);
+    form.parentElement.setAttribute("childVisible", true);
     form.setAttribute("visible", true);
     form.setAttribute("aria-hidden", false);
     anotherForm.setAttribute("aria-hidden", true);
     anotherForm.setAttribute("visible", false);
     anotherForm.reset();
   } else if (visible === "true") {
+    form.parentElement.setAttribute("childVisible", false);
     form.setAttribute("aria-hidden", true);
     form.setAttribute("visible", false);
+    document.body.setAttribute("isObserving", true);
   }
 }
 
@@ -99,11 +103,13 @@ function setTheme(theme) {
     root.style.setProperty("--cardBackgroundColorOpacity", "#ccf4fc7a");
     root.style.setProperty("--shadow-color-100", "#9ea7b686");
     root.style.setProperty("--primaryColorLightGray", "#a4adb4");
-
     root.style.setProperty("--customBackgroundColorDarkMode", "#cbd9df");
+    root.style.setProperty("--dialog-backface-100", "#4e515536");
+    root.style.setProperty("--dialog-backface-500", "#94b1d6cc");
+    root.style.setProperty("--input-backface", "#abcbd6f6");
 
-    document.style = `color-scheme: light dark; transition: all 1s ease-in-out;`;
     document.body.style = `color-scheme: light dark; transition: all 1s ease-in-out;`;
+    ColorSchemeMetaTag.setAttribute("content", "light dark");
     themeIcon.setAttribute("xlink:href", "#LIGHT-MODE-ICON");
     logos.forEach((logo) => {
       logo.src = `/Assets/DarkEnginesLibraryLogoDark.png`;
@@ -117,7 +123,12 @@ function setTheme(theme) {
     root.style.setProperty("--primaryColorLightGray", "#cad3da");
     root.style.setProperty("--shadow-color-100", "#1825317a");
     root.style.setProperty("--customBackgroundColorDarkMode", "#488d9f");
+    root.style.setProperty("--dialog-backface-100", "#1019227a");
+    root.style.setProperty("--dialog-backface-500", "#0f1924d7");
+    root.style.setProperty("--input-backface", "#2a3133");
+
     document.style = `color-scheme: dark light; transition: all 1s ease-in-out;`;
+    ColorSchemeMetaTag.setAttribute("content", "dark light");
     logos.forEach((logo) => {
       logo.src = `/Assets/DarkEnginesLibraryLogoLight.png`;
     });
@@ -404,3 +415,5 @@ if (contactForm)
     const valid = Validation.validateForm(contactForm);
     if (!valid) e.preventDefault();
   });
+
+screen.orientation.lock("landscape");

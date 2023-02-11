@@ -1,3 +1,9 @@
+/*?  Custom */
+
+.javaScript {
+  color: #eea216;
+}
+
 header {
   --headerHight: 12vh;
   background-color: transparent !important;
@@ -63,11 +69,6 @@ main[isContentObserving="true"] {
   color: var(--primaryColorLightGray);
 }
 
-.carouselDescription:hover,
-.carouselTitle:hover {
-  opacity: 1;
-}
-
 .GalleryBtn {
   padding: 1rem 0.5rem;
   margin: 0;
@@ -84,10 +85,6 @@ main[isContentObserving="true"] {
 .GalleryBtn > svg {
   max-width: 25px;
   max-height: 20px;
-}
-
-.GalleryBtn:hover {
-  opacity: 0.9;
 }
 
 .indicator {
@@ -107,7 +104,6 @@ main[isContentObserving="true"] {
 }
 
 .carouselControllers:disabled {
-  background-color: red;
   display: none !important;
 }
 
@@ -238,6 +234,9 @@ main[isContentObserving="false"] .mainFooter {
   width: 100vw;
 }
 
+/* ? Media Queries  */
+
+/* * Laptops screen size */
 @media (max-width: 90em) {
   .lottieAnimation {
     width: max(30vw, 300px);
@@ -268,10 +267,85 @@ main[isContentObserving="false"] .mainFooter {
   .bottomPart {
     padding: 2em 1em;
   }
+
+  .topicsHeroSection.flex {
+    display: grid;
+    width: 100%;
+    height: auto;
+  }
+
+  .topicsLogo {
+    display: none;
+  }
+  .topicsDescription {
+    max-width: 100%;
+    font-size: var(--subHeadingFS);
+  }
+
+  .aboutSectionCard.flex {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    gap: var(--spacing-100);
+  }
+  .aboutSectionCard::before {
+    display: none;
+  }
+  .topicsArticleDescription {
+    margin-top: var(--spacing-100);
+    max-width: 100%;
+    grid-row: 2;
+  }
+
+  .topicsArticleImage {
+    max-height: unset;
+    max-width: unset;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    grid-row: 1;
+  }
+
+  .left {
+    padding-left: 0;
+  }
+  .findBooksRelatedSection {
+    margin: var(--spacing-200) auto;
+    position: relative;
+  }
+  .booksContainer[books-container] {
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+    margin: 0 auto;
+    place-content: unset;
+    place-items: unset;
+    place-self: unset;
+    gap: 0 0;
+    max-width: unset;
+    min-height: unset;
+    height: auto;
+    padding: var(--spacing-100);
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    overflow-x: scroll;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+  }
+
+  .bookCard {
+    scroll-snap-align: start;
+  }
 }
 
-/*?  Custom */
+/* * Hover Support  */
+@media (hover: hover) {
+  .carouselDescription:hover,
+  .carouselTitle:hover {
+    opacity: 1;
+  }
 
-.javaScript {
-  color: #eea216;
+  .GalleryBtn:hover {
+    opacity: 0.9;
+  }
 }
